@@ -1,22 +1,29 @@
 import aiohttp
 import asyncio
 import platform
-
+from typing import Any
 
 class HttpError(Exception):
+    '''custom exception for http errors '''
     pass
 
-async def request(url: str):
-    async with aiohttp.ClientSession() as session:
-        try:
-            async with session.get(url) as resp:
-                if resp.status == 200:
-                    result = await resp.json()
-                    return result
-                else:
-                    raise HttpError(f"Error status: {resp.status} for {url}")
-        except (aiohttp.ClientConnectorError, aiohttp.InvalidURL) as err:
-            raise HttpError(f'Connection error: {url}', str(err))
+class PrivatBankApi:
+    base_url ='https://api.privatbank.ua/p24api/exchange_rates?json&date='
+    
+
+    async def request(self, date: str)->dict[str, Any]:
+        '''get currency exchange rates for a given date'''
+        url = f'{self.base_url}{date}'
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.get(url) as resp:
+                    if resp.status == 200:
+                        result = await resp.json()
+                        return result
+                    else:
+                        raise HttpError(f"Error status: {resp.status} for {url}")
+            except (aiohttp.ClientConnectorError, aiohttp.InvalidURL) as err:
+                raise HttpError(f'Connection error: {url}', str(err))
 
 
 async def main():
