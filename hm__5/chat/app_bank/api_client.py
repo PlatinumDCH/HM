@@ -1,7 +1,7 @@
 from errors import HttpError
 from config import APISettings
 from typing import Any
-import aiohttp  # type: ignore
+import aiohttp
 
 
 class PrivatBankApiClient:

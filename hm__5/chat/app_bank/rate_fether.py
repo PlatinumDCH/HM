@@ -1,6 +1,5 @@
 """logic get course for specific date"""
 
-import asyncio
 from typing import Any
 from api_client import PrivatBankApiClient
 from rate_extractor import ExchangeRateExtractor

@@ -1,4 +1,3 @@
-import aiohttp  # type: ignore
 import asyncio
 import sys
 from datetime import datetime, timedelta
