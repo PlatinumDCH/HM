@@ -1,0 +1,48 @@
+drop table if exists groups;
+drop table if exists students;
+drop table if exists teachers;
+drop table if exists subjects;
+drop table if exists grades;  = удаление таблиц если они уже есть
+
+
+Создание таблиц групп
+CREATE TABLE groups (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+); = id SERIAL PRIMARY KEY — уникальный идентификатор группы, автоматически увеличивается (SERIAL)
+   = name VARCHAR(50) NOT NULL — название группы, обязательно для заполнения и может содержать до 50 символов.
+
+Создание таблиц студентов
+CREATE TABLE students (
+  id SERIAL PRIMARY KEY, = уникальный идентификатор студента
+  fullname VARCHAR(150) NOT NULL, = полное имя студента
+  group_id INTEGER REFERENCES groups(id) ON DELETE CASCADE = внешний ключ, указывающий на id группы в таблице groups.
+  При удалении группы будут удалены и студенты, связанные с этой группой (ON DELETE CASCADE)
+);
+
+Создание таблицы teachers
+CREATE TABLE teachers (
+  id SERIAL PRIMARY KEY, = уникальный идентификатор teachers
+  fullname VARCHAR(150) NOT NULL  = полное имя teachers
+);
+
+Создание таблицы предметов
+CREATE TABLE subjects (
+  id SERIAL PRIMARY KEY,  = уникальный идентификатор subjects
+  name VARCHAR(175) NOT NULL,
+  teacher_id INTEGER REFERENCES teachers(id) ON DELETE CASCADE
+);
+teacher_id INTEGER REFERENCES teachers(id) = указатель на teachers, ведущего предмет
+ON DELETE CASCADE = если удалить teachers то и предмет тоже будут удален
+
+Создание таблиц оценок
+CREATE TABLE grades (
+  id SERIAL PRIMARY KEY, = идентификатор
+  student_id INTEGER REFERENCES students(id) ON DELETE CASCADE, = внешний ключ на студента
+  Если студент удаляется, его оценки тоже удаляются
+  subject_id INTEGER REFERENCES subjects(id) ON DELETE CASCADE, = внешний ключ на предмет
+  При удалении предмета оценки, связанные с ним, также удаляются.
+  grade INTEGER CHECK (grade >= 0 AND grade <= 100), = валидация оценки 0-100
+  grade_date DATE NOT NULL = дата получение оценки, обязательное поле
+);
+

@@ -27,10 +27,6 @@ async def request(url: str) -> dict | str:
 
 async def log_exchange_command(name: str, days: int, exchange_info: str):
     log_message = f"{datetime.now()} - {name} requested an exchange rate for {days} day(s):\n{exchange_info}\n"
-
-    if not log_file_path.exists():
-        await AIOFile(log_file_path, 'w').write("")
-
     async with AIOFile(log_file_path, 'a') as afp:
         await afp.write(log_message)
 
