@@ -1,67 +1,75 @@
+from faker import Faker
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from faker import Faker
+from tables import Group, Student, Teacher, Subject, Grade
+from config import SettingsBD
 import random
 
+host = SettingsBD.HOST.value
+db = SettingsBD.DATABASE.value
+user = SettingsBD.USER.value
+password = SettingsBD.PASSWORD.value
 
-from tables import Student, Group, Teacher, Subject, Grade
-
-
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:mysecretpassword@localhost/postgres"
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-SessionLocal = sessionmaker(bind=engine)
-session = SessionLocal()
+engine = create_engine(f'postgresql://{user}:{password}@{host}/{db}')
+Session = sessionmaker(bind=engine)
+session = Session()
 
 fake = Faker()
 
+def create_groups():
+    groups = [Group(name=f"Group {i+1}") for i in range(3)]
+    session.add_all(groups)
+    session.commit()
+    return groups
 
-groups = []
-for _ in range(3):
-    group_name = fake.word()
-    groups.append(Group(name=group_name))
+def create_teachers():
+    teachers = [Teacher(fullname=fake.name()) for _ in range(5)]
+    session.add_all(teachers)
+    session.commit()
+    return teachers
 
-session.add_all(groups)
-session.commit()
+def create_subjects(teachers):
+    subjects = [Subject(name=fake.word().capitalize(), teacher_id=random.choice(teachers).id) for _ in range(6)]
+    session.add_all(subjects)
+    session.commit()
+    return subjects
 
-teachers = []
-for _ in range(5):
-    fullname = fake.name()
-    teachers.append(Teacher(fullname=fullname))
+def create_students(groups):
+    students = [Student(fullname=fake.name(), group_id=random.choice(groups).id) for _ in range(40)]
+    session.add_all(students)
+    session.commit()
+    return students
 
-session.add_all(teachers)
-session.commit()
+def create_grades(students, subjects):
+    for student in students:
+        for subject in subjects:
+            # Генерация 10-20 случайных оценок за разные даты
+            for _ in range(random.randint(10, 20)):
+                grade = Grade(
+                    student_id=student.id,
+                    subject_id=subject.id,
+                    grade=random.randint(50, 100),
+                    grade_date=fake.date_between(start_date="-1y", end_date="today")
+                )
+                session.add(grade)
 
+    session.commit()
 
-subjects = []
-for _ in range(8):
-    subject_name = fake.word()
-    teacher_id = random.choice(teachers).id
-    subjects.append(Subject(name=subject_name, teacher_id=teacher_id))
+def main():
+    # delete all data in table fill
+    session.query(Grade).delete()
+    session.query(Student).delete()
+    session.query(Subject).delete()
+    session.query(Teacher).delete()
+    session.query(Group).delete()
+    session.commit()
 
-session.add_all(subjects)
-session.commit()
+    groups = create_groups()
+    teachers = create_teachers()
+    subjects = create_subjects(teachers)
+    students = create_students(groups)
+    create_grades(students, subjects)
 
-
-students = []
-for _ in range(30):
-    fullname = fake.name()
-    group_id = random.choice(groups).id
-    student = Student(fullname=fullname, group_id=group_id)
-    students.append(student)
-
-
-    for _ in range(random.randint(5, 20)):
-        subject_id = random.choice(subjects).id
-        grade = random.randint(0, 100)
-        grade_date = fake.date()
-        student_grade = Grade(
-            student_id=student.id,
-            subject_id=subject_id,
-            grade=grade,
-            grade_date=grade_date)
-        session.add(student_grade)
-
-session.add_all(students)
-session.commit()
-
-session.close()
+if __name__ == '__main__':
+    main()
+    session.close()
