@@ -73,7 +73,7 @@ class Grade(Base):
 
 # create all tables
 Base.metadata.create_all(engine)
-
+name = 'dima'
 if __name__ == '__main__':
     ...
 
