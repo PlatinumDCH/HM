@@ -1,7 +1,7 @@
 import random
 from faker import Faker
 
-from config.data_base import engine,session
+from config.data_base import session
 from config.models import Teacher, Group, Student, Subject, Grade, Base
 
 
