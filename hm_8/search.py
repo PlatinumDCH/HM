@@ -1,17 +1,24 @@
 from configuration.models import Autor,Quote
-from connection import connect_to_db
+from configuration.conn_mongo import connect_to_db
+from redis_lru import RedisLRU
+from configuration.conn_redis import connect_redis_db
 
 connect_to_db()
-
+cache = RedisLRU(connect_redis_db())
 FORMAT = 'utf-8'
 
-
+@cache
 def search_by_author(author_name: str):
     authors = Autor.objects(fullname__istartswith=author_name)
     if authors:
         author_ids = [author.id for author in authors]
         quotes = Quote.objects(author__in=author_ids)
-        return quotes
+        quote_list = [
+            {'quote':quote.quote,
+             'author':quote.author.fullname,
+             'tags':quote.tags} for quote in quotes]
+
+        return quote_list
     else:
         print(f"No authors found with names starting with '{author_name}'")
         return []
@@ -20,13 +27,16 @@ def search_by_tag(tag: str) -> list:
     quotes = Quote.objects(
         tags__istartswith=tag
     ).all()
-    return quotes
+    quote_list = [
+        {"quote": quote.quote,
+         "author": quote.author.fullname,
+         "tags": quote.tags} for quote in quotes]
 
+    return quote_list
 
 def search_by_set_tag(tags)->list:
 
     tags = tags.split(',')
-
     quotes = Quote.objects(
         tags__in=tags
     ).all()
@@ -52,7 +62,7 @@ def main():
                 quotes =  search_by_author(value)
                 if quotes:
                     for quote in quotes:
-                        print(quote.quote)#.encode(FORMAT))
+                        print(quote['quote'])
                 else:
                     print(f'No quotes found for author: {value}')
 
@@ -60,14 +70,14 @@ def main():
                 quotes = search_by_tag(value)
                 if quotes:
                     for quote in quotes:
-                        print(quote.quote)#.encode(FORMAT))
+                        print(quote['quote'])
                 else:
                     print(f'No quotes found for tag: {value}')
             case 'tags':
                 quotes = search_by_set_tag(value)
                 if quotes:
                     for quote in quotes:
-                        print(quote.quote)#.encode(FORMAT))
+                        print(quote['quote'])
                 else:
                     print(f'No quotes found for tags: {value}')
 
