@@ -1,11 +1,17 @@
+import sys
+
 from configuration.models import Autor,Quote
 from configuration.conn_mongo import connect_to_db
 from redis_lru import RedisLRU
 from configuration.conn_redis import connect_redis_db
 
+FORMAT = 'utf-8'
+if sys.stdout.encoding != FORMAT:
+    sys.stdout.reconfigure(encoding=FORMAT)
+
 connect_to_db()
 cache = RedisLRU(connect_redis_db())
-FORMAT = 'utf-8'
+
 
 @cache
 def search_by_author(author_name: str):
