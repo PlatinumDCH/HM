@@ -5,38 +5,20 @@ connect_to_db()
 
 FORMAT = 'utf-8'
 
-author_aliases = {
-    'al': 'Albert Einstein',
-    'st': 'Steve Martin'
-}
 
-tag_aliases = {
-    'li': 'life'
-}
-def search_by_author(author_name: str) -> list:
-
-    if author_name.lower() in author_aliases:
-        author_name = author_aliases[author_name.lower()]
-
-
-    authors = Autor.objects(
-        fullname__iexact=author_name
-    )
+def search_by_author(author_name: str):
+    authors = Autor.objects(fullname__istartswith=author_name)
     if authors:
         author_ids = [author.id for author in authors]
-        quotes = Quote.objects(
-            author__in=author_ids
-        ).all()
+        quotes = Quote.objects(author__in=author_ids)
         return quotes
-    return []
+    else:
+        print(f"No authors found with names starting with '{author_name}'")
+        return []
 
 def search_by_tag(tag: str) -> list:
-
-    if tag.lower() in tag_aliases:
-        tag = tag_aliases[tag.lower()]
-
     quotes = Quote.objects(
-        tags__icontains=tag
+        tags__istartswith=tag
     ).all()
     return quotes
 
