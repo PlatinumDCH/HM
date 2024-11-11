@@ -1,6 +1,6 @@
 from crv.config import BASE_URL, next_page_url
 from crv.content_page import get_page_content
-from crv.parsig.parsing_element import parse_quotes
+from crv.parsing.parsing_element import parse_quotes
 
 def get_data_quotes():
     """main function for parsing quotes"""
