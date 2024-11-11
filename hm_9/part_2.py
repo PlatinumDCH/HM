@@ -48,7 +48,6 @@ class QuotesSpider(scrapy.Spider):
             quote = q.xpath("span[@class='text']/text()").get().strip()
             author = q.xpath("span/small[@class='author']/text()").get().strip()
             tags = q.xpath("div[@class='tags']/a/text()").extract()
-            # TODO: clear tags
             yield QuoteItem(quote=quote, author=author, tags=tags)
             yield response.follow(url=self.start_urls[0] + q.xpath("span/a/@href").get(), callback=self.parse_author)
 
