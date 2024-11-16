@@ -1,0 +1,19 @@
+mkdir djangotutorial
+django-admin startproject mysite djangotutorial
+python manage.py runserver
+python manage.py startapp polls
+
+case project settings urlpatterns=[
+    path(path:str, include(path:str)
+        ]
+        --------------------
+application settings urlpatterns=[
+    path(path:str, views.name_function, name:str)
+]
+
+create table app_polls
+add app_pool in INSTALLED_APPS   "name_app.apps.NameClass"
+python manage.py makemigrations polls создать миграции
+python manage.py migrate применить миграции
+
+python manage.py createsuperuser

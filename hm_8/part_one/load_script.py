@@ -1,9 +1,9 @@
 import json
-from configuration.conn_mongo import connect_to_db
+from configuration.connect import connect_mongo
 from configuration.models import Autor, Quote
 from get_path import DataPath
 
-connect_to_db()
+connect_mongo()
 
 
 def load_scientists(json_file):
