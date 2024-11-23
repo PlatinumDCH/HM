@@ -7,4 +7,5 @@ app_name = UserRoomConfig.name
 
 urlpatterns = [
     path('room/', views.register_and_login, name='room'), #userss:room
+    path('logout/', views.logout_view, name='logout'),
 ]

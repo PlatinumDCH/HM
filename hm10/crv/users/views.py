@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from .forms import RegisterForm, LoginForm
 
 
@@ -32,3 +32,7 @@ def register_and_login(request):
         'login_form': login_form,
     }
     return render(request, 'users/register_login.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('quotes:home') # Перенаправляем пользователя на домашнюю страницу после выхода
