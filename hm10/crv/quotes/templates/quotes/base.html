@@ -17,14 +17,14 @@
 <!-- меню сайта-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Quotes Site</a>
+      <a class="navbar-brand" href="{% url 'quotes:home' %}">Quotes Site</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Office</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'quotes:home' %}">Home</a>
+          <a class="nav-link" href="{% url 'user_room:room' %}">Office</a>
         </div>
         <form class="d-flex ms-auto" role="search" method="get" action="#">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
