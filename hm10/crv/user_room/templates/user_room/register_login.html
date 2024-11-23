@@ -1,7 +1,50 @@
 {% extends 'quotes/base.html' %}
 
- {% block context %}
-    <div class="container mt-3">
-        <h1>{{text}}</h1>
+{% block context %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Левая часть: Форма регистрации -->
+        <div class="col-md-6">
+            <h2>Registration Form</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="inputNickname" class="form-label">Nickname</label>
+                    <input type="text" class="form-control" id="inputNickname" aria-describedby="nicknameHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="inputEmailRegister" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputEmailRegister" aria-describedby="emailHelpRegister">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPasswordRegister" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPasswordRegister">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPasswordConfirm" class="form-label">Repeat Password</label>
+                    <input type="password" class="form-control" id="inputPasswordConfirm">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </form>
+        </div>
+
+        <!-- Правая часть: Форма авторизации -->
+        <div class="col-md-6">
+            <h2>Authorization Form</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="inputEmailLogin" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputEmailLogin" aria-describedby="emailHelpLogin">
+                    <div id="emailHelpLogin" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPasswordLogin" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPasswordLogin">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </form>
+        </div>
     </div>
+</div>
 {% endblock %}
