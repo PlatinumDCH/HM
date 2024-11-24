@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from crv.utils.connect import connect_mongo
+
 
 # Create your views here.
+# def home_page(request):
+#     db = connect_mongo()
+#     quotes = db.quotes.find()
+#     return render(request, 'quotes/home.html', {'quotes':quotes})
+
 def home_page(request):
-    db = connect_mongo()
-    quotes = db.quotes.find()
-    return render(request, 'quotes/home.html', {'quotes':quotes})
+    return render(request, 'quotes/home.html', {})
 
 def search(request):
     context = {

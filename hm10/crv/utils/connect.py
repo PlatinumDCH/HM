@@ -1,6 +1,7 @@
 import configparser
 import os
 from mongoengine import connect,disconnect,get_db
+from pymongo import MongoClient
 
 config_file_path = os.path.join(os.path.dirname(__file__),'config.ini')
 config = configparser.ConfigParser()
@@ -14,10 +15,13 @@ options = config.get('DB', 'OPTIONS')
 uri = f"mongodb+srv://{mongo_user}:{mongodb_pass}@{domain}/?{options}"
 
 def connect_mongo():
-    db = connect(
+    connect(
         db='hm',
         host=uri
     )
+def connect_pymongo():
+    client = MongoClient(uri)
+    db = client['hm']
     return db
 
 def disconnect_mogo(alias='default'):
