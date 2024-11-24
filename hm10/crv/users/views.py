@@ -36,3 +36,6 @@ def register_and_login(request):
 def logout_view(request):
     logout(request)
     return redirect('quotes:home') # Перенаправляем пользователя на домашнюю страницу после выхода
+
+def account_pages(request):
+    return render(request, 'users/account.html',context={})

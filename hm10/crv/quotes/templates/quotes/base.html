@@ -15,7 +15,7 @@
 
     {% load static %}
     <!-- подключение своих стилей -->
-    <link rel="stylesheet" href="{% static 'quotes/main.css' %}">
+    <link rel="stylesheet" href="{% static 'quotes/main.css' %}?v=1.1">
 
 </head>
 <body>
@@ -31,6 +31,7 @@
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
+                            <a class="nav-link" href="{% url 'users:account' %}">Account</a>
                         </li>
                     {% else %}
                         <li class="nav-item">

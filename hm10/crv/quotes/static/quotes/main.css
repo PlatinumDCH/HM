@@ -1,0 +1,67 @@
+.lightblue-background {
+    background-color: lightblue;
+}
+
+.quote {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #333333;
+}
+
+.quote span.text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: large;
+    font-style: italic;
+}
+
+.quote small.author {
+    font-weight: bold;
+    color: #3677E8;
+}
+
+.quote .tags {
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: small;
+    background-color: #7CA3E6;
+}
+
+/* Настройки для навигации */
+.pager {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+}
+
+.pager .next a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.pager .next a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Дополнительно, стили для адаптивности */
+@media (max-width: 768px) {
+    .quote {
+        padding: 15px;
+    }
+
+    .pager .next a {
+        padding: 8px;
+    }
+}
