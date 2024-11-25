@@ -15,18 +15,16 @@ def home_page(request, page=1):
 
 def search(request):
     query = request.GET.get('q', '')
-    quotes = []
 
     if query:
         quotes = Quotes.objects.filter(
-            Q(tags__icontains=query)
+            Q(quote__icontains=query)  |
+            Q(tags__icontains=query) |
+            Q(author__fullname__icontains = query)
         ).distinct()
-
-    context = {
-        'query': query,
-        'quotes': quotes,
-    }
-    return render(request, 'quotes/search_results.html', context)
+    else:
+        quotes = Quotes.objects.all()
+    return render(request, 'quotes/search_results.html', {'quotes': quotes})
 
 def author_detail(request, id):
     author = get_object_or_404(Author, id=id)

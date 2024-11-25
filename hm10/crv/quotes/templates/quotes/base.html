@@ -13,9 +13,29 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     {% load static %}
     <!-- подключение своих стилей -->
     <link rel="stylesheet" href="{% static 'quotes/main.css' %}?v=1.3">
+
+    <style>
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: none;
+            z-index: 99;
+            background-color: #007bff;
+            border: none;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #28a745;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -44,7 +64,7 @@
                  <!-- Форма поиска -->
                 <form class="d-flex ms-auto" method="GET" action="{% url 'quotes:search' %}">
                     <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="submit" title="Enter a keyword, author name, or tag to search" data-bs-toggle="tooltip" data-bs-placement="bottom">Search</button>
                 </form>
             </div>
         </div>
@@ -55,6 +75,31 @@
         <!-- Контент страницы -->
         {% endblock %}
     </div>
+     <button id="scrollTopBtn" class="btn btn-primary animate__animated animate__fadeIn" onclick="scrollToTop()" title="Scroll to top">
+        <i class="fas fa-rocket"></i> <!-- Иконка ракеты -->
+    </button>
 
+    <script>
+        // Показать кнопку при прокрутке страницы вниз
+        window.onscroll = function() {
+            var scrollTopBtn = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Функция для плавного прокручивания страницы вверх
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Инициируем всплывающие подсказки Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 </body>
 </html>

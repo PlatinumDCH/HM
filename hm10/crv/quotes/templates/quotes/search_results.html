@@ -2,28 +2,30 @@
 
 {% block context %}
 
- {% if quotes %}
+{% if quotes %}
     <div class="col-md-8">
       {% for quote in quotes %}
         <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
-            <span class="text" itemprop="text">
-                {{ quote.quote }}
-            </span>
+            <span class="text" itemprop="text">{{ quote.quote }}</span>
             <div class="author-info">
                 <span>by <small class="author" itemprop="author">{{ quote.author.fullname }}</small></span>
                 <a href="/author/{{ quote.author.id }}">(about)</a>
             </div>
             <div class="tags">
                 Tags:
-                {% for tag in quote.tags%}
-                <a class="tag" href="/tag/{{ tag }}/">{{ tag }}</a>
-                {% endfor %}
+                {% if quote.tags %}
+                    {% for tag in quote.tags %}
+                        <a class="tag" href="/tag/{{ tag }}/">{{ tag }}</a>
+                    {% endfor %}
+                {% else %}
+                    <span>No tags available</span>
+                {% endif %}
             </div>
         </div>
       {% endfor %}
     </div>
-  {% else %}
+{% else %}
     <h1>Ups, no results found</h1>
-  {% endif %}
+{% endif %}
 
 {% endblock %}
