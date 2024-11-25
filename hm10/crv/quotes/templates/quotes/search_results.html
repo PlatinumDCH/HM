@@ -1,8 +1,29 @@
 {% extends 'quotes/base.html' %}
 
 {% block context %}
-<div class="container mt-5">
-  <h2>Search Results</h2>
-  <p>No results to display yet.</p>
-</div>
+
+ {% if quotes %}
+    <div class="col-md-8">
+      {% for quote in quotes %}
+        <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+            <span class="text" itemprop="text">
+                {{ quote.quote }}
+            </span>
+            <div class="author-info">
+                <span>by <small class="author" itemprop="author">{{ quote.author.fullname }}</small></span>
+                <a href="/author/{{ quote.author.id }}">(about)</a>
+            </div>
+            <div class="tags">
+                Tags:
+                {% for tag in quote.tags%}
+                <a class="tag" href="/tag/{{ tag }}/">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <h1>Ups, no results found</h1>
+  {% endif %}
+
 {% endblock %}

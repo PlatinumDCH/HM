@@ -135,7 +135,7 @@ class DjangoSession(models.Model):
 
 class Quotes(models.Model):
     quote = models.TextField(blank=True, null=True)
-    tags = models.TextField(blank=True, null=True)  # This field type is a guess.
+    tags = models.TextField(blank=True, null=True)
     author = models.ForeignKey(Author, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
