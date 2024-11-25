@@ -1,3 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
+from quotes.models import Quotes
 
-# Create your models here.
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    added_quotes = models.ManyToManyField(Quotes, related_name='added_by', blank=True)
