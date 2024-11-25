@@ -1,50 +1,25 @@
-from connect import connect_pymongo
-import psycopg2
+from connect import connect_pymongo, postgres_connect
+from sql_form import create_author_table, create_quote_table
+
 
 mongo_db = connect_pymongo()
 author_collection = mongo_db['autor']
 quote_collection = mongo_db['quotes']
 
-pg_conn = psycopg2.connect(
-    dbname = 'postgres',
-    user = 'postgres',
-    password = 'saksaganskogo22',
-    host = 'localhost',
-    port = '5432'
-)
-
+pg_conn = postgres_connect()
 pg_cursor = pg_conn.cursor()
 
-# Создание таблиц в PostgreSQL
-create_author_table = """
-CREATE TABLE IF NOT EXISTS author (
-    id SERIAL PRIMARY KEY,
-    _id VARCHAR(24) UNIQUE,
-    fullname TEXT,
-    born_date TEXT,
-    born_location TEXT,
-    description TEXT
-);
-"""
-create_quote_table = """
-CREATE TABLE IF NOT EXISTS quotes (
-    id SERIAL PRIMARY KEY,
-    _id VARCHAR(24) UNIQUE,
-    quote TEXT,
-    tags TEXT[],
-    author_id INTEGER,
-    FOREIGN KEY (author_id) REFERENCES author (id)
-);
-"""
 
 pg_cursor.execute(create_author_table)
 pg_cursor.execute(create_quote_table)
 pg_conn.commit()
 
+
+# get authors from MongoDB
 try:
     authors = list(author_collection.find())
 except TypeError as e:
-    print(f"Ошибка при вызове find на author_collection: {e}")
+    print(f"Error call  find on author_collection: {e}")
     raise
 
 author_map = {}
@@ -66,7 +41,7 @@ for author in authors:
 
 pg_conn.commit()
 
-# Получение цитат из MongoDB
+# get quotes from MongoDB
 try:
     quotes = list(quote_collection.find())
 except TypeError as e:
@@ -89,7 +64,7 @@ for quote in quotes:
 
 pg_conn.commit()
 
-# Закрытие соединений
+# close connection
 pg_cursor.close()
 pg_conn.close()
 

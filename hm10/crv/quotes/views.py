@@ -31,7 +31,7 @@ def author_detail(request, id):
     return render(request, 'quotes/author_detail.html', {'author': author})
 
 def quotes_by_tag(request, tag):
-    # Создаем новый объект запроса с параметром для поиска по тегу
+
     request.GET = request.GET.copy()
     request.GET['q'] = tag
     return search(request)

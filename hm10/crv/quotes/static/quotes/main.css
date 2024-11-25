@@ -34,7 +34,7 @@
     background-color: #7CA3E6;
 }
 
-/* Общий стиль для списка навигации */
+/* total style for search navigation */
 ul.pager {
     margin-bottom: 100px;
 }
@@ -46,10 +46,9 @@ ul.pager {
     list-style: none;
     text-align: center;
     display: flex;
-    justify-content: space-between; /* Размещает кнопки на противоположных концах */
+    justify-content: space-between;
 }
 
-/* Стили для ссылок в навигации */
 .pager li>a, .pager li>span {
     display: inline-block;
     padding: 10px 14px;
@@ -58,27 +57,24 @@ ul.pager {
     border-radius: 15px;
     text-decoration: none;
     color: #333333;
-    transition: background-color 0.3s, color 0.3s; /* Плавный переход при наведении */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Стили для кнопки "Next" */
 .pager .next>a, .pager .next>span {
     float: right;
 }
 
-/* Стили для кнопки "Previous" */
+
 .pager .previous>a, .pager .previous>span {
     float: left;
 }
 
-/* Стили при наведении на кнопки */
 .pager li>a:hover, .pager li>span:hover {
     background-color: #007bff;
     color: #ffffff;
     border-color: #007bff;
 }
 
-/* Стили для отключенных кнопок */
 .pager .disabled a {
     pointer-events: none;
     color: #cccccc;
@@ -86,7 +82,6 @@ ul.pager {
     background-color: #f9f9f9;
 }
 
-/* Дополнительно, стили для адаптивности */
 @media (max-width: 768px) {
     .quote {
         padding: 15px;
@@ -126,7 +121,21 @@ ul.pager {
 .author-details p.description {
     margin-top: 20px;
     font-style: italic;
-    column-count: 4; /* Два столбца */
-    column-gap: 30px; /* Пробел между столбцами */
-    text-align: justify; /* Выровнять текст по ширине */
+    column-count: 4;
+    column-gap: 30px;
+    text-align: justify;
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+    z-index: 99;
+    background-color: #007bff;
+    border: none;
+}
+
+#scrollTopBtn:hover {
+    background-color: #28a745;
 }

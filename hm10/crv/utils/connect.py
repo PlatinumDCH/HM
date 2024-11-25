@@ -2,6 +2,8 @@ import configparser
 import os
 from mongoengine import connect,disconnect,get_db
 from pymongo import MongoClient
+import psycopg2
+
 
 config_file_path = os.path.join(os.path.dirname(__file__),'config.ini')
 config = configparser.ConfigParser()
@@ -13,6 +15,24 @@ domain = config.get('DB', 'DOMAIN')
 options = config.get('DB', 'OPTIONS')
 
 uri = f"mongodb+srv://{mongo_user}:{mongodb_pass}@{domain}/?{options}"
+
+pg_dbname = config.get('Potgress', 'dbname')
+pg_user = config.get('Potgress', 'user')
+pg_pass = config.get('Potgress', 'password')
+pg_host = config.get('Potgress', 'host')
+pg_port = config.get('Potgress', 'port')
+
+
+def postgres_connect():
+    pg_conn = psycopg2.connect(
+        dbname = pg_dbname,
+        user = pg_user,
+        password = pg_pass,
+        host = pg_host,
+        port = pg_port
+    )
+    return pg_conn
+
 
 def connect_mongo():
     connect(
