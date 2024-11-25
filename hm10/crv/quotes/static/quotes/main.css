@@ -96,3 +96,37 @@ ul.pager {
         padding: 8px;
     }
 }
+
+.container {
+    margin-top: 20px;
+}
+
+.author-details {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.author-details h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.author-details p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.author-details p strong {
+    color: #2c3e50;
+}
+
+.author-details p.description {
+    margin-top: 20px;
+    font-style: italic;
+    column-count: 4; /* Два столбца */
+    column-gap: 30px; /* Пробел между столбцами */
+    text-align: justify; /* Выровнять текст по ширине */
+}

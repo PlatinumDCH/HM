@@ -14,12 +14,12 @@
         </span>
         <div class="author-info">
                     <span>by <small class="author" itemprop="author">{{quote.author.fullname}}</small></span>
-                    <a href="{% url 'author_detail' quote.author.id %}">(about)</a>
+                    <a href="{% url 'quotes:author_detail' quote.author.id %}">(about)</a>
         </div>
         <div class="tags">
             Tags:
             {% for tag in quote.tags %}
-            <a class="tag" href="/tag/{{tag}}/">{{tag}}</a>
+            <a class="tag" href="{% url 'quotes:quotes_by_tag' tag %}">{{tag}}</a>
 
             {% endfor %}
 

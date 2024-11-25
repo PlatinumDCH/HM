@@ -27,3 +27,13 @@ def search(request):
         'quotes': quotes,
     }
     return render(request, 'quotes/search_results.html', context)
+
+def author_detail(request, id):
+    author = get_object_or_404(Author, id=id)
+    return render(request, 'quotes/author_detail.html', {'author': author})
+
+def quotes_by_tag(request, tag):
+    # Создаем новый объект запроса с параметром для поиска по тегу
+    request.GET = request.GET.copy()
+    request.GET['q'] = tag
+    return search(request)

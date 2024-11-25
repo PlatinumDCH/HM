@@ -1,0 +1,12 @@
+{% extends 'quotes/base.html' %}
+
+{% block context %}
+<div class="container">
+    <div class="author-details">
+        <h1>{{ author.fullname }}</h1>
+        <p><strong>Born Date:</strong> {{ author.born_date }}</p>
+        <p><strong>Born Location:</strong> {{ author.born_location }}</p>
+        <p class="description"><strong>Description:</strong> {{ author.description }}</p>
+    </div>
+</div>
+{% endblock %}
