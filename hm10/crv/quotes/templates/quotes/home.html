@@ -32,16 +32,20 @@
 
     <nav>
         <ul class="pager">
-            <li class="previous">
-                <a href="/page/1/"><span aria-hidden="true"> Previous</span></a>
+            <li class="previous{% if not quotes.has_previous %} disabled{% endif %}">
+                <a href="{% if quotes.has_previous %}{% url 'quotes:home_paginate' quotes.previous_page_number %}{% else %}#{% endif %}">
+                    ← Previous
+                </a>
             </li>
 
-            <li class="next">
-                <a href="/page/2/">Next <span aria-hidden="true">→</span></a>
+            <li class="next{% if not quotes.has_next %} disabled{% endif %}">
+                <a href="{% if quotes.has_next %}{% url 'quotes:home_paginate' quotes.next_page_number %}{% else %}#{% endif %}">
+                    Next →
+                </a>
             </li>
-
         </ul>
     </nav>
+
     </div>
 
 </div>

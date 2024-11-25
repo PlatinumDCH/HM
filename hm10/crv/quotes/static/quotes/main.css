@@ -34,25 +34,56 @@
     background-color: #7CA3E6;
 }
 
-/* Настройки для навигации */
+/* Общий стиль для списка навигации */
+ul.pager {
+    margin-bottom: 100px;
+}
+
 .pager {
-    display: flex;
-    justify-content: flex-end;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-left: 0;
+    margin: 22px 0;
     list-style: none;
-    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; /* Размещает кнопки на противоположных концах */
 }
 
-.pager .next a {
-    text-decoration: none;
-    color: #007bff;
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
+/* Стили для ссылок в навигации */
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 10px 14px;
     background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #333333;
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход при наведении */
 }
 
-.pager .next a:hover {
-    background-color: #f0f0f0;
+/* Стили для кнопки "Next" */
+.pager .next>a, .pager .next>span {
+    float: right;
+}
+
+/* Стили для кнопки "Previous" */
+.pager .previous>a, .pager .previous>span {
+    float: left;
+}
+
+/* Стили при наведении на кнопки */
+.pager li>a:hover, .pager li>span:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+/* Стили для отключенных кнопок */
+.pager .disabled a {
+    pointer-events: none;
+    color: #cccccc;
+    border-color: #cccccc;
+    background-color: #f9f9f9;
 }
 
 /* Дополнительно, стили для адаптивности */
