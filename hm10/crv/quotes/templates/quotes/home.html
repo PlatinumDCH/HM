@@ -7,13 +7,13 @@
 <div class="row">
     <div class="col-md-8">
 
-        {% quote in quotes %}
+        {% for quote in quotes %}
     <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
         <span class="text" itemprop="text">
             {{quote.quote}}
         </span>
         <div class="author-info">
-                    <span>by <small class="author" itemprop="author">{{quote.author}}</small></span>
+                    <span>by <small class="author" itemprop="author">{{quote.author.fullname}}</small></span>
                     <a href="/author/{{quote.author}}">(about)</a>
         </div>
         <div class="tags">

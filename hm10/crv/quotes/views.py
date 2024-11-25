@@ -1,14 +1,11 @@
 from django.shortcuts import render
+from .models import Quotes
+from django.core.paginator import Paginator
 
-
-# Create your views here.
-# def home_page(request):
-#     db = connect_mongo()
-#     quotes = db.quotes.find()
-#     return render(request, 'quotes/home.html', {'quotes':quotes})
 
 def home_page(request):
-    return render(request, 'quotes/home.html', {})
+    quotes = Quotes.objects.all()
+    return render(request, 'quotes/home.html', {'quotes':quotes})
 
 def search(request):
     context = {
