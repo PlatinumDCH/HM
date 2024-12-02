@@ -1,9 +1,9 @@
-from pydantic import BaseModel, EmailStr, Field, field_validator, ValidationError
+from pydantic import BaseModel, EmailStr, Field, field_validator
 from datetime import date, timedelta
 from pydantic_extra_types.phone_numbers import PhoneNumber
 from typing import Optional
 
-PhoneNumber.phone_format = 'E164' #'INTERNATIONAL', 'NATIONAL'
+PhoneNumber.phone_format = 'E164' #alternativ: 'INTERNATIONAL', 'NATIONAL'
 
 class ContactCreateSchema(BaseModel):
     first_name: str            = Field(min_length=1, max_length=50)
@@ -15,13 +15,13 @@ class ContactCreateSchema(BaseModel):
 
 
     @field_validator('first_name', 'last_name')
-    def no_leading_trailing_whitespace(cls, variable:str):
+    def no_leading_trailing_whitespace(cls, variable:str)->str:
         if variable != variable.strip():
             raise ValueError('Must not contain leading or trailing whitespace')
         return variable
 
     @field_validator('date_birthday')
-    def validate_age(cls, value):
+    def validate_age(cls, value:date)->date:
         min_valid_age_date = date.today() - timedelta(days=365 * 80)
         min_adult_age_date = date.today() - timedelta(days= 365 * 18)
 
@@ -31,13 +31,7 @@ class ContactCreateSchema(BaseModel):
 
 
 class ContactResponse(ContactCreateSchema):
-    id:int = 1
-    first_name:str
-    last_name:str
-    email:str
-    phone_number:PhoneNumber
-    date_birthday:date
-    note:str
+    id:int
 
     class Config:
         from_attributes = True

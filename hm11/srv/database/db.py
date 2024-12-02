@@ -1,8 +1,10 @@
 import contextlib
 from sqlalchemy.ext.asyncio import AsyncEngine, async_sessionmaker, create_async_engine
+
 from srv.conf.config import config
+from srv.conf.loging_conf import setup_logger
 
-
+logger = setup_logger(__name__)
 
 class DatabaseSessionManager:
     def __init__(self, url:str):
@@ -12,6 +14,7 @@ class DatabaseSessionManager:
             autocommit=False,
             bind=self._engine
         )
+
     @contextlib.asynccontextmanager
     async def session(self):
         if self._session_maker is None:
@@ -20,7 +23,7 @@ class DatabaseSessionManager:
         try:
             yield session
         except Exception as err:
-            print(f"Session rollback due to exception: {err}")
+            logger.error(f"Session rollback due to exception: {err}")
             await session.rollback()
             raise
         finally:
