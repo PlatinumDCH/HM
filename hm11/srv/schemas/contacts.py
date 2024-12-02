@@ -1,15 +1,15 @@
 from pydantic import BaseModel, EmailStr, Field, field_validator, ValidationError
 from datetime import date, timedelta
 from pydantic_extra_types.phone_numbers import PhoneNumber
-
+from typing import Optional
 
 PhoneNumber.phone_format = 'E164' #'INTERNATIONAL', 'NATIONAL'
 
 class ContactCreateSchema(BaseModel):
-    first_name: str     = Field(min_length=1, max_length=50)
-    last_name: str      = Field(min_length=1, max_length=50)
-    email: EmailStr     = Field(min_length=8, max_length=25)
-    note: str|None      = None
+    first_name: str            = Field(min_length=1, max_length=50)
+    last_name: str             = Field(min_length=1, max_length=50)
+    email: EmailStr            = Field(min_length=8, max_length=35)
+    note: Optional[str]        = Field(default=None, max_length=250)
     phone_number: PhoneNumber
     date_birthday:date
 
@@ -29,8 +29,15 @@ class ContactCreateSchema(BaseModel):
             raise ValueError('Age must be between 18 and 80 years from today')
         return  value
 
+
+class ContactResponse(ContactCreateSchema):
+    id:int = 1
+    first_name:str
+    last_name:str
+    email:str
+    phone_number:PhoneNumber
+    date_birthday:date
+    note:str
+
     class Config:
         from_attributes = True
-
-class ContactSchema(ContactCreateSchema):
-    id:int
