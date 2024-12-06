@@ -37,7 +37,7 @@ except Exception as err:
 
 try:
     algorithm_config = load_config(section='ALGO')
-    ALGORITHM = key_config['algorithm']
+    ALGORITHM = algorithm_config['algorithm']
 except Exception as err:
     logger.error(f'Failed to load ALGORITHM: {err}')
     raise
