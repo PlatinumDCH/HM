@@ -17,7 +17,7 @@ async def get_contacts(
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
     """ Retrieve a list of contacts with pagination. """
-    contacts = await repositories_contacts.get_contacts(limit, offset, db)
+    contacts = await repositories_contacts.get_contacts(limit, offset, db, user)
     return contacts
 
 @router.get('/search', response_model=list[ContactResponse])
@@ -36,7 +36,8 @@ async def search_contacts(
         first_name,
         last_name,
         email,
-        db)
+        db,
+        user)
 
     if not contacts:
         raise HTTPException(status_code=404, detail='Not contacts found')
@@ -46,7 +47,7 @@ async def search_contacts(
 async def upcoming_birthdays(db: AsyncSession = Depends(get_db),
                              user: User = Depends(auth_service.get_current_user)):
     """ Retrieve contacts with upcoming birthdays within the next 7 days. """
-    upcoming_contacts = await repositories_contacts.get_upcoming_birthdays(db)
+    upcoming_contacts = await repositories_contacts.get_upcoming_birthdays(db,user)
     if not upcoming_birthdays:
         raise HTTPException(
             status_code=404,
@@ -59,7 +60,7 @@ async def get_contact(
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
     """ Get contact object from database """
-    contact = await repositories_contacts.get_contact(contact_id, db)
+    contact = await repositories_contacts.get_contact(contact_id, db,user)
     if contact is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -72,7 +73,7 @@ async def create_contact(
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
     """ Create contact object """
-    contact = await repositories_contacts.create_contact(body, db)
+    contact = await repositories_contacts.create_contact(body, db,user)
     return contact
 
 @router.put("/{contact_id}")
@@ -82,7 +83,7 @@ async def update_contact(
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
     """ Update contact object"""
-    contact = await repositories_contacts.update_contact(contact_id, body, db)
+    contact = await repositories_contacts.update_contact(contact_id, body, db,user)
     if contact is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="NOT FOUND")
     return contact
@@ -92,6 +93,6 @@ async def delete_contact(
         contact_id: int = Path(ge=1),
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
-    contact = await repositories_contacts.delete_contact(contact_id, db)
+    contact = await repositories_contacts.delete_contact(contact_id, db, user)
     return contact
 
