@@ -28,5 +28,14 @@ class Auth:
 
     auth2_scheme = OAuth2PasswordBearer(tokenUrl='api/auth/login')
 
+    async def create_access_token(self):
+        pass
+    async def create_refresh_token(self):
+        pass
+    async def decode_refresh_token(self):
+        pass
+    async def get_current_user(self):
+        pass
+
 
 auth_service = Auth()
