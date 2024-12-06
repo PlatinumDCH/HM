@@ -56,8 +56,16 @@ class Auth:
         encoded_refresh_token = jwt.encode(to_encode, self.SECRET_KEY, self.ALGORITHM)
         return encoded_refresh_token
 
-    async def decode_refresh_token(self):
-        pass
+    async def decode_refresh_token(self, refresh_token:str):
+        try:
+            payload = jwt.decode(refresh_token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
+            if payload['scope'] == 'refresh_token':
+                email = payload['sub']
+                return email
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid scope for token')
+        except JWTError:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Could not validate credentials')
+
     async def get_current_user(self):
         pass
 
