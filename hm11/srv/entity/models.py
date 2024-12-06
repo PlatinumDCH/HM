@@ -38,5 +38,5 @@ class UserToken(Base):
     __tablename__              = 'user_token'
     id: Mapped[int]            = mapped_column(primary_key=True,index=True)
     refresh_token: Mapped[str] = mapped_column(String(255), nullable=True)
-    user_id: Mapped[int]       = mapped_column(Integer, ForeignKey='users_id',nullable=False)
+    user_id: Mapped[int]       = mapped_column(Integer, ForeignKey('users.id'),nullable=False)
     user: Mapped['User']       = relationship('User', backref='tokens',lazy='joined')
