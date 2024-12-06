@@ -1,0 +1,19 @@
+POST /token
+Body:
+{
+    "username": "user",
+    "password": "password"
+}
+
+response
+{
+    "access_token": "<JWT_TOKEN>",
+    "token_type": "bearer"
+}
+
+GET /protected
+Authorization: Bearer <JWT_TOKEN>
+
+{
+    "message": "Hello user, you have access to this protected route!"
+}
