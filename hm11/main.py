@@ -6,6 +6,7 @@ from sqlalchemy import text
 from srv.database.db import get_db
 from srv.routes import contacts
 from srv.conf.loging_conf import setup_logger
+from srv.routes import auth
 
 logger = setup_logger(__name__)
 app = FastAPI()
@@ -22,7 +23,8 @@ def configure_cors(app:FastAPI)->None:
 
 configure_cors(app)
 
-app.include_router(contacts.router, prefix="/api")
+app.include_router(router=auth.router, prefix='/api')
+app.include_router(router=contacts.router, prefix="/api")
 
 @app.get("/")
 def index()->dict:
