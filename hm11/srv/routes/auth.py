@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredent
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from srv.database.db import get_db
-
+from srv.schemas.user import UserSchema
 
 router = APIRouter(prefix='/auth', tags=['auth'])
 
