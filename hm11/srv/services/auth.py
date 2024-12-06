@@ -26,6 +26,7 @@ class Auth:
     def get_pass_hash(self, password:str):
         return self.pwd_context.hash(password)
 
+    auth2_scheme = OAuth2PasswordBearer(tokenUrl='api/auth/login')
 
 
 auth_service = Auth()
