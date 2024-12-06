@@ -20,6 +20,12 @@ class Auth:
     SECRET_KEY = KEY
     ALGORITHM = ALGO
 
+    def verify_pass(self, plain_password, hashed_password):
+        return self.pwd_context.verify(plain_password, hashed_password)
+
+    def get_pass_hash(self, password:str):
+        return self.pwd_context.hash(password)
+
 
 
 auth_service = Auth()
