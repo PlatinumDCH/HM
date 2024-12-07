@@ -28,32 +28,32 @@ class Auth:
 
     auth2_scheme = OAuth2PasswordBearer(tokenUrl='api/auth/login')
 
-    async def create_access_token(self, data:dict, expires_delta:Optional[float]=None):
-        to_encode = data.copy()
-        utc_now = datetime.now(pytz.UTC)
+    async def create_access_token(self, data:dict, expires_delta:Optional[float]=None)->str:
+        to_encode:dict = data.copy()
+        utc_now:datetime = datetime.now(pytz.UTC)
         if expires_delta:
-            expire = utc_now + timedelta(seconds=expires_delta)
+            expire:datetime = utc_now + timedelta(seconds=expires_delta)
         else:
-            expire = utc_now + timedelta(minutes=15)
+            expire:datetime = utc_now + timedelta(minutes=15)
         to_encode.update(
-            {'iat': datetime.now(pytz.UTC),  # кода мы создали токен
-             'exp': expire,  # сколько он будет жить
-             'scope': 'access_token'})  # указание именно access_token
-        encoded_assess_token = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
+            {'iat': datetime.now(pytz.UTC),
+             'exp': expire,
+             'scope': 'access_token'})
+        encoded_assess_token:str = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
         return encoded_assess_token
 
-    async def create_refresh_token(self, data:dict, expires_delta:Optional[float]=None):
-        to_encode = data.copy()
-        utc_now = datetime.now(pytz.UTC)
+    async def create_refresh_token(self, data:dict, expires_delta:Optional[float]=None)->str:
+        to_encode:dict = data.copy()
+        utc_now:datetime = datetime.now(pytz.UTC)
         if expires_delta:
-            expire = utc_now + timedelta(seconds=expires_delta)
+            expire:datetime = utc_now + timedelta(seconds=expires_delta)
         else:
-            expire = utc_now + timedelta(days=7)
+            expire:datetime = utc_now + timedelta(days=7)
         to_encode.update(
             {'iat': datetime.now(pytz.UTC),  # кода мы создали токен
              'exp': expire,  # сколько он будет жить
              'scope': 'refresh_token'})  # указание на refresh_token
-        encoded_refresh_token = jwt.encode(to_encode, self.SECRET_KEY, self.ALGORITHM)
+        encoded_refresh_token:str = jwt.encode(to_encode, self.SECRET_KEY, self.ALGORITHM)
         return encoded_refresh_token
 
     async def decode_refresh_token(self, refresh_token:str):
