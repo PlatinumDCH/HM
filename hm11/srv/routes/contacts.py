@@ -6,9 +6,11 @@ from srv.entity.models import User
 from srv.repository import contacts as repositories_contacts
 from srv.schemas.contacts import ContactCreateSchema, ContactResponse
 from srv.services.auth import auth_service
+from srv.services.roles import RoleAccess
+from srv.entity.models import Role
 
 router = APIRouter(prefix='/contacts', tags=['contacts'])
-
+access_to_route_all = RoleAccess([Role.admin, Role.moderator])
 
 @router.get("/", response_model=list[ContactResponse])
 async def get_contacts(
@@ -19,6 +21,12 @@ async def get_contacts(
     """ Retrieve a list of contacts with pagination. """
     contacts = await repositories_contacts.get_contacts(limit, offset, db, user)
     return contacts
+
+@router.get("/all", response_model=list[ContactResponse], dependencies=[Depends(access_to_route_all)])
+async def get_all_contacts(limit: int = Query(10, ge=10, le=500), offset: int = Query(0, ge=0),
+                        db: AsyncSession = Depends(get_db), user: User = Depends(auth_service.get_current_user)):
+    todos = await repositories_contacts.get_all_todos(limit, offset, db)
+    return todos
 
 @router.get('/search', response_model=list[ContactResponse])
 async def search_contacts(

@@ -6,6 +6,11 @@ from datetime import datetime, timedelta, date
 from srv.entity.models import Contact, User
 from srv.schemas.contacts import ContactCreateSchema
 
+async def get_all_todos(limit: int, offset: int, db: AsyncSession):
+    stmt = select(Contact).offset(offset).limit(limit)
+    todos = await db.execute(stmt)
+    return todos.scalars().all()
+
 # Получение списка контактов с лимитом и смещением
 async def get_contacts(limit: int, offset: int, db: AsyncSession, user: User):
     stmt = select(Contact).where(Contact.users_id==user.id).offset(offset).limit(limit)
