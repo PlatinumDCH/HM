@@ -1,13 +1,18 @@
-from fastapi import APIRouter, HTTPException, Depends, status, Path, Query
+from fastapi import (APIRouter,
+                     HTTPException,
+                     Depends,
+                     status,
+                     Path,
+                     Query)
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from srv.database.db import get_db
-from srv.entity.models import User
+from srv.entity.models import User, Role
 from srv.repository import contacts as repositories_contacts
 from srv.schemas.contacts import ContactCreateSchema, ContactResponse
 from srv.services.auth import auth_service
 from srv.services.roles import RoleAccess
-from srv.entity.models import Role
+
 
 router = APIRouter(prefix='/contacts', tags=['contacts'])
 access_to_route_all = RoleAccess([Role.admin, Role.moderator])
@@ -18,13 +23,16 @@ async def get_contacts(
         offset: int = Query(0, ge=0),
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
-    """ Retrieve a list of contacts with pagination. """
-    contacts = await repositories_contacts.get_contacts(limit, offset, db, user)
+    """ Возвращает контакты текущего пользователя """
+    contacts = await repositories_contacts.get_contacts(limit,
+                                                        offset,
+                                                        db, user)
     return contacts
 
 @router.get("/all", response_model=list[ContactResponse], dependencies=[Depends(access_to_route_all)])
 async def get_all_contacts(limit: int = Query(10, ge=10, le=500), offset: int = Query(0, ge=0),
                         db: AsyncSession = Depends(get_db), user: User = Depends(auth_service.get_current_user)):
+    """ Возвращает всех пользователей только если запрос был от admin, moderator """
     todos = await repositories_contacts.get_all_todos(limit, offset, db)
     return todos
 
@@ -35,7 +43,7 @@ async def search_contacts(
         email:str = Query(None, description='Optional email to search'),
         db:AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
-    """Search for contacts by first name, last name, or email. """
+    """Поиск по контактам текущего пользователя по first name, last name, или email. """
     if not any([first_name, last_name, email]):
         raise HTTPException(
             status_code=400,
@@ -54,7 +62,7 @@ async def search_contacts(
 @router.get('/upcoming_birthdays', response_model=list[ContactResponse])
 async def upcoming_birthdays(db: AsyncSession = Depends(get_db),
                              user: User = Depends(auth_service.get_current_user)):
-    """ Retrieve contacts with upcoming birthdays within the next 7 days. """
+    """ Возвращает контакты текущего пользователя с birthdays на следующие 7 дней. """
     upcoming_contacts = await repositories_contacts.get_upcoming_birthdays(db,user)
     if not upcoming_birthdays:
         raise HTTPException(
@@ -67,7 +75,7 @@ async def get_contact(
         contact_id: int = Path(ge=1),
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
-    """ Get contact object from database """
+    """ Возвращает контакт по id, среди контактов текущего пользователя """
     contact = await repositories_contacts.get_contact(contact_id, db,user)
     if contact is None:
         raise HTTPException(
@@ -80,7 +88,7 @@ async def create_contact(
         body: ContactCreateSchema,
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
-    """ Create contact object """
+    """ Создает и возвращает контакт пользователя """
     contact = await repositories_contacts.create_contact(body, db,user)
     return contact
 
@@ -90,7 +98,7 @@ async def update_contact(
         contact_id: int = Path(ge=1),
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
-    """ Update contact object"""
+    """ Возвращает обновленный контакт пользователя """
     contact = await repositories_contacts.update_contact(contact_id, body, db,user)
     if contact is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="NOT FOUND")
@@ -101,6 +109,7 @@ async def delete_contact(
         contact_id: int = Path(ge=1),
         db: AsyncSession = Depends(get_db),
         user: User = Depends(auth_service.get_current_user)):
+    """ Удаляет контакт по id пользователя"""
     contact = await repositories_contacts.delete_contact(contact_id, db, user)
     return contact
 
