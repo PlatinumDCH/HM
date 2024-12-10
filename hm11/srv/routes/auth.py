@@ -24,19 +24,8 @@ async def signup(body: UserSchema, bt:BackgroundTasks, request:Request, db:Async
     #создаем нового пользователя
     body.password = auth_service.get_pass_hash(body.password)
     new_user = await repository_users.create_user(body, db)
-    bt.add_task(send_email, new_user.email, new_user.username + str(request.base_url))
+    bt.add_task(send_email, new_user.email, new_user.username, str(request.base_url))
     return new_user
-
-@router.get('/confirmed_email/{token}')
-async def confirmed_email(token:str, db:AsyncSession=Depends(get_db)):
-    email = await auth_service.get_email_from_token(token)
-    user = await repository_users.get_user_by_email(email, db)
-    if user is None:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Verification error')
-    if user.confirmed:
-        return {'message':'Your email already confirmed'}
-    await repository_users.confirmed_email(email, db)
-    return {'message': 'Email confirmed'}
 
 @router.post('/login', response_model=TokenSchema)
 async def login(body: OAuth2PasswordRequestForm=Depends(), db:AsyncSession=Depends(get_db)):
@@ -75,3 +64,14 @@ async def refresh_token(credentials:HTTPAuthorizationCredentials=Security(get_re
     new_refresh_token = await auth_service.create_refresh_token(data={'sub':user.email})
     await repository_users.update_token(user, new_refresh_token,db)
     return {'access_token': new_access_token,'refresh_token':new_refresh_token,'token_type':'bearer'}
+
+@router.get('/confirmed_email/{token}')
+async def confirmed_email(token:str, db:AsyncSession=Depends(get_db)):
+    email = await auth_service.get_email_from_token(token)
+    user = await repository_users.get_user_by_email(email, db)
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Verification error')
+    if user.confirmed:
+        return {'message':'Your email already confirmed'}
+    await repository_users.confirmed_email(email, db)
+    return {'message': 'Email confirmed'}

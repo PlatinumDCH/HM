@@ -13,3 +13,12 @@
 2024-12-06 20:12:58,051 - srv.database.db - ERROR - Session rollback due to exception: 401: Not authenticated
 2024-12-06 20:41:31,775 - srv.database.db - ERROR - Session rollback due to exception: 401: Could not validate credentials
 2024-12-06 20:44:33,900 - srv.database.db - ERROR - Session rollback due to exception: 'user_id' is an invalid keyword argument for Contact
+2024-12-10 11:54:40,430 - srv.conf.config - ERROR - Failed to load mail serves configuration: 'host'
+2024-12-10 12:10:48,689 - srv.database.db - ERROR - Session rollback due to exception: 409: Account already exists
+2024-12-10 12:15:36,337 - srv.services.email - ERROR - Exception raised Error connecting to smtp.meta.com on port 465: [Errno 8] nodename nor servname provided, or not known, check your credentials or email service configuration
+2024-12-10 12:16:47,187 - srv.services.email - ERROR - Exception raised Error connecting to smtp.meta.com on port 465: [Errno 8] nodename nor servname provided, or not known, check your credentials or email service configuration
+2024-12-10 12:23:28,329 - srv.services.email - ERROR - Exception raised Error connecting to smtp.meta.com on port 465: [Errno 8] nodename nor servname provided, or not known, check your credentials or email service configuration
+2024-12-10 12:30:05,369 - srv.database.db - ERROR - Session rollback due to exception: 409: Account already exists
+2024-12-10 12:30:26,752 - srv.services.email - ERROR - Exception raised Error connecting to smtp.meta.com on port 465: [Errno 8] nodename nor servname provided, or not known, check your credentials or email service configuration
+2024-12-10 12:34:06,386 - srv.database.db - ERROR - Session rollback due to exception: 'Depends' object has no attribute 'execute'
+2024-12-10 12:36:42,785 - srv.database.db - ERROR - Session rollback due to exception: 'Depends' object has no attribute 'execute'

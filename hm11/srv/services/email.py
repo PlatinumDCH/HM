@@ -5,19 +5,21 @@ from pathlib import Path
 
 from srv.services.auth import auth_service
 from srv.conf.loging_conf import setup_logger
-from srv.conf.config import mail,password,host,mail_server
+from srv.conf.config import mail,password,port,mail_server
 
 logger = setup_logger(__name__)
 
 conf = ConnectionConfig(
     MAIL_USERNAME=mail,
     MAIL_PASSWORD=password,
-    MAIL_PORT=host,
+    MAIL_FROM=mail,
+    MAIL_PORT=port,
     MAIL_SERVER=mail_server,
     MAIL_FROM_NAME='Contact server',
     MAIL_STARTTLS=False,
     MAIL_SSL_TLS=True,
     USE_CREDENTIALS=True,
+    VALIDATE_CERTS=True,
     TEMPLATE_FOLDER=Path(__file__).parent/'templates'
 )
 
@@ -31,6 +33,6 @@ async def send_email(email:EmailStr, username:str, host:str):
             subtype=MessageType.html
         )
         fm=FastMail(conf)
-        await fm.send_message(message, template_name='verify_email.html')
+        await fm.send_message(message, template_name='veriy_email.html')
     except ConnectionErrors as err:
         logger.error(err)

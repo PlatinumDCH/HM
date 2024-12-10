@@ -56,6 +56,6 @@ async def update_token(user:User, token:str|None, db:AsyncSession):
         raise err
 
 async def confirmed_email(email:str, db:AsyncSession)->None:
-    user = await get_user_by_email(email)
+    user = await get_user_by_email(email, db)
     user.confirmed = True
     await db.commit()

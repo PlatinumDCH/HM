@@ -14,6 +14,9 @@ from srv.database.db import get_db
 from srv.repository import users as repository_users
 from srv.conf.config import SECRET_KEY as KEY
 from srv.conf.config import ALGORITHM as ALGO
+from srv.conf.loging_conf import setup_logger
+
+logger = setup_logger(__name__)
 
 class Auth:
     pwd_context = CryptContext(schemes = 'bcrypt',deprecated = 'auto',bcrypt__rounds = 6)
@@ -103,5 +106,14 @@ class Auth:
         token = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
         return token
 
+    async def get_email_from_token(self, token: str):
+        try:
+            payload = jwt.decode(token, self.SECRET_KEY, algorithms=[self.ALGORITHM])
+            email = payload['sub']
+            return email
+        except JWTError as err:
+            logger.error(err)
+            raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                                detail='Invalid token from email verification')
 
 auth_service = Auth()
