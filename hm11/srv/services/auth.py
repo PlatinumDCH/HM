@@ -93,5 +93,15 @@ class Auth:
             raise credentials_exception
         return user
 
+    def create_email_token(self, data:dict):
+        to_encode = data.copy()
+        expire = datetime.now(pytz.UTC) + timedelta(days=7)
+        to_encode.update(
+            {'iat':datetime.now(pytz.UTC),
+             'exp':expire}
+        )
+        token = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
+        return token
+
 
 auth_service = Auth()
