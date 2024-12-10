@@ -10,6 +10,7 @@ from srv.schemas.user import UserSchema, TokenSchema, UserResponse
 from srv.schemas.email import RequestEmail
 from srv.services.auth import auth_service
 from srv.services.email import send_email
+from srv.services.RabbitMQServis.RMQ_produser import send_to_rabbitmq
 from srv.conf.loging_conf import setup_logger
 
 logger = setup_logger(__name__)
@@ -17,7 +18,7 @@ router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()
 
 @router.post('/signup', response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-async def signup(body: UserSchema, bt:BackgroundTasks, request:Request, db:AsyncSession=Depends(get_db))->User:
+async def signup(body: UserSchema, request:Request, db:AsyncSession=Depends(get_db))->User:
     #проверка на то что такого пользователя нет в БД
     exists_user = await repository_users.get_user_by_email(body.email, db)
     if exists_user:
@@ -25,7 +26,13 @@ async def signup(body: UserSchema, bt:BackgroundTasks, request:Request, db:Async
     #создаем нового пользователя
     body.password = auth_service.get_pass_hash(body.password)
     new_user = await repository_users.create_user(body, db)
-    bt.add_task(send_email, new_user.email, new_user.username, str(request.base_url))
+
+    email_task = {
+        'email': new_user.email,
+        'username': new_user.username,
+        'host': str(request.base_url)
+    }
+    await send_to_rabbitmq(email_task, queue_name='email_tasks')
     return new_user
 
 @router.post('/login', response_model=TokenSchema)
