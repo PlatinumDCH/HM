@@ -27,3 +27,7 @@
 2024-12-10 18:31:17,391 - srv.conf.conn_rabbitMQ - INFO - Successfully connected to RabbitMQ
 2024-12-10 18:32:54,842 - srv.conf.conn_rabbitMQ - INFO - Successfully connected to RabbitMQ
 2024-12-10 18:54:58,349 - global_logger - INFO - Successfully connected to RabbitMQ
+2024-12-10 21:32:54,759 - global_logger - INFO - Successfully connected to RabbitMQ
+2024-12-10 21:32:54,770 - global_logger - INFO - Worker is consuming messages...
+2024-12-10 21:43:34,796 - global_logger - INFO - Successfully connected to RabbitMQ
+2024-12-10 21:43:36,662 - global_logger - INFO - Message precessed successfully : gesipew657@eoilup.com
