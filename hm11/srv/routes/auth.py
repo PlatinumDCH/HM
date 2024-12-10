@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status, Security, BackgroundTasks
+from fastapi import APIRouter, HTTPException, Depends, status, Security, BackgroundTasks, Request
 from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -8,6 +8,7 @@ from srv.entity.models import UserToken, User
 from srv.repository import users as repository_users
 from srv.schemas.user import UserSchema, TokenSchema, UserResponse
 from srv.services.auth import auth_service
+from srv.services.email import send_email
 from srv.conf.loging_conf import setup_logger
 
 logger = setup_logger(__name__)
@@ -15,7 +16,7 @@ router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()
 
 @router.post('/signup', response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-async def signup(body: UserSchema, bt:BackgroundTasks, db:AsyncSession=Depends(get_db))->User:
+async def signup(body: UserSchema, bt:BackgroundTasks, request:Request, db:AsyncSession=Depends(get_db))->User:
     #проверка на то что такого пользователя нет в БД
     exists_user = await repository_users.get_user_by_email(body.email, db)
     if exists_user:
@@ -23,7 +24,7 @@ async def signup(body: UserSchema, bt:BackgroundTasks, db:AsyncSession=Depends(g
     #создаем нового пользователя
     body.password = auth_service.get_pass_hash(body.password)
     new_user = await repository_users.create_user(body, db)
-    #	todo send email notification
+    bt.add_task(send_email, new_user.email, new_user.username + str(request.base_url))
     return new_user
 
 @router.post('/login', response_model=TokenSchema)
