@@ -3,6 +3,10 @@ import json
 from aio_pika import IncomingMessage, ExchangeType
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 from pathlib import Path
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from srv.conf.config import configuration
 from srv.conf.conn_rabbitMQ import get_rabbitmq_connection

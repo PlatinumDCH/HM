@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b50d6fe6-5857-4686-906d-b3ab8d5e28b7" name="Changes" comment="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации">
-      <change afterPath="$PROJECT_DIR$/RabbitMQService/publisher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RabbitMQService/rabbitMQ_worker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srv/conf/conn_rabbitMQ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/conf/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/srv/conf/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/conf/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/conf/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/conf/loging_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/conf/loging_conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/database/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/database/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/routes/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/routes/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/services/RabbitMQServis/RMQ_produser.py" beforeDir="false" afterPath="$PROJECT_DIR$/RabbitMQService/RMQ_produser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/services/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/services/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/services/email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srv/services/templates/veriy_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/srv/services/templates/verify_email.html" afterDir="false" />
+    <list default="true" id="b50d6fe6-5857-4686-906d-b3ab8d5e28b7" name="Changes" comment="info:&#10;-добавил информацию о docker-compose&#10;-добавил информацию о миграция alembic">
+      <change beforePath="$PROJECT_DIR$/RabbitMQService/rabbitMQ_worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/RabbitMQService/rabbitMQ_worker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,17 +44,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.config.executor": "Run",
-    "Python.conn_rabbitMQ.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.rabbitMQ_worker.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conn_rabbitMQ.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rabbitMQ_worker.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/RabbitMQService" />
@@ -548,14 +536,45 @@
       <option name="project" value="LOCAL" />
       <updated>1733829571057</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="confirmed mail added RabbitMq:&#10;&#10;обновил logger&#10;обновил выдачу нофигурационных переменных&#10;финальная рабочая версия RabbitMQ">
+      <option name="closed" value="true" />
+      <created>1733849889942</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1733849889942</updated>
+    </task>
+    <task id="LOCAL-00047" summary="структура configuration file изменена&#10;&#10;использовано .env">
+      <option name="closed" value="true" />
+      <created>1733857547997</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1733857547997</updated>
+    </task>
+    <task id="LOCAL-00048" summary="create docker-compose.yml &#10;reload DB&gt;try signin user in Web">
+      <option name="closed" value="true" />
+      <created>1733860454133</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1733860454133</updated>
+    </task>
+    <task id="LOCAL-00049" summary="info:&#10;-добавил информацию о docker-compose&#10;-добавил информацию о миграция alembic">
+      <option name="closed" value="true" />
+      <created>1733860857499</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1733860857499</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="у пользователя обновляется refresh token &#10;оформил полную работы логина изера" />
-    <MESSAGE value="добавил привязку юзеров до роутов контактов" />
-    <MESSAGE value="добавил обновление refresh token" />
-    <MESSAGE value="юзеры привязаны к своим записям, без доступа у чужим" />
     <MESSAGE value="попытка описать как работает jwt" />
     <MESSAGE value="новый функционал: роли для юзеров&#10;&#10;--добавил поле role в таблицу юзеров&#10;--по умолчанию новому пользователю присваивается роль user&#10;--у пользователей который были до этого момента зарегистрированы это поле будет None&#10;--добавил rout вывод всех контактов для admin moderator, через декоратор dependencies=[Depends(access_to_route_all)]&#10;access_to_route_all = RoleAccess([Role.admin, Role.moderator])&#10;--создал сервис Roles&#10;--при инициализации этот клас получает все существующие типы ролей&#10;--если такой роли нету то выбрасывается исключение" />
     <MESSAGE value="fix: обновил описание routes контактов" />
@@ -577,6 +596,10 @@
     <MESSAGE value="confirmed mail: &#10;&#10;создал шаблон для повторной отправки формы валидации почты&#10;Создал маршрут для повторной отправки формы" />
     <MESSAGE value="confirmed mail added RabbitMq:&#10;&#10;создал продюсера&#10;перед этим запустил контейнер с RabbitMq" />
     <MESSAGE value="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации" />
-    <option name="LAST_COMMIT_MESSAGE" value="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации" />
+    <MESSAGE value="confirmed mail added RabbitMq:&#10;&#10;обновил logger&#10;обновил выдачу нофигурационных переменных&#10;финальная рабочая версия RabbitMQ" />
+    <MESSAGE value="структура configuration file изменена&#10;&#10;использовано .env" />
+    <MESSAGE value="create docker-compose.yml &#10;reload DB&gt;try signin user in Web" />
+    <MESSAGE value="info:&#10;-добавил информацию о docker-compose&#10;-добавил информацию о миграция alembic" />
+    <option name="LAST_COMMIT_MESSAGE" value="info:&#10;-добавил информацию о docker-compose&#10;-добавил информацию о миграция alembic" />
   </component>
 </project>

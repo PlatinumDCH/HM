@@ -8,9 +8,9 @@ from srv.entity.models import UserToken, User
 from srv.repository import users as repository_users
 from srv.schemas.user import UserSchema, TokenSchema, UserResponse
 from srv.schemas.email import RequestEmail
-from RabbitMQService.publisher import publish_message
+from rabbit_mq_service.mail_publisher import publish_message
 from srv.services.auth import auth_service
-from RabbitMQService.RMQ_produser import send_to_rabbitmq
+from rabbit_mq_service.mail_producer import send_to_rabbitmq
 from srv.conf.loging_conf import global_logger as logger
 
 router = APIRouter(prefix='/auth', tags=['auth'])
