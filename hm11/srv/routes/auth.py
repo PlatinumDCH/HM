@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status, Security
+from fastapi import APIRouter, HTTPException, Depends, status, Security, BackgroundTasks
 from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -15,7 +15,7 @@ router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()
 
 @router.post('/signup', response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-async def signup(body: UserSchema, db:AsyncSession=Depends(get_db))->User:
+async def signup(body: UserSchema, bt:BackgroundTasks, db:AsyncSession=Depends(get_db))->User:
     #проверка на то что такого пользователя нет в БД
     exists_user = await repository_users.get_user_by_email(body.email, db)
     if exists_user:
@@ -23,6 +23,7 @@ async def signup(body: UserSchema, db:AsyncSession=Depends(get_db))->User:
     #создаем нового пользователя
     body.password = auth_service.get_pass_hash(body.password)
     new_user = await repository_users.create_user(body, db)
+    #	todo send email notification
     return new_user
 
 @router.post('/login', response_model=TokenSchema)
