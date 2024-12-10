@@ -42,6 +42,15 @@ except Exception as err:
     logger.error(f'Failed to load ALGORITHM: {err}')
     raise
 
+try:
+    mail_config =load_config(section='EMAIL SERVICE')
+    mail = mail_config['mail']
+    password = mail_config['pass']
+    host = mail_config['host']
+    mail_server = mail_config['mail_server']
+except Exception as err:
+    logger.error(f'Failed to load mail serves configuration: {err}')
+
 class Config:
     DB_URL = db_url
 
