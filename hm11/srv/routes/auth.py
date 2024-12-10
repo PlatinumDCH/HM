@@ -27,6 +27,17 @@ async def signup(body: UserSchema, bt:BackgroundTasks, request:Request, db:Async
     bt.add_task(send_email, new_user.email, new_user.username + str(request.base_url))
     return new_user
 
+@router.get('/confirmed_email/{token}')
+async def confirmed_email(token:str, db:AsyncSession=Depends(get_db)):
+    email = await auth_service.get_email_from_token(token)
+    user = await repository_users.get_user_by_email(email, db)
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Verification error')
+    if user.confirmed:
+        return {'message':'Your email already confirmed'}
+    await repository_users.confirmed_email(email, db)
+    return {'message': 'Email confirmed'}
+
 @router.post('/login', response_model=TokenSchema)
 async def login(body: OAuth2PasswordRequestForm=Depends(), db:AsyncSession=Depends(get_db)):
     user = await repository_users.get_user_by_email(body.username, db) #usernmae->email
