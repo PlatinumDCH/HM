@@ -21,6 +21,7 @@ passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 pytz = "^2024.2"
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 libgravatar = "^1.0.4"
+fastapi-mail = "^1.4.2"
 
 
 [build-system]

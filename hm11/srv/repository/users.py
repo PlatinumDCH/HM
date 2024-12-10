@@ -54,3 +54,8 @@ async def update_token(user:User, token:str|None, db:AsyncSession):
         await db.rollback()
         logger.error(f"Failed to update user's token: {err}")
         raise err
+
+async def confirmed_email(email:str, db:AsyncSession)->None:
+    user = await get_user_by_email(email)
+    user.confirmed = True
+    await db.commit()
