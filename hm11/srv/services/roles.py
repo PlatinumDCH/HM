@@ -2,9 +2,7 @@ from fastapi import Request, Depends, HTTPException, status
 
 from srv.entity.models import Role, User
 from srv.services.auth import auth_service
-from srv.conf.loging_conf import setup_logger
-
-logger = setup_logger(__name__)
+from srv.conf.loging_conf import global_logger as logger
 
 class RoleAccess:
     def __init__(self, allowed_roles: list[Role]):

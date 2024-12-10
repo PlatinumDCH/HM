@@ -5,10 +5,9 @@ from sqlalchemy import text
 
 from srv.database.db import get_db
 from srv.routes import contacts
-from srv.conf.loging_conf import setup_logger
+from srv.conf.loging_conf import global_logger as logger
 from srv.routes import auth
 
-logger = setup_logger(__name__)
 app = FastAPI()
 
 def configure_cors(app:FastAPI)->None:

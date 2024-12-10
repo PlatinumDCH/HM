@@ -1,9 +1,4 @@
-from fastapi import (APIRouter,
-                     HTTPException,
-                     Depends,
-                     status,
-                     Path,
-                     Query)
+from fastapi import APIRouter,HTTPException,Depends,status,Path,Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from srv.database.db import get_db

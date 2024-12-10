@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b50d6fe6-5857-4686-906d-b3ab8d5e28b7" name="Changes" comment="добавил аннотацию" />
+    <list default="true" id="b50d6fe6-5857-4686-906d-b3ab8d5e28b7" name="Changes" comment="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации">
+      <change afterPath="$PROJECT_DIR$/RabbitMQService/publisher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RabbitMQService/rabbitMQ_worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srv/conf/conn_rabbitMQ.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/conf/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/srv/conf/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/conf/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/conf/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/conf/loging_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/conf/loging_conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/database/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/database/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/routes/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/routes/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/services/RabbitMQServis/RMQ_produser.py" beforeDir="false" afterPath="$PROJECT_DIR$/RabbitMQService/RMQ_produser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/services/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/srv/services/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/services/email.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srv/services/templates/veriy_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/srv/services/templates/verify_email.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,11 +60,21 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "Python.config.executor": "Run",
+    "Python.conn_rabbitMQ.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.rabbitMQ_worker.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/RabbitMQService" />
+      <recent name="$PROJECT_DIR$/srv/services/RabbitMQService" />
+      <recent name="$PROJECT_DIR$/srv/services" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.rabbitMQ_worker">
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="hm11" />
       <option name="ENV_FILES" value="" />
@@ -73,9 +97,78 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="conn_rabbitMQ" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="hm11" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/srv/conf" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/srv/conf/conn_rabbitMQ.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="hm11" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RabbitMQService" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RabbitMQService/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="rabbitMQ_worker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="hm11" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/srv/services" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RabbitMQService/rabbitMQ_worker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.rabbitMQ_worker" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.config" />
+        <item itemvalue="Python.conn_rabbitMQ" />
       </list>
     </recent_temporary>
   </component>
@@ -327,26 +420,138 @@
       <option name="project" value="LOCAL" />
       <updated>1733575276913</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="confirmed mail: &#10;изменил таблицу User. Колонка отвечает за подтверждение почты, дефолтное значение False-не подтвержден, разрешить пустое поля для старых пользователей">
+      <option name="closed" value="true" />
+      <created>1733819695206</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1733819695206</updated>
+    </task>
+    <task id="LOCAL-00031" summary="confirmed mail: &#10;применил миграцию для таблицы в бд&#10;alembic revision --autogenerate -m &quot;Upgrade model User&quot;&#10;alembic upgrade head&#10;*не забудь подключить БД перед миграцией">
+      <option name="closed" value="true" />
+      <created>1733819987074</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1733819987074</updated>
+    </task>
+    <task id="LOCAL-00032" summary="confirmed mail: &#10;изменил логику логина на сайт&#10;Если пользователь не подтвердил свою почту после регистрации, он не сможет залогиниться на сайт.">
+      <option name="closed" value="true" />
+      <created>1733820161395</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1733820161395</updated>
+    </task>
+    <task id="LOCAL-00033" summary="confirmed mail: &#10;добавил логику в для регистрации на сайте. После регистрации пользователю на указанную почту должно прийти письмо подтверждающее его личность.&#10;Импортировал BackgroundTasks - внутренняя реализации фоновой отправки писем">
+      <option name="closed" value="true" />
+      <created>1733820435387</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1733820435388</updated>
+    </task>
+    <task id="LOCAL-00034" summary="confirmed mail: &#10;добавил f изменения статуса в БД &quot;подтверждения аккаунта&quot;">
+      <option name="closed" value="true" />
+      <created>1733820683317</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1733820683317</updated>
+    </task>
+    <task id="LOCAL-00035" summary="confirmed mail: &#10;&#10;закинул в конфигурационный файлы данные про подключение к серверу отправки писем">
+      <option name="closed" value="true" />
+      <created>1733822381818</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822381818</updated>
+    </task>
+    <task id="LOCAL-00036" summary="confirmed mail: &#10;&#10;создал html файл, который будет отправляться пользователю">
+      <option name="closed" value="true" />
+      <created>1733822425209</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822425209</updated>
+    </task>
+    <task id="LOCAL-00037" summary="confirmed mail: &#10;&#10;добавил функцию создания email token">
+      <option name="closed" value="true" />
+      <created>1733822450281</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822450281</updated>
+    </task>
+    <task id="LOCAL-00038" summary="confirmed mail: &#10;&#10;создал сервис по отправке письма пользователю">
+      <option name="closed" value="true" />
+      <created>1733822484335</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822484335</updated>
+    </task>
+    <task id="LOCAL-00039" summary="confirmed mail: &#10;обновил html file&#10;Jinja2, вставка username&#10;вставляем ссылку {{host}}api/auth/confirmed_email/{{token}}">
+      <option name="closed" value="true" />
+      <created>1733822830922</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822830922</updated>
+    </task>
+    <task id="LOCAL-00040" summary="confirmed mail: &#10;&#10;обновил функцию регистрации пользователя на сайте">
+      <option name="closed" value="true" />
+      <created>1733822876809</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822876809</updated>
+    </task>
+    <task id="LOCAL-00041" summary="confirmed mail: &#10;&#10;добавил обработку маршрута, нажав на который пользователь переходит на сервис">
+      <option name="closed" value="true" />
+      <created>1733823295326</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1733823295326</updated>
+    </task>
+    <task id="LOCAL-00042" summary="confirmed mail: &#10;&#10;fix small bag">
+      <option name="closed" value="true" />
+      <created>1733827237721</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1733827237721</updated>
+    </task>
+    <task id="LOCAL-00043" summary="confirmed mail: &#10;&#10;создал шаблон для повторной отправки формы валидации почты&#10;Создал маршрут для повторной отправки формы">
+      <option name="closed" value="true" />
+      <created>1733827618655</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1733827618655</updated>
+    </task>
+    <task id="LOCAL-00044" summary="confirmed mail added RabbitMq:&#10;&#10;создал продюсера&#10;перед этим запустил контейнер с RabbitMq">
+      <option name="closed" value="true" />
+      <created>1733829338941</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1733829338941</updated>
+    </task>
+    <task id="LOCAL-00045" summary="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации">
+      <option name="closed" value="true" />
+      <created>1733829571057</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1733829571057</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="добавил роуты для signup/login/refresh token&#10;signup - new user, registration on platform&#10;login - user go to platform&#10;refresh_token - refresh tokens" />
-    <MESSAGE value="создал шаблоны валидации для формы регистрации Юзера&#10;создал шаблон для ответа запроса на юзера&#10;создал шаблон валидации токена" />
-    <MESSAGE value="присоединил роуты до точки входа приложения" />
-    <MESSAGE value="импорт необходимых библиотек&#10;datetime/timedelta - для определения жизненного цикла токена&#10;CryptContext - для шифрования паролей&#10;OAuth2PasswordBearer - специальный клас для аутентификации, будет запускаться как функтор" />
-    <MESSAGE value="создал класс аутентификации&#10;pwd_context = будет отвечать за шифр пароля&#10;соль будет спрятана в контексте" />
-    <MESSAGE value="сгенерировать новый секретный ключ - openssl rand -hex 32&#10;закинул его в конф файл&#10;доступен из srv/conf/config.py&#10;также закин вид алгоритма в конфигурационный файл" />
-    <MESSAGE value="get_pass_hash(password:srt) - используется для создания защищенного хеша пароля перед сохранением в базу данных.&#10;Процесс:&#10;1.соль ( в хеширование всегда добавляется соль-RandomData, чтобы сделать хеш уникальным даже для одинаковых паролей )&#10;2.хеширование (алгоритм bcrypt? генерирует хеш пароля, используя соль)&#10;3.возврат хеша (полеченный хеш сохраняется в базе данных)&#10;hashed_password = get_password_hash(&quot;Querty&quot;)  # Результат: строка-хеш вроде &quot;$2b$12$abcd...&quot;&#10;-------&#10;verify_password(plain_password, hashed_password)&#10;используется для проверки пароля при авторизации&#10;Процесс:&#10;1.Берет плоский пароль который пользователь ввел на сайте и хешированный пароль из бд&#10;2.Применяет тот же алгоритм хеширования, который использовался при создании хеша в бд&#10;3.Сравнивает два хеша&#10;4. возвращает true если они совпадают, и false в противном случае&#10;&#10;кратко как это работает&#10;1.регистрация пользователя&#10;пользователь вводит пароль - get_password_hash - хеш пароля - сохраняется в базу данных&#10;2. авторизация пользователя&#10;  пользователь вводит пароль - verify_pass (сравнивает хеш введеного пароля и хеше который есть в базе данных)&#10; 3. если хеши совпадают, пользователь авторизован. Иначе отказ" />
-    <MESSAGE value="feat: добавлена настройка аутентификации с использованием OAuth2&#10;&#10;-использован OAuth2PasswordBearer для обработки токенов доступа&#10;-добавлен endpoint для аутентификации пользователей с помощю токенов tokenUrl='api/auth/login'&#10;-это позволит пользователям вторизироватся и получать токен для дальнейших запросов&#10;&#10;feat: указывает на добавление новой функциональности&#10;есть и другие способы использовать jwt token, например передача через url" />
-    <MESSAGE value="feat: добавленны ассинхронные методы для работы с токенами пользователя&#10;&#10;- create_access_toke: метод для создания access токена (временный токен для авторизации)&#10;create_refresh_token: метод для генерации refresh токена (для обновления access токена)&#10;decode_refresh_token: метод для декодирования refresh токена (проверка валидности и извлечение данных)&#10;get_current_user: метод для извелечения текущего пользователя из токена" />
-    <MESSAGE value="improvement: добавил логику создания access токена&#10;&#10;--принимает данные data для кодирования в токен &#10;--поддерживает настройку времени жизни токена через параметр expires_delta(по умолчанию - 15 минут)&#10;--использует текущую utc временную метку&#10;---устанавливает строк действия токена expire&#10;--добавил указание токена (`scope: 'access_token'`) для дальнейшей валидации&#10;--для кодирования исп. библиотка JWT с заданным секретным ключом&#10;&#10;пример работы функции &#10;1.приходит дата &#10;data = {&#10;    &quot;user_id&quot;: 123,&#10;    &quot;username&quot;: &quot;john_doe&quot;,&#10;    &quot;roles&quot;: [&quot;admin&quot;, &quot;editor&quot;]&#10;}&#10;эти данные будут закодированы&#10;2.создаем копию словаря&#10;to_encode = data.copy()&#10;3.получаем текущее время в  UTC.&#10;4.устанавливаем время действия токена expire:if|else&#10;5.обновляем метаданные&#10;6.заново кодируем&#10;7.возвращаем новый закодированный access токен" />
-    <MESSAGE value="feat: реализована функция генерации refresh-токена&#10;&#10;- Основные детали реализации:&#10;  - Принимает аргументы:&#10;    - `data: dict` — словарь с пользовательскими данными для включения в токен (например, user_id, roles и т.д.).&#10;    - `expires_delta: Optional[float]` — срок действия токена в секундах (по умолчанию 7 дней).&#10;  - Рассчитывает дату истечения токена (`exp`):&#10;    - Если `expires_delta` указан, токен действует указанное время.&#10;    - Если `expires_delta` отсутствует, используется срок действия по умолчанию — 7 дней.&#10;  - Включает в токен метаинформацию:&#10;    - `iat` (issued at) — время создания токена.&#10;    - `exp` (expiration) — время истечения токена.&#10;    - `scope` — указание, что это `refresh_token`.&#10;  - Кодирует токен с использованием:&#10;    - Секретного ключа (`self.SECRET_KEY`).&#10;    - Алгоритма (`self.ALGORITHM`), например, HS256.&#10;&#10;- Возвращаемое значение:&#10;  - Закодированный JWT refresh-токен, который используется для обновления access-токенов без необходимости повторного входа." />
-    <MESSAGE value="feat: добавил логику работы &#10;&#10;--принимает рефреш токен:строка - строка токена которая переданна пользователем&#10;--попытка декодировать токен с использованием&#10;(секретного ключа, указанного алгоритма, переданного в виде списка так как это универсальная фукция которая может работаь с разными алгоримами)&#10;-- проверка токен должен иметь поле scope со значением refresh_token. Если scope не соответствует-исключение&#10;-- если токен корректен, извлекается и возвращаеться поле sub (в данном случаем email пользователя)&#10;--возвращает email пользователя" />
-    <MESSAGE value="дописал логику получения пользователя по токену" />
-    <MESSAGE value="функция выполняет запрос в БД и возвращает объект пользователь из таблицы users" />
-    <MESSAGE value="добавил нужные импорты &#10;get_refresh_token - это экземпляр класса HTTPBearer, который использует заголовки HTTP-заголовков авторизации.&#10;Предоставляет механизм аутентификации через токены, передаваемые в заголовке Authorization запроса&#10;&#10;он ожидает что заголовок будет содержать строку в формате&#10;Authorization: Bearer &lt;token&gt;&#10;Если заголовок отсутствует или токен передан некорректно, FastAPI автоматически вернёт ответ с кодом 401 Unauthorized&#10;&#10;&#10;тип возвращаемого значения&#10;Если токен найден и валиден по формату get_refresh_token вернёт объект типа HTTPAuthorizationCredentials, содержащий &#10;scheme - схему аутентификации&#10;credentials - сам токен(строка)" />
-    <MESSAGE value="функция создает пользователя в бд&#10;возвращает объект new_user" />
     <MESSAGE value="у пользователя обновляется refresh token &#10;оформил полную работы логина изера" />
     <MESSAGE value="добавил привязку юзеров до роутов контактов" />
     <MESSAGE value="добавил обновление refresh token" />
@@ -356,6 +561,22 @@
     <MESSAGE value="fix: обновил описание routes контактов" />
     <MESSAGE value="обновил функцию пересоздание refresh token" />
     <MESSAGE value="добавил аннотацию" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил аннотацию" />
+    <MESSAGE value="confirmed mail: &#10;изменил таблицу User. Колонка отвечает за подтверждение почты, дефолтное значение False-не подтвержден, разрешить пустое поля для старых пользователей" />
+    <MESSAGE value="confirmed mail: &#10;применил миграцию для таблицы в бд&#10;alembic revision --autogenerate -m &quot;Upgrade model User&quot;&#10;alembic upgrade head&#10;*не забудь подключить БД перед миграцией" />
+    <MESSAGE value="confirmed mail: &#10;изменил логику логина на сайт&#10;Если пользователь не подтвердил свою почту после регистрации, он не сможет залогиниться на сайт." />
+    <MESSAGE value="confirmed mail: &#10;добавил логику в для регистрации на сайте. После регистрации пользователю на указанную почту должно прийти письмо подтверждающее его личность.&#10;Импортировал BackgroundTasks - внутренняя реализации фоновой отправки писем" />
+    <MESSAGE value="confirmed mail: &#10;добавил f изменения статуса в БД &quot;подтверждения аккаунта&quot;" />
+    <MESSAGE value="confirmed mail: &#10;&#10;закинул в конфигурационный файлы данные про подключение к серверу отправки писем" />
+    <MESSAGE value="confirmed mail: &#10;&#10;создал html файл, который будет отправляться пользователю" />
+    <MESSAGE value="confirmed mail: &#10;&#10;добавил функцию создания email token" />
+    <MESSAGE value="confirmed mail: &#10;&#10;создал сервис по отправке письма пользователю" />
+    <MESSAGE value="confirmed mail: &#10;обновил html file&#10;Jinja2, вставка username&#10;вставляем ссылку {{host}}api/auth/confirmed_email/{{token}}" />
+    <MESSAGE value="confirmed mail: &#10;&#10;обновил функцию регистрации пользователя на сайте" />
+    <MESSAGE value="confirmed mail: &#10;&#10;добавил обработку маршрута, нажав на который пользователь переходит на сервис" />
+    <MESSAGE value="confirmed mail: &#10;&#10;fix small bag" />
+    <MESSAGE value="confirmed mail: &#10;&#10;создал шаблон для повторной отправки формы валидации почты&#10;Создал маршрут для повторной отправки формы" />
+    <MESSAGE value="confirmed mail added RabbitMq:&#10;&#10;создал продюсера&#10;перед этим запустил контейнер с RabbitMq" />
+    <MESSAGE value="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации" />
+    <option name="LAST_COMMIT_MESSAGE" value="confirmed mail added RabbitMq:&#10;&#10;обновил роут регистрации" />
   </component>
 </project>

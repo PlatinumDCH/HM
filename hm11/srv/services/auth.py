@@ -1,5 +1,3 @@
-#autentification and create token
-
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -12,16 +10,13 @@ import pytz
 
 from srv.database.db import get_db
 from srv.repository import users as repository_users
-from srv.conf.config import SECRET_KEY as KEY
-from srv.conf.config import ALGORITHM as ALGO
-from srv.conf.loging_conf import setup_logger
-
-logger = setup_logger(__name__)
+from srv.conf.config import configuration
+from srv.conf.loging_conf import global_logger as logger
 
 class Auth:
     pwd_context = CryptContext(schemes = 'bcrypt',deprecated = 'auto',bcrypt__rounds = 6)
-    SECRET_KEY = KEY
-    ALGORITHM = ALGO
+    SECRET_KEY = configuration.SECRET_KEY
+    ALGORITHM = configuration.ALGORITHM
 
     def verify_pass(self, plain_password, hashed_password):
         return self.pwd_context.verify(plain_password, hashed_password)

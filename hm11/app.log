@@ -22,3 +22,8 @@
 2024-12-10 12:30:26,752 - srv.services.email - ERROR - Exception raised Error connecting to smtp.meta.com on port 465: [Errno 8] nodename nor servname provided, or not known, check your credentials or email service configuration
 2024-12-10 12:34:06,386 - srv.database.db - ERROR - Session rollback due to exception: 'Depends' object has no attribute 'execute'
 2024-12-10 12:36:42,785 - srv.database.db - ERROR - Session rollback due to exception: 'Depends' object has no attribute 'execute'
+2024-12-10 14:26:35,884 - srv.database.db - ERROR - Session rollback due to exception: 409: Account already exists
+2024-12-10 18:30:50,360 - srv.conf.conn_rabbitMQ - INFO - Successfully connected to RabbitMQ
+2024-12-10 18:31:17,391 - srv.conf.conn_rabbitMQ - INFO - Successfully connected to RabbitMQ
+2024-12-10 18:32:54,842 - srv.conf.conn_rabbitMQ - INFO - Successfully connected to RabbitMQ
+2024-12-10 18:54:58,349 - global_logger - INFO - Successfully connected to RabbitMQ

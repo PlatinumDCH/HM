@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status, Security, BackgroundTasks, Request
+from fastapi import APIRouter, HTTPException, Depends, status, Security, Request
 from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -8,12 +8,11 @@ from srv.entity.models import UserToken, User
 from srv.repository import users as repository_users
 from srv.schemas.user import UserSchema, TokenSchema, UserResponse
 from srv.schemas.email import RequestEmail
+from RabbitMQService.publisher import publish_message
 from srv.services.auth import auth_service
-from srv.services.email import send_email
-from srv.services.RabbitMQServis.RMQ_produser import send_to_rabbitmq
-from srv.conf.loging_conf import setup_logger
+from RabbitMQService.RMQ_produser import send_to_rabbitmq
+from srv.conf.loging_conf import global_logger as logger
 
-logger = setup_logger(__name__)
 router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()
 
@@ -32,7 +31,7 @@ async def signup(body: UserSchema, request:Request, db:AsyncSession=Depends(get_
         'username': new_user.username,
         'host': str(request.base_url)
     }
-    await send_to_rabbitmq(email_task, queue_name='email_tasks')
+    await send_to_rabbitmq(email_task, queue_name='email_queue')
     return new_user
 
 @router.post('/login', response_model=TokenSchema)
@@ -74,13 +73,21 @@ async def refresh_token(credentials:HTTPAuthorizationCredentials=Security(get_re
     return {'access_token': new_access_token,'refresh_token':new_refresh_token,'token_type':'bearer'}
 
 @router.post('/request_email')
-async def request_email(body:RequestEmail, background_task:BackgroundTasks, request:Request,db:AsyncSession=Depends(get_db)):
+async def request_email(body:RequestEmail, request:Request,db:AsyncSession=Depends(get_db)):
     user = await repository_users.get_user_by_email(body.email, db)
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='User not found')
     if user.confirmed:
-        return {'message':'You email is already confirmed'}
-    if user:
-        background_task.add_task(send_email, user.email, user.username, str(request.base_url))
-    return {'message':'Check you email for confirmation'}
+        return {'message':'Your email is already confirmed'}
+    message = {
+                'email':user.email,
+                'username':user.username,
+                'host':str(request.base_url)}
+    try:
+        await publish_message(message)
+    except Exception as err:
+        logger.error(f"Error connecting to RabbitMQ: {err}")
+        raise HTTPException(status_code=500, detail="Failed to process the request")
 
 @router.get('/confirmed_email/{token}')
 async def confirmed_email(token:str, db:AsyncSession=Depends(get_db)):

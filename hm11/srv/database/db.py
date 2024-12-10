@@ -1,10 +1,10 @@
 import contextlib
 from sqlalchemy.ext.asyncio import AsyncEngine, async_sessionmaker, create_async_engine
 
-from srv.conf.config import config
-from srv.conf.loging_conf import setup_logger
+from srv.conf.config import configuration
+from srv.conf.loging_conf import global_logger as logger
 
-logger = setup_logger(__name__)
+
 
 class DatabaseSessionManager:
     def __init__(self, url:str):
@@ -29,7 +29,7 @@ class DatabaseSessionManager:
         finally:
             await session.close()
 
-sessionmanager = DatabaseSessionManager(config.DB_URL)
+sessionmanager = DatabaseSessionManager(configuration.DB_URL)
 
 async def get_db():
     async with sessionmanager.session() as session:
