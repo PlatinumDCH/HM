@@ -30,6 +30,8 @@ async def login(body: OAuth2PasswordRequestForm=Depends(), db:AsyncSession=Depen
     user = await repository_users.get_user_by_email(body.username, db) #usernmae->email
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='invalid email')
+    if not user.confirmed:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Not confirmed email')
     if not auth_service.verify_pass(body.password, user.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid pass')
     #создание токена
