@@ -313,3 +313,16 @@ client <-> JWT TOKEN <-> server
             await repository_users.update_token(user, new_refresh_token,db) - обновлеям рефреш токен в конерктного user
             return {'access_token': new_access_token,'refresh_token':new_refresh_token,'token_type':'bearer'} возвращаем новую пару токенов к который вшиты метаданные пользователя <email>
     
+
+----------------------------------------------------------------
+docker-compose up -d  запуск контейнеров
+docker-compose ps   проверить, что сервисы запустились
+если нужно апгейднуть docker-compose
+    docker-compose down   останавливает и удаляет текущие контейнеры.
+    docker-compose up -d
+
+----------------------------------------------------------------
+alembic revision --autogenerate -m 'Init' создать миграцию
+alembic upgrade head     применить миграцию
+
+----------------------------------------------------------------
