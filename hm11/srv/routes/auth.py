@@ -7,6 +7,7 @@ from srv.database.db import get_db
 from srv.entity.models import UserToken, User
 from srv.repository import users as repository_users
 from srv.schemas.user import UserSchema, TokenSchema, UserResponse
+from srv.schemas.email import RequestEmail
 from srv.services.auth import auth_service
 from srv.services.email import send_email
 from srv.conf.loging_conf import setup_logger
@@ -64,6 +65,15 @@ async def refresh_token(credentials:HTTPAuthorizationCredentials=Security(get_re
     new_refresh_token = await auth_service.create_refresh_token(data={'sub':user.email})
     await repository_users.update_token(user, new_refresh_token,db)
     return {'access_token': new_access_token,'refresh_token':new_refresh_token,'token_type':'bearer'}
+
+@router.post('/request_email')
+async def request_email(body:RequestEmail, background_task:BackgroundTasks, request:Request,db:AsyncSession=Depends(get_db)):
+    user = await repository_users.get_user_by_email(body.email, db)
+    if user.confirmed:
+        return {'message':'You email is already confirmed'}
+    if user:
+        background_task.add_task(send_email, user.email, user.username, str(request.base_url))
+    return {'message':'Check you email for confirmation'}
 
 @router.get('/confirmed_email/{token}')
 async def confirmed_email(token:str, db:AsyncSession=Depends(get_db)):
