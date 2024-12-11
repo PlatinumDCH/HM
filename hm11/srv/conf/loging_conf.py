@@ -8,7 +8,7 @@ def setup_logger()->logging.Logger:
     log_path.mkdir(parents=True, exist_ok=True)
 
     #settings info logger
-    formating = f'%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    formating = f'%(asctime)s - %(filename)s - %(name)s - %(levelname)s - %(message)s'
     formatter = logging.Formatter(formating)
 
     handler = logging.FileHandler(LOG_FILE)
