@@ -82,7 +82,8 @@ async def request_email(body:RequestEmail, request:Request,db:AsyncSession=Depen
     message = {
                 'email':user.email,
                 'username':user.username,
-                'host':str(request.base_url)}
+                'host':str(request.base_url)
+               }
     try:
         await publish_message(message)
     except Exception as err:
