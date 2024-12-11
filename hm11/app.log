@@ -48,3 +48,5 @@
 2024-12-11 12:09:13,695 - global_logger - INFO - Message precessed successfully : xoyemi9795@datingel.com
 2024-12-11 12:10:55,184 - global_logger - INFO - Dima open link
 2024-12-11 12:32:29,022 - global_logger - INFO - dima open link
+2024-12-11 16:25:12,824 - check_open.py - global_logger - INFO - Dima open link
+2024-12-11 16:36:56,558 - users.py - global_logger - INFO - Request to /me endpoint

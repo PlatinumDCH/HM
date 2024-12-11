@@ -24,6 +24,8 @@ libgravatar = "^1.0.4"
 fastapi-mail = "^1.4.2"
 aio-pika = "^9.5.3"
 python-dotenv = "^1.0.1"
+redis = "4.5"
+fastapi-limiter = "^0.1.6"
 
 
 [build-system]
