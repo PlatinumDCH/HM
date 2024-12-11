@@ -15,7 +15,7 @@ from srv.conf.loging_conf import global_logger as logger
 
 class Auth:
     pwd_context = CryptContext(schemes = 'bcrypt',deprecated = 'auto',bcrypt__rounds = 6)
-    SECRET_KEY = configuration.SECRET_KEY
+    SECRET_KEY = configuration.SECRET_KEY_JWT
     ALGORITHM = configuration.ALGORITHM
 
     def verify_pass(self, plain_password, hashed_password):

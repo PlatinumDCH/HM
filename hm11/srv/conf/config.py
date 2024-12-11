@@ -1,23 +1,33 @@
-from dotenv import load_dotenv
-import os
+from typing import Any
+from pydantic import ConfigDict, field_validator, EmailStr
+from pydantic_settings import BaseSettings
 
-load_dotenv()
-class Config:
-    DB_URL = f"{os.getenv('PG_DRIVER')}://{os.getenv('PG_USERNAME')}:" \
-             f"{os.getenv('PG_PASSWORD')}@{os.getenv('PG_HOST')}:" \
-             f"{os.getenv('PG_PORT')}/{os.getenv('PG_DATABASE')}"
-    SECRET_KEY = os.getenv('SECRET_KEY')
-    ALGORITHM = os.getenv('ALGORITHM')
-    MAIL_CONF = {
-        'mail': os.getenv('MAIL'),
-        'password': os.getenv('MAIL_PASSWORD'),
-        'port': int(os.getenv('MAIL_PORT')),
-        'mail_server': os.getenv('MAIL_SERVER')
-    }
-    RABBITMQ_URL = f"amqp://{os.getenv('RABBITMQ_USER')}:{os.getenv('RABBITMQ_PASSWORD')}@" \
-                   f"{os.getenv('RABBITMQ_HOST')}{os.getenv('RABBITMQ_VHOST')}"
+from srv.conf.loging_conf import global_logger as logger
 
-configuration = Config()
+class Settings(BaseSettings):
+    PG_URL:str="postgresql+asyncpg://postgres:000000@localhost:5432/contacts"
+    SECRET_KEY_JWT: str = "00000000000000000000000000000000"
+    ALGORITHM: str = "HS256"
+    MAIL_USERNAME:EmailStr = 'example@example.com'
+    MAIL_PASSWORD: str|None = None
+    MAIL_PORT: int = 587
+    MAIL_SERVER: str = 'smtp.example.com'
+    RABBITMQ_URL:str = 'http://localhost:'
+    REDIS_DOMAIN:str = 'http://localhost'
+    REDIS_PORT:int = 6379
+    REDIS_PASSWORD:str|None = None
+
+    @field_validator('ALGORITHM')
+    @classmethod
+    def validate_algorithm(cls, value:Any):
+        if value not in ['HS256', 'HS512']:
+            logger.warning('Invalid algorithm')
+            raise ValueError('Algorithm must be either HS256 or HS512')
+        return value
+
+    model_config = ConfigDict(extra='ignore',env_file=".env", env_file_encoding="utf-8")  # noqa
+
+configuration = Settings()
 
 
 

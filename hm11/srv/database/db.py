@@ -29,7 +29,7 @@ class DatabaseSessionManager:
         finally:
             await session.close()
 
-sessionmanager = DatabaseSessionManager(configuration.DB_URL)
+sessionmanager = DatabaseSessionManager(configuration.PG_URL)
 
 async def get_db():
     async with sessionmanager.session() as session:

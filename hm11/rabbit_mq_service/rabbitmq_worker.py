@@ -16,11 +16,11 @@ from srv.conf.loging_conf import global_logger as logger
 BASE_DIR = Path(__file__).resolve().parents[1]
 
 conf = ConnectionConfig(
-    MAIL_USERNAME=configuration.MAIL_CONF['mail'],
-    MAIL_PASSWORD=configuration.MAIL_CONF['password'],
-    MAIL_FROM=configuration.MAIL_CONF['mail'],
-    MAIL_PORT=configuration.MAIL_CONF['port'],
-    MAIL_SERVER=configuration.MAIL_CONF['mail_server'],
+    MAIL_USERNAME=configuration.MAIL_USERNAME,
+    MAIL_PASSWORD=configuration.MAIL_PASSWORD,
+    MAIL_FROM=configuration.MAIL_USERNAME,
+    MAIL_PORT=configuration.MAIL_PORT,
+    MAIL_SERVER=configuration.MAIL_SERVER,
     MAIL_FROM_NAME='Contact server',
     MAIL_STARTTLS=False,
     MAIL_SSL_TLS=True,
