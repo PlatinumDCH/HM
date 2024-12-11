@@ -12,14 +12,14 @@ class Settings(BaseSettings):
     MAIL_PASSWORD: str|None = None
     MAIL_PORT: int = 587
     MAIL_SERVER: str = 'smtp.example.com'
-    RABBITMQ_URL:str = 'http://localhost:'
+    RABBITMQ_URL:str = 'http://localhost'
     REDIS_DOMAIN:str = 'http://localhost'
     REDIS_PORT:int = 6379
     REDIS_PASSWORD:str|None = None
 
     @field_validator('ALGORITHM')
     @classmethod
-    def validate_algorithm(cls, value:Any):
+    def validate_algorithm(cls, value:str)->str:
         if value not in ['HS256', 'HS512']:
             logger.warning('Invalid algorithm')
             raise ValueError('Algorithm must be either HS256 or HS512')
