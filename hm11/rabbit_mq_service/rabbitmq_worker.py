@@ -38,20 +38,37 @@ async def process_message(message:IncomingMessage):
             email = task_data['email']
             username = task_data['username']
             host = task_data['host']
+            message_type = task_data['type']
 
-            # создание токена для подтверждения email
+            if not email or not username or not host or not message_type:
+                logger.error("Missing required fields in message.")
+                return
+            # создание токена для подтверждения email/reset_password
             token_verification = auth_service.create_email_token({'sub':email})
 
-           # формирование сообщения
-            message_schema = MessageSchema(
-                subject='Confirm your email',
-                recipients=[email],
-                template_body={'host':host, 'username':username,'token':token_verification},
-                subtype=MessageType.html,
-            )
-            fm=FastMail(conf)
-            await fm.send_message(message_schema, template_name='verify_email.html')
-            logger.info(f'Message precessed successfully : {email}')
+            if message_type == 'reset_password':
+                message_schema = MessageSchema(
+                    subject="Reset Your Password",
+                    recipients=[email],
+                    template_body={"host": host, "username": username,"token": token_verification},    
+                    subtype=MessageType.html,
+                )
+                template_name = 'reset_password_email.html'
+
+            elif message_type == 'email_verification':
+                message_schema = MessageSchema(
+                    subject='Confirm your email',
+                    recipients=[email],
+                    template_body={'host':host, 'username':username,'token':token_verification},
+                    subtype=MessageType.html,
+                )
+                template_name='verify_email.html'
+            else:
+                logger.warning(f"Unknown message type: {message_type}")
+                return
+            fm = FastMail(conf)
+            await fm.send_message(message_schema, template_name=template_name)
+            logger.info(f'Message precessed successfully : {email}. Type: {message_type}')
     except Exception as err:
         logger.error(f'Failed to process message: {err}')
         raise
@@ -73,9 +90,12 @@ async def main():
                         durable=True
                     )
 
-                # Объявление очереди
+                # Объявляем очередь и связываем с routing_key
                 queue = await channel.declare_queue('email_queue', durable=True)
-                await queue.bind(exchange, routing_key="email_queue")
+                await queue.bind(exchange, routing_key="reset_password")
+                await queue.bind(exchange, routing_key="email_verification")
+                
+                # Запускаем обработку сообщений
                 await queue.consume(process_message)
                 logger.info("Worker is consuming messages...")
 
@@ -90,6 +110,7 @@ async def main():
                 await asyncio.sleep(5)
             else:
                 logger.critical('Max retry attempts reached.Exiting')
+                
 if __name__ == '__main__':
     asyncio.run(main())
 

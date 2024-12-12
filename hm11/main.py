@@ -13,7 +13,7 @@ from sqlalchemy import text
 from fastapi.staticfiles import StaticFiles
 
 from srv.database.db import get_db
-from srv.routes import contacts, auth, check_open, users
+from srv.routes import contacts, auth, check_open, users, reset_pass
 from srv.conf.loging_conf import global_logger as logger
 from srv.conf.config import configuration
 from srv.conf.cors_conf import CorsBaned
@@ -62,7 +62,7 @@ app.include_router(router=check_open.router, prefix='/api', dependencies=[Depend
 app.include_router(router=auth.router, prefix='/api')
 app.include_router(router=contacts.router, prefix="/api",dependencies=[Depends(RateLimiter(times=3, seconds=20))])
 app.include_router(users.router, prefix="/api")
-
+app.include_router(router=reset_pass.router, prefix="/api")
 
 
 templates = Jinja2Templates(directory=BASE_DIR/'srv/templates')
