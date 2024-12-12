@@ -52,6 +52,46 @@ async def update_token(user:User, token:str|None, db:AsyncSession):
         await db.rollback()
         logger.error(f"Failed to update user's token: {err}")
         raise err
+    
+async def update_reset_pasw_token(user:User, token:str|None, db:AsyncSession):
+    try:
+        user_query = select(UserToken).filter_by(user_id = user.id)
+        result = await db.execute(user_query)
+        user_token = result.scalar_one_or_none()
+        if user_token:
+            user_query = (
+                update(UserToken)
+                .where(UserToken.user_id == user.id)
+                .values(reset_password_token=token))
+            await db.execute(user_query)
+        else:
+            new_token = UserToken(user_id=user.id, reset_password_token=token)
+            db.add(new_token)
+        await db.commit()
+    except Exception as err:
+        await db.rollback()
+        logger.error(f'Failed to update reset password token: {err}')
+        raise err
+
+async def update_email_token(user:User, token:str|None, db:AsyncSession):
+    try:
+        user_query = select(UserToken).filter_by(user_id = user.id)
+        result = await db.execute(user_query)
+        user_token = result.scalar_one_or_none()
+        if user_token:
+            user_query = (
+                update(UserToken)
+                .where(UserToken.user_id == user.id)
+                .values(email_token=token))
+            await db.execute(user_query)
+        else:
+            new_token = UserToken(user_id=user.id, email_token=token)
+            db.add(new_token)
+        await db.commit()
+    except Exception as err:
+        await db.rollback()
+        logger.error(f'Failed to update reset password token: {err}')
+        raise err
 
 async def confirmed_email(email:str, db:AsyncSession)->None:
     user = await get_user_by_email(email, db) #получение почты пользователя

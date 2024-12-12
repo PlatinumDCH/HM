@@ -26,12 +26,14 @@ async def signup(body: UserSchema, request:Request, db:AsyncSession=Depends(get_
     body.password = auth_service.get_pass_hash(body.password)
     new_user = await repository_users.create_user(body, db)
 
+    mail_token = await auth_service.create_email_token({'sub': new_user.email})
     email_task = {
         'email': new_user.email,
         'username': new_user.username,
         'host': str(request.base_url),
-        'type':'email_verification'
-    }
+        'type':'email_verification',
+        'verification_token':mail_token}
+    await repository_users.update_token(new_user, mail_token, db)
     await send_to_rabbitmq(email_task, queue_name='email_verification')
     return new_user
 
@@ -80,12 +82,14 @@ async def request_email(body:RequestEmail, request:Request,db:AsyncSession=Depen
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='User not found')
     if user.confirmed:
         return {'message':'Your email is already confirmed'}
+    mail_token = await auth_service.create_email_token({'sub': user.email})
     message = {
                 'email':user.email,
                 'username':user.username,
                 'host':str(request.base_url),
-                'type': 'email_verification'
-               }
+                'type': 'email_verification',
+                'verification_token':mail_token}
+    await repository_users.update_token(user, mail_token, db)
     try:
         await publish_message(message, 'email_verification')
     except Exception as err:

@@ -109,12 +109,24 @@ class Auth:
             user = pickle.loads(user)
         return user
 
-    def create_email_token(self, data:dict):
-        to_encode = data.copy()
+    async def create_email_token(self, data:dict):
+        user_data = dict(data)
+        to_encode = user_data.copy()
         expire = datetime.now(pytz.UTC) + timedelta(days=7)
         to_encode.update(
             {'iat':datetime.now(pytz.UTC),
              'exp':expire}
+        )
+        token = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
+        return token
+
+    async def create_password_reset_token(self, data:dict):
+        user_data = dict(data)
+        to_encode = user_data.copy()
+        expire = datetime.now(pytz.UTC) + timedelta(minutes=5)
+        to_encode.update(
+            {'iat':datetime.now(pytz.UTC),
+            'exp':expire}
         )
         token = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
         return token

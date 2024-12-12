@@ -39,12 +39,11 @@ async def process_message(message:IncomingMessage):
             username = task_data['username']
             host = task_data['host']
             message_type = task_data['type']
+            token_verification = task_data['verification_token']
 
             if not email or not username or not host or not message_type:
                 logger.error("Missing required fields in message.")
                 return
-            # создание токена для подтверждения email/reset_password
-            token_verification = auth_service.create_email_token({'sub':email})
 
             if message_type == 'reset_password':
                 message_schema = MessageSchema(
