@@ -12,10 +12,13 @@ class Settings(BaseSettings):
     MAIL_PASSWORD: str|None = None
     MAIL_PORT: int = 587
     MAIL_SERVER: str = 'smtp.example.com'
-    RABBITMQ_URL:str = 'http://localhost'
-    REDIS_DOMAIN:str = 'http://localhost'
-    REDIS_PORT:int = 6379
-    REDIS_PASSWORD:str|None = None
+    RABBITMQ_URL: str = 'http://localhost'
+    REDIS_DOMAIN: str = 'http://localhost'
+    REDIS_PORT: int = 6379
+    REDIS_PASSWORD: str|None = None
+    CLD_NAME: str = 'contacts_API'
+    CLD_API_KEY: int = 125632
+    CLD_API_SECRET: str = '<secret_key>'
 
     @field_validator('ALGORITHM')
     @classmethod

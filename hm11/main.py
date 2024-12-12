@@ -1,6 +1,7 @@
 import re
 from typing import Callable
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
 import redis.asyncio as redis
 from fastapi import FastAPI, Depends, HTTPException, Request, status
 from fastapi_limiter import FastAPILimiter
@@ -60,9 +61,14 @@ app.include_router(router=auth.router, prefix='/api')
 app.include_router(router=contacts.router, prefix="/api",dependencies=[Depends(RateLimiter(times=3, seconds=20))])
 app.include_router(users.router, prefix="/api")
 
-@app.get("/")
-def index()->dict:
-    return {"message": "Contact Application"}
+
+
+templates = Jinja2Templates(directory='srv/templates')
+
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request)->dict:
+    return templates.TemplateResponse('index.html', context={'request':request,
+                                                             'our':'Build with FastAPI'})
 
 
 @app.get("/api/healthchecker")
