@@ -33,7 +33,7 @@ async def signup(body: UserSchema, request:Request, db:AsyncSession=Depends(get_
         'host': str(request.base_url),
         'type':'email_verification',
         'verification_token':mail_token}
-    await repository_users.update_token(new_user, mail_token, db)
+    await repository_users.update_email_token(new_user, mail_token, db)
     await send_to_rabbitmq(email_task, queue_name='email_verification')
     return new_user
 
@@ -89,7 +89,7 @@ async def request_email(body:RequestEmail, request:Request,db:AsyncSession=Depen
                 'host':str(request.base_url),
                 'type': 'email_verification',
                 'verification_token':mail_token}
-    await repository_users.update_token(user, mail_token, db)
+    await repository_users.update_email_token(user, mail_token, db)
     try:
         await publish_message(message, 'email_verification')
     except Exception as err:
