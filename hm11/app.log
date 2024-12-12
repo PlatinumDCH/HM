@@ -50,3 +50,5 @@
 2024-12-11 12:32:29,022 - global_logger - INFO - dima open link
 2024-12-11 16:25:12,824 - check_open.py - global_logger - INFO - Dima open link
 2024-12-11 16:36:56,558 - users.py - global_logger - INFO - Request to /me endpoint
+2024-12-12 14:24:22,416 - auth.py - global_logger - INFO - User gesipew657@eoilup.com from cache
+2024-12-12 14:24:22,424 - users.py - global_logger - INFO - Request to /me endpoint

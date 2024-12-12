@@ -1,3 +1,4 @@
+import pickle
 import cloudinary
 import cloudinary.uploader
 
@@ -68,4 +69,6 @@ async def get_current_user(
         version=resurs.get('version')
     )
     user = await repository_users.update_avatar_url(user.email, resurs_url, db)
+    auth_service.cache.set(user.email, pickle.dumps(user))
+    auth_service.cache.expire(user.email, 500)
     return user

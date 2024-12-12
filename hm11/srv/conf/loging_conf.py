@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-LOG_FILE = '/Users/plarium/Python/cources/Python_web/hm/hm11/app.log'
+LOG_FILE = '/Users/plarium/Develop/cources/Python_web/hm/hm11/app.log'
 
 def setup_logger()->logging.Logger:
     log_path = Path(LOG_FILE).parent
