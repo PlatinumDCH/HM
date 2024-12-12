@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 from typing import Callable
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -53,8 +54,9 @@ async def user_agent_ban_niddleware(request:Request, call_next: Callable):
     response = await call_next(request)
     return response
 
+BASE_DIR = Path('.')
 
-app.mount('/static', StaticFiles(directory='srv/static'), name ='static')
+app.mount('/static', StaticFiles(directory=BASE_DIR/'srv/static'), name ='static')
 
 app.include_router(router=check_open.router, prefix='/api', dependencies=[Depends(RateLimiter(times=2,seconds=60))])
 app.include_router(router=auth.router, prefix='/api')
@@ -63,7 +65,7 @@ app.include_router(users.router, prefix="/api")
 
 
 
-templates = Jinja2Templates(directory='srv/templates')
+templates = Jinja2Templates(directory=BASE_DIR/'srv/templates')
 
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request)->dict:
