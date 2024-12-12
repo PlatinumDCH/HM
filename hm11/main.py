@@ -1,5 +1,8 @@
+import re
+from typing import Callable
+from fastapi.responses import JSONResponse
 import redis.asyncio as redis
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Request, status
 from fastapi_limiter import FastAPILimiter
 from fastapi_limiter.depends import RateLimiter
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -11,6 +14,7 @@ from srv.database.db import get_db
 from srv.routes import contacts, auth, check_open, users
 from srv.conf.loging_conf import global_logger as logger
 from srv.conf.config import configuration
+from srv.conf.cors_conf import CorsBaned
 
 async def lifespan(app: FastAPI):
     r = await redis.Redis(
@@ -36,6 +40,19 @@ def configure_cors(app:FastAPI)->None:
     )
 
 configure_cors(app)
+
+@app.middleware('http')
+async def user_agent_ban_niddleware(request:Request, call_next: Callable):
+    user_agent = request.headers.get('user-agent')
+    for ban_pattern in CorsBaned.USER_AGENTS.value:
+        if re.search(ban_pattern, user_agent):
+            return JSONResponse(
+                status_code=status.HTTP_403_FORBIDDEN, 
+                content={"detail": "You are baned"})
+    response = await call_next(request)
+    return response
+
+
 app.mount('/static', StaticFiles(directory='srv/static'), name ='static')
 
 app.include_router(router=check_open.router, prefix='/api', dependencies=[Depends(RateLimiter(times=2,seconds=60))])
