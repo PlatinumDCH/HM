@@ -1,0 +1,8 @@
+2024-12-13 17:21:56,901 - contact.py - global_logger - INFO - Data of bitsh is in the future
+2024-12-13 17:26:40,590 - contact.py - global_logger - INFO - Data of bitsh is in the future
+2024-12-13 18:45:52,674 - conection_postgres.py - global_logger - ERROR - Session rollback, exception: When initializing mapper Mapper[ContactsTable(contact)], expression 'User' failed to locate a name ('User'). If this is a class name, consider adding this relationship() to the <class 'src.entity.contacts.contacts_model.ContactsTable'> class after both dependent classes have been defined.
+2024-12-13 18:50:10,906 - conection_postgres.py - global_logger - ERROR - Session rollback, exception: When initializing mapper Mapper[ContactsTable(contact)], expression 'UsersTabler' failed to locate a name ('UsersTabler'). If this is a class name, consider adding this relationship() to the <class 'src.entity.contacts.contacts_model.ContactsTable'> class after both dependent classes have been defined.
+2024-12-13 19:04:49,139 - conection_postgres.py - global_logger - ERROR - Session rollback, exception: When initializing mapper Mapper[UserTokensTeble(user_tokens)], expression 'User' failed to locate a name ('User'). If this is a class name, consider adding this relationship() to the <class 'src.entity.models.UserTokensTeble'> class after both dependent classes have been defined.
+2024-12-13 19:08:11,525 - contacts.py - global_logger - INFO - contact created with id: 2
+2024-12-13 19:09:08,374 - contacts.py - INFO - contact created with id: 3
+INFO-2024-12-13 19:09:55,150-contacts.py-contact created with id: 4
