@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from src.database import get_connection_db
 from src.repository import users as repository_users
 from src.schemas import UserSchema,UserResponse
-from src.schemas import UserSchema
+from src.schemas import UserSchema, TokenSchema
 from src.services import basic_service
 from src.config import settings
 from src.config import logger
@@ -87,14 +87,14 @@ async def login(body: OAuth2PasswordRequestForm=Depends(),
         }
 
 
-@router.get('/refresh_token')
+@router.get('/refresh_token', response_model=TokenSchema)
 async def refresh_token(
     credentials:HTTPAuthorizationCredentials=Security(get_refresh_token),
     db:AsyncSession=Depends(get_connection_db)):
     coming_refresh_token = credentials.credentials
-    decode_email = await basic_service.jwt_service.decode_refresh_token(coming_refresh_token)
+    decode_email = await basic_service.jwt_service.decode_token(coming_refresh_token, settings.refresh_token)
     user = await repository_users.get_user_by_email(decode_email, db)
-    old_refresh_token = repository_users.get_token(user,settings.refresh_token, db)
+    old_refresh_token = await repository_users.get_token(user,settings.refresh_token, db)
     try:
         if not old_refresh_token or old_refresh_token != coming_refresh_token:
             logger.error('input RefreshToken != RefreshToken in db, or token not yiet in DB')

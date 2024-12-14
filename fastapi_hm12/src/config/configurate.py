@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     CLD_API_KEY: int = 125632
     CLD_API_SECRET: str = '<secret_key>'
     refresh_token:str = 'refresh_token'
+    access_token:str = 'access_token'
     reset_password_token:str = 'reset_password_token'
     email_token:str = 'email_token'
 

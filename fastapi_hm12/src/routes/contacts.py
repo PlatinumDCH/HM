@@ -17,8 +17,11 @@ async def get_contacts(
     db: AsyncSession = Depends(get_connection_db),
     user:UsersTable=Depends(basic_service.auth_service.get_current_user)
 ) -> list[ContactsTable]:
-    """получить список контактов, привязка к пользователю"""
-    contacts = await repositories_contacts.get_contacts(limit, offset, db)
+    """получить список контактов, привязка к пользователю  GET
+    http://127.0.0.1:8000/api/contacts/?limit=10&offset=0
+    barer token: access token
+    """
+    contacts = await repositories_contacts.get_contacts(limit, offset, db, user)
     return contacts
 
 @router.post("/", response_model=ContactResponse, status_code=status.HTTP_201_CREATED)
@@ -26,8 +29,13 @@ async def create_contact(
         body: ContactCreateSchema,
         db: AsyncSession = Depends(get_connection_db),
         user: UsersTable = Depends(basic_service.auth_service.get_current_user)):
-    """создать контакт, привязка к пользователю"""
-    contact = await repositories_contacts.create_contact(body, db)
+    """
+    создать контакт, привязка к пользователю POST
+    http://127.0.0.1:8000/api/contacts
+    raw JSON :ContactCreateShema 
+    auteticate: barer token: access token
+    """
+    contact = await repositories_contacts.create_contact(body, db, user)
     logger.info(f"contact created with id: {contact.id}")
     return contact
 
@@ -38,7 +46,12 @@ async def search_contacts(
         email:str = Query(None, description='Optional email to search'),
         db:AsyncSession = Depends(get_connection_db),
         user: UsersTable = Depends(basic_service.auth_service.get_current_user)):
-    """Поиск контактов по имени, фамили email"""
+    """
+    Поиск контактов по first_name, last_name, email  GET
+    http://127.0.0.1:8000/api/contacts/search?email=user2
+    params: Optional[first_name=X, last_name=X, email=X]
+    auteticate: barer token: access token
+    """
     if not any([first_name, last_name, email]):
         raise HTTPException(
             status_code=400,
@@ -47,7 +60,8 @@ async def search_contacts(
         first_name,
         last_name,
         email,
-        db)
+        db,
+        user)
     
     if not contacts:
         raise HTTPException(status_code=404, detail='Not contacts found')
@@ -56,8 +70,12 @@ async def search_contacts(
 @router.get('/upcoming_birthdays', response_model=list[ContactResponse])
 async def upcoming_birthdays(db: AsyncSession = Depends(get_connection_db),
                              user: UsersTable = Depends(basic_service.auth_service.get_current_user)):
-    """Получить список контактов с датой рождения на 7 дней"""
-    upcoming_contacts = await repositories_contacts.get_upcoming_birthdays(db)
+    """
+    Получить список контактов с датой рождения на 7 дней  GET
+    http://127.0.0.1:8000/api/contacts/upcoming_birthdays
+    auteticate: barer token: access token
+    """
+    upcoming_contacts = await repositories_contacts.get_upcoming_birthdays(db,user)
     if not upcoming_birthdays:
         raise HTTPException(
             status_code=404,
@@ -69,8 +87,12 @@ async def get_contact(
     contact_id: int = Path(ge=1), db: AsyncSession = Depends(get_connection_db),
     user: UsersTable = Depends(basic_service.auth_service.get_current_user)
 ):
-    """ получить контакт по id"""
-    contact = await repositories_contacts.get_contact(contact_id, db)
+    """
+    получить контакт по id  GET
+    http://127.0.0.1:8000/api/contacts/6
+    auteticate: barer token: access token
+    """
+    contact = await repositories_contacts.get_contact(contact_id, db, user)
     if contact is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="NOT FOUND")
     return contact
@@ -82,8 +104,13 @@ async def update_contact(
         contact_id: int = Path(ge=1),
         db: AsyncSession = Depends(get_connection_db),
         user: UsersTable = Depends(basic_service.auth_service.get_current_user)):
-    """ Обновить контакт по id"""
-    contact = await repositories_contacts.update_contact(contact_id, body, db)
+    """ 
+    Обновить контакт по id PUT
+    http://127.0.0.1:8000/api/contacts/6
+    raw JSON: ContactCreateShema
+    auteticate: barer token: access token
+    """
+    contact = await repositories_contacts.update_contact(contact_id, body, db, user)
     if contact is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="NOT FOUND")
     return contact
@@ -93,6 +120,10 @@ async def delete_contact(
         contact_id: int = Path(ge=1),
         db: AsyncSession = Depends(get_connection_db),
         user: UsersTable = Depends(basic_service.auth_service.get_current_user)):
-    """Удалить контакт по id"""
-    contact = await repositories_contacts.delete_contact(contact_id, db)
+    """
+    Удалить контакт по id
+    http://127.0.0.1:8000/api/contacts/5
+    auteticate: barer token: access token
+    """
+    contact = await repositories_contacts.delete_contact(contact_id, db, user)
     return contact

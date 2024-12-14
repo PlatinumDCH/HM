@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from src.repository import users as repository_users
 from src.services.jwt_service import JWTService
 from src.database import get_connection_db
+from src.config import settings
 
 class AuthService:
     auth2_scheme = OAuth2PasswordBearer(tokenUrl='api/auth/login')
@@ -16,16 +17,16 @@ class AuthService:
             headers={'WWW-Authenticate': 'Bearer'}
         )
         try:
-            payload = JWTService().decode_refresh_token(token)
-            if payload['scope'] == 'access_token':
-                email = payload['sub']  # Субъект (email)
-                if email is None:
-                    raise credentials_exception
-            else:
+            
+            email = await JWTService().decode_token(token, settings.access_token)
+            if email is None:
                 raise credentials_exception
         except JWTError as err:
             raise credentials_exception
+        
+        
         user = await repository_users.get_user_by_email(email, db)
         if user is None:
             raise credentials_exception
+        
         return user

@@ -7,3 +7,38 @@
 2024-12-13 19:09:08,374 - contacts.py - INFO - contact created with id: 3
 INFO-2024-12-13 19:09:55,150-contacts.py-contact created with id: 4
 ERROR - 2024-12-14 00:36:28,686  -conection_postgres.py - Session rollback, exception: module 'jwt' has no attribute 'encode'
+ERROR - 2024-12-14 03:04:00,281  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 03:09:14,818  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 03:09:35,658  -autirisation.py - input RefreshToken != RefreshToken in db, or token not yiet in DB
+ERROR - 2024-12-14 03:09:35,658  -autirisation.py - Error pocessing refresh token for user: dimacheban23@meta.ua-401: Interval server error 
+ERROR - 2024-12-14 03:09:35,658  -conection_postgres.py - Session rollback, exception: 500: Interval server error 
+ERROR - 2024-12-14 09:37:36,776  -autirisation.py - input RefreshToken != RefreshToken in db, or token not yiet in DB
+ERROR - 2024-12-14 09:37:36,777  -autirisation.py - Error pocessing refresh token for user: dimacheban23@meta.ua-401: Interval server error 
+ERROR - 2024-12-14 09:37:36,777  -conection_postgres.py - Session rollback, exception: 500: Interval server error 
+ERROR - 2024-12-14 10:52:13,722  -conection_postgres.py - Session rollback, exception: 401: Invalid pass
+ERROR - 2024-12-14 10:52:27,708  -conection_postgres.py - Session rollback, exception: 'coroutine' object is not subscriptable
+ERROR - 2024-12-14 10:57:48,312  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+ERROR - 2024-12-14 11:07:08,638  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+ERROR - 2024-12-14 11:07:29,023  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+ERROR - 2024-12-14 11:24:18,114  -conection_postgres.py - Session rollback, exception: type object 'ContactsTable' has no attribute 'user_id'
+ERROR - 2024-12-14 11:26:15,011  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 11:26:57,541  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 11:27:01,185  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 11:27:29,859  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 11:27:53,442  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 11:29:54,338  -conection_postgres.py - Session rollback, exception: 401: Not authenticated
+ERROR - 2024-12-14 12:18:58,128  -conection_postgres.py - Session rollback, exception: 401: Not authenticated
+INFO - 2024-12-14 12:19:32,650  -contacts.py - contact created with id: 5
+ERROR - 2024-12-14 12:20:16,186  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+INFO - 2024-12-14 12:21:32,266  -contacts.py - contact created with id: 6
+ERROR - 2024-12-14 12:44:00,884  -conection_postgres.py - Session rollback, exception: 401: Not authenticated
+ERROR - 2024-12-14 12:44:24,685  -conection_postgres.py - Session rollback, exception: 'JWTService' object has no attribute 'decode_refresh_token'
+ERROR - 2024-12-14 12:49:11,012  -conection_postgres.py - Session rollback, exception: 401: Not authenticated
+ERROR - 2024-12-14 12:49:45,012  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 12:50:04,998  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 12:50:27,543  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 12:50:47,696  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 12:51:54,383  -conection_postgres.py - Session rollback, exception: 401: Not authenticated
+ERROR - 2024-12-14 12:55:20,800  -conection_postgres.py - Session rollback, exception: 404: NOT FOUND
+ERROR - 2024-12-14 12:57:48,463  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
+ERROR - 2024-12-14 13:00:35,359  -conection_postgres.py - Session rollback, exception: 401: Not authenticated

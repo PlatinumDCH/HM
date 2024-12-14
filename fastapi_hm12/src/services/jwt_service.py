@@ -18,7 +18,7 @@ class JWTService:
         if expires_delta:
             expire = unc_now + timedelta(minutes=expires_delta)
         else:
-            expire = unc_now + timedelta(minutes=20)
+            expire = unc_now + timedelta(minutes=45)
         to_encode.update(
             {'iat': datetime.now(pytz.UTC),  # time created token
              'exp': expire,  # finishing time token
@@ -51,15 +51,15 @@ class JWTService:
             algorithm=self.ALGORITHM)
         return encoded_refresh_token
     
-    async def decode_refresh_token(self, refresh_token: str) -> str:
-        """return email from refresh token"""
+    async def decode_token(self, token: str, token_type: str) -> str:
+        """return email from  token"""
         try:
             payload = jwt.decode(
-            refresh_token, 
+            token, 
             self.SECRET_KEY, 
             algorithms=[self.ALGORITHM]
             )
-            if payload['scope'] == 'refresh_token':
+            if payload['scope'] == token_type:
                 email = payload['sub']
                 return email
             raise HTTPException(
