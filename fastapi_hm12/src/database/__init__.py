@@ -1,1 +1,2 @@
 from src.database.conection_postgres import get_connection_db
+from src.database.connection_rabbit import get_rabbit_connection

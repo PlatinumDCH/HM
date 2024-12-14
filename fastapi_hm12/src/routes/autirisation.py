@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Security
 from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials
-from fastapi import status, HTTPException
+from fastapi import status, HTTPException, Request
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.security import HTTPAuthorizationCredentials
 from fastapi.security import HTTPBearer
@@ -18,7 +18,11 @@ router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()
 
 @router.post('/signup', response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-async def signup(body: UserSchema, db:AsyncSession=Depends(get_connection_db)):
+async def signup(
+    body: UserSchema, 
+    request:Request,
+    db:AsyncSession=Depends(get_connection_db)
+    ):
     """body: форма заполнения
        db: сессия базы данных """
     exists_user = await repository_users.get_user_by_email(body.email, db)
@@ -29,6 +33,10 @@ async def signup(body: UserSchema, db:AsyncSession=Depends(get_connection_db)):
             )
     body.password = basic_service.password_service.get_password_hash(body.password)
     new_user = await repository_users.create_user(body, db)
+    await db.refresh(new_user)
+    email_token = await basic_service.email_service.creare_email_token({'sub':new_user.email})
+    await repository_users.update_token(new_user, email_token, settings.email_token, db)
+    await basic_service.email_service.send_email(new_user, email_token, request)
     return new_user
     
 @router.post('/login')
@@ -62,6 +70,11 @@ async def login(body: OAuth2PasswordRequestForm=Depends(),
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, 
             detail='invalid email'
+            )
+    if not user.confirmed:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail='Account not confirmed, check email'
             )
     if not basic_service.password_service.verify_password(
         body.password, 

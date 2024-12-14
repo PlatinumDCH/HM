@@ -42,3 +42,13 @@ ERROR - 2024-12-14 12:51:54,383  -conection_postgres.py - Session rollback, exce
 ERROR - 2024-12-14 12:55:20,800  -conection_postgres.py - Session rollback, exception: 404: NOT FOUND
 ERROR - 2024-12-14 12:57:48,463  -conection_postgres.py - Session rollback, exception: 401: Could not validate credentials
 ERROR - 2024-12-14 13:00:35,359  -conection_postgres.py - Session rollback, exception: 401: Not authenticated
+ERROR - 2024-12-14 13:14:35,008  -conection_postgres.py - Session rollback, exception: 401: invalid email
+ERROR - 2024-12-14 13:15:05,452  -conection_postgres.py - Session rollback, exception: 401: Account not confirmed, check email
+INFO - 2024-12-14 15:44:35,845  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 15:44:35,853  -worker.py - Worker is consuming messages...
+INFO - 2024-12-14 15:45:20,233  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 15:45:20,238  -worker.py - Worker is consuming messages...
+ERROR - 2024-12-14 15:48:01,716  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+ERROR - 2024-12-14 15:49:20,420  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 15:54:06,979  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+ERROR - 2024-12-14 15:54:40,935  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
