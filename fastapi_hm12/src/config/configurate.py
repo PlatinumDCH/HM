@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     CLD_NAME: str = 'contacts_API'
     CLD_API_KEY: int = 125632
     CLD_API_SECRET: str = '<secret_key>'
+    refresh_token:str = 'refresh_token'
+    reset_password_token:str = 'reset_password_token'
+    email_token:str = 'email_token'
 
     @field_validator('ALGORITHM')
     @classmethod

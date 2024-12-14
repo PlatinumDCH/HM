@@ -6,3 +6,4 @@
 2024-12-13 19:08:11,525 - contacts.py - global_logger - INFO - contact created with id: 2
 2024-12-13 19:09:08,374 - contacts.py - INFO - contact created with id: 3
 INFO-2024-12-13 19:09:55,150-contacts.py-contact created with id: 4
+ERROR - 2024-12-14 00:36:28,686  -conection_postgres.py - Session rollback, exception: module 'jwt' has no attribute 'encode'

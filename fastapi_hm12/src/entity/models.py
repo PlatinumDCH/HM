@@ -44,7 +44,7 @@ class UsersTable(BaseModel):
     confirmed: Mapped["bool"] = mapped_column(Boolean, default=False, nullable=True)
 
 
-class UserTokensTeble(BaseModel):
+class UserTokensTable(BaseModel):
     __tablename__ = "user_tokens"
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     refresh_token: Mapped[str] = mapped_column(String(255), nullable=True)
