@@ -40,7 +40,9 @@ async def signup(
     body.password = basic_service.password_service.get_password_hash(body.password)
 
     new_user = await repository_users.create_user(body, db)
-    email_token = await basic_service.email_service.create_email_token({'sub':new_user.email})
+    email_token = await basic_service.email_service.create_service_email_token(
+        {'sub':new_user.email},
+        settings.email_token)
 
     email_task = {
                 'email': new_user.email,
@@ -72,7 +74,7 @@ async def login(body: OAuth2PasswordRequestForm=Depends(),
         nead feal:
             username:str [usefull email users]
             password:str XxX
-            Optional:    scpe: список областей доступа
+            Optional:    scope: список областей доступа
             Optional:    grand_type: [usefull <password>] Для парольной аунт.
             Optional:    cliend id:xXx
             Optional:    client_secret: xXx

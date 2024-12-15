@@ -13,7 +13,12 @@ class EmailService:
     SECRET_KEY = settings.SECRET_KEY_JWT
     ALGORITHM = settings.ALGORITHM
 
-    async def create_email_token(self, data:dict, expires_delta:Optional[float]=None):
+    async def create_service_email_token(
+            self, 
+            data:dict, 
+            token_type:str,
+            expires_delta:Optional[float]=None
+            ):
         to_encode = data.copy()
         unc_now = datetime.now(pytz.UTC)
         if expires_delta:
@@ -23,13 +28,14 @@ class EmailService:
         to_encode.update({
             'exp':expire,
             'iat':datetime.now(pytz.UTC),
-            'scope': 'email_token'
+            'scope': token_type
         })
         encoded_email_token = jwt.encode(
             to_encode, 
             self.SECRET_KEY, 
             algorithm=self.ALGORITHM
             )
+        logger.info(f'token type {to_encode['scope']}')
         return encoded_email_token
     
     

@@ -25,13 +25,12 @@ conf = ConnectionConfig(
     MAIL_STARTTLS=False,
     MAIL_SSL_TLS=True,
     USE_CREDENTIALS=True,
-    VALIDATE_CERTS=True,
+    VALIDATE_CERTS=False,
     TEMPLATE_FOLDER= BASE_DIR / 'templates'
 )
 
 async def process_message(message:IncomingMessage):
     """Обработка входящего сообщения из очереди"""
-    logger.info(f"Processing message: {message.body}")
     try:
         async with message.process():
             try:
@@ -55,7 +54,7 @@ async def process_message(message:IncomingMessage):
                     template_body={"host": host, "username": username,"token": token},    
                     subtype=MessageType.html,
                 )
-                template_name = 'reset_password_email.html'
+                template_name = 'psw_reset.html'
 
             elif message_type == 'confirm_email':
                 logger.info("Processing confirm email message")
@@ -106,7 +105,7 @@ async def main():
                 # Ожидание новых сообщений
                 while True:
                     await asyncio.sleep(1)
-                    
+
         except Exception as err:
             retry_count += 1
             logger.error(f'An error occurred in the main loop: {err}')

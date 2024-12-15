@@ -52,13 +52,14 @@ class JWTService:
         return encoded_refresh_token
     
     async def decode_token(self, token: str, token_type: str) -> str:
-        """return email from  token"""
+        """возврат емейла, проверка вермини действия токена"""
         try:
             payload = jwt.decode(
             token, 
             self.SECRET_KEY, 
             algorithms=[self.ALGORITHM]
             )
+            # проверка на наличие времени истечения действия токена
             exp = payload.get('exp')
             if exp is None:
                 raise JWTError('Token has no exporation time')
@@ -68,16 +69,20 @@ class JWTService:
             if utc_now > datetime.fromtimestamp(payload['exp'], tz=pytz.UTC):
                 raise JWTError('Token has expired')
 
-            if payload['scope'] == token_type:
-                return payload['sub']
+            #проверка на тип токена
+            if payload['scope'] != token_type:
+                raise JWTError('Invalid token type')
             
+            return payload.get('sub')
+            
+        except JWTError as err:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED, 
-                detail='Invalid scope for token'
+                detail=str(err)
+                )
+        except Exception as err:
+            HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, 
+                detail='Invalid token'
                 )
         
-        except JWTError:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED, 
-                detail='Could not validate credentials'
-                )

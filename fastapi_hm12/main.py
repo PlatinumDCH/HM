@@ -6,10 +6,24 @@ from src.database import get_connection_db
 from src.config import logger
 from src.routes import contacts, autorisation, users
 from pathlib import Path
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
 
 BASE_DIR = Path('.')
+
 app = FastAPI()
 
+#без єтой штуку брузер не сможет виполнять запроси
+allow_origins=['*']
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=['*'],
+    allow_methods=['*'],
+    allow_headers=['*']
+)
 
 app.mount('/static', StaticFiles(directory='src/static'), name='static')
 
@@ -32,3 +46,4 @@ async def healthchecker(db: AsyncSession = Depends(get_connection_db)):
     except Exception as err:    
         logger.critical('Database connection error, {err}')
         raise HTTPException(status_code=500, detail="Error connecting to the database")
+    
