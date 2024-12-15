@@ -44,13 +44,16 @@ async def update_token(user, token:str,
                 .values(**{token_type: token})
             )
             await db.execute(update_query)
-
+            new_token = user_token
+            
         else:
             new_token = UserTokensTable(user_id=user.id, **{token_type: token})
             db.add(new_token)
+            
 
         await db.commit()
         await db.refresh(new_token)
+
     except Exception as err:
         await db.rollback()
         logger.error(f"Failed to update user's token: {err}/{token_type}")
@@ -80,3 +83,8 @@ async def get_token(user:UsersTable, token_type:str, db:AsyncSession)->str|None:
         logger.error(f'Failed to get user token: {err}/{token_type}')
         raise err
 
+async def confirmed_email(email:str, db:AsyncSession)->None:
+    user = await get_user_by_email(email, db) 
+    user.confirmed = True 
+    await db.commit()
+    await db.refresh(user)

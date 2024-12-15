@@ -41,6 +41,7 @@ async def process_message(message:IncomingMessage):
                 host = task_data['host']
                 message_type = task_data['queue_name']
                 token = task_data['token']
+
                 logger.info(f"Message data parsed: {task_data}")
             except KeyError as err:
                 logger.error(f'Missing required field in message: {err}')
@@ -88,7 +89,7 @@ async def main():
             async with connection:
                 channel = await connection.channel()
                 exchange = await channel.declare_exchange(
-                        name="email_exchange",
+                        name="sending_mail",
                         type=ExchangeType.DIRECT,
                         durable=True
                     )
@@ -105,6 +106,7 @@ async def main():
                 # Ожидание новых сообщений
                 while True:
                     await asyncio.sleep(1)
+                    
         except Exception as err:
             retry_count += 1
             logger.error(f'An error occurred in the main loop: {err}')

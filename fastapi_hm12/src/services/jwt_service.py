@@ -59,13 +59,23 @@ class JWTService:
             self.SECRET_KEY, 
             algorithms=[self.ALGORITHM]
             )
+            exp = payload.get('exp')
+            if exp is None:
+                raise JWTError('Token has no exporation time')
+            
+            #проверка на истечение времени действия токена
+            utc_now = datetime.now(pytz.UTC)
+            if utc_now > datetime.fromtimestamp(payload['exp'], tz=pytz.UTC):
+                raise JWTError('Token has expired')
+
             if payload['scope'] == token_type:
-                email = payload['sub']
-                return email
+                return payload['sub']
+            
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED, 
                 detail='Invalid scope for token'
                 )
+        
         except JWTError:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED, 

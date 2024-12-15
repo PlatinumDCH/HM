@@ -33,7 +33,7 @@ class EmailService:
         return encoded_email_token
     
     
-    async def send_email(self, email_task:dict,email_token:Optional[str]=None):
+    async def send_email(self, email_task:dict,email_token:str=None):
         try:
             logger.info(f'Sending email task to RabbitMQ: {email_task} ')
             await send_to_rabbit(email_task)

@@ -4,6 +4,7 @@ from fastapi import status, HTTPException, Request, BackgroundTasks
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.security import HTTPAuthorizationCredentials
 from fastapi.security import HTTPBearer
+from fastapi.responses import FileResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -24,7 +25,6 @@ get_refresh_token = HTTPBearer()
 async def signup(
     body: UserSchema, 
     request:Request,
-    bt:BackgroundTasks,
     db:AsyncSession=Depends(get_connection_db)
     ):
     """body: форма заполнения
@@ -40,8 +40,6 @@ async def signup(
     body.password = basic_service.password_service.get_password_hash(body.password)
 
     new_user = await repository_users.create_user(body, db)
-  
-    logger.info(f'{new_user.email}')
     email_token = await basic_service.email_service.create_email_token({'sub':new_user.email})
 
     email_task = {
@@ -57,7 +55,7 @@ async def signup(
         settings.email_token, 
         db
         )
-    # await basic_service.email_service.send_email(email_task, email_token)
+    await basic_service.email_service.send_email(email_task, email_token)
     return {
         "id": new_user.id,
         "username": new_user.username,
@@ -161,4 +159,3 @@ async def refresh_token(
         'refresh_token':new_refresh_token, 
         'token_type':'bearer'
         }
-
