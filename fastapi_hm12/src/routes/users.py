@@ -1,31 +1,35 @@
 from fastapi import APIRouter, HTTPException,Request, Response, Depends,status
-from fastapi import Form
-from fastapi.responses import FileResponse
-from src.schemas import RequestEmail
-from src.database import get_connection_db
+from fastapi import Body
 from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi.responses import FileResponse
+from fastapi.templating import Jinja2Templates
+
+from src.schemas import RequestEmail, ResetPassword
+from src.database import get_connection_db
 from src.repository import users as repository_users
-from src.schemas import ResetPassword
-from src.schemas.validate_password import ConfirmPassword
+from src.schemas import ConfirmPassword
 from src.services import basic_service
 from src.config import settings, logger
-from pydantic import ValidationError
-router = APIRouter(prefix='/users', tags=['users'])
 
+router = APIRouter(prefix='/users', tags=['users'])
+templates = Jinja2Templates(directory='src/services/templates')
 
 @router.post('/request_email')
 async def request_email(body: RequestEmail, request:Request,
                         db:AsyncSession = Depends(get_connection_db)):
+    """ 
+    body: email
     
+    """
     user = await repository_users.get_user_by_email(body.email, db)
     if user.confirmed:
         return {"message": "Your email is already confirmed"}
-    
+    #create email token
     email_token = await basic_service.email_service.create_service_email_token(
         {'sub':user.email},
         settings.email_token
         )
-
+    #create email data task
     email_task = {
                 'email': user.email,
                 'username': user.username,
@@ -33,12 +37,14 @@ async def request_email(body: RequestEmail, request:Request,
                 'queue_name':'confirm_email',
                 'token':email_token
                 }
+    #add email_token to UserTable 
     await repository_users.update_token(
         user, 
         email_token,
         settings.email_token, 
         db
         )
+    # send task to rabbitmq service
     await basic_service.email_service.send_email(email_task, email_token)
     return {"message": "Check your email for confirmation."}
 
@@ -51,18 +57,15 @@ async def confirmed_email(
         token, 
         settings.email_token
         )
-    
     user = await repository_users.get_user_by_email(email, db)
-
     if user is None:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, 
             detail='Verification error, user not found'
             )
-    
     if user.confirmed:
         return {'message':'Your email already confirmed'}
-    
+    #change filed confirmed in UserTable
     await repository_users.confirmed_email(email, db)
     await repository_users.update_token(user, None, settings.email_token, db)
     return {'message': 'Email confirmed'}
@@ -74,7 +77,7 @@ async def request_email(username: str, response: Response, db: AsyncSession = De
 
 
 
-@router.post('/reset_password')
+@router.post('/reset_password_request')
 async def forgot_password(
     body: ResetPassword, 
     request:Request, 
@@ -125,54 +128,47 @@ async def forgot_password(
 
 @router.post('/reset_password')
 async def change_password(
-    token: str = Form(...),
-    new_psw:str = Form(...), 
+    body: ConfirmPassword = Body(...),
     db:AsyncSession=Depends(get_connection_db)):
+    logger.info('start change password')
     try:
         email = await basic_service.jwt_service.decode_token(
-            token, 
+            body.token, 
             settings.reset_password_token
             )
     except HTTPException as err:
         raise err
-
+    logger.info('get user')
     user = await repository_users.get_user_by_email(email, db)
     if user is None:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, 
             detail='Verification error, user not found'
             )
-    
-    try:
-        validate_password = ConfirmPassword(new_psw=new_psw)
-    except ValueError as err:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=err.errors()
-        )
-
-
-
+    logger.info('old_password == ? new_password ')
     identic_password = basic_service.password_service.verify_password(
-        new_psw, 
+        body.new_password, 
         user.password
         )
     if identic_password:
-        logger.warning(f'new password == old password, {user.username}, {new_psw}')
+        logger.warning(f'new password == old password, {user.username}, {body.new_password}')
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, 
             detail='New password is the same as old password'
             )
-    hashed_password = basic_service.password_service.get_password_hash(new_psw)
+    hashed_password = basic_service.password_service.get_password_hash(body.new_password)
     await repository_users.update_user_password(user, hashed_password, db)
     logger.info(f'{user.username} reset password')
-    await repository_users.update_token(user, None, settings.reset_password_token, db)
+    await repository_users.update_token(
+        user, 
+        None, 
+        settings.reset_password_token, 
+        db
+        )
     logger.info(f'{user.username} del reset_password_token')
-
     return {'message': 'password successfully updated' }
 
-from fastapi.templating import Jinja2Templates
-templates = Jinja2Templates(directory='src/services/templates')
+
 
 @router.get('/reset_password_form/{token}')
 async def reset_password_form(request: Request, token:str ):

@@ -562,3 +562,30 @@ INFO - 2024-12-15 19:21:57,307  -worker.py - Message data parsed: {'email': 'dim
 INFO - 2024-12-15 19:21:57,307  -worker.py - Processing reset password message
 INFO - 2024-12-15 19:21:57,307  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
 ERROR - 2024-12-15 19:21:58,155  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 21:06:48,080  -users.py - start change password
+ERROR - 2024-12-15 21:06:48,081  -conection_postgres.py - Session rollback, exception: 'ConfirmPassword' object has no attribute 'token'
+INFO - 2024-12-15 21:07:45,444  -users.py - start change password
+INFO - 2024-12-15 21:07:45,448  -users.py - get user
+INFO - 2024-12-15 21:07:45,500  -users.py - validate password
+ERROR - 2024-12-15 21:07:45,500  -conection_postgres.py - Session rollback, exception: 400: [{'type': 'missing', 'loc': ('token',), 'msg': 'Field required', 'input': {'new_psw': '12121212'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}, {'type': 'missing', 'loc': ('new_password',), 'msg': 'Field required', 'input': {'new_psw': '12121212'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}]
+INFO - 2024-12-15 21:09:14,016  -users.py - start change password
+INFO - 2024-12-15 21:09:14,022  -users.py - get user
+INFO - 2024-12-15 21:09:14,149  -users.py - validate password
+ERROR - 2024-12-15 21:09:14,149  -conection_postgres.py - Session rollback, exception: 400: [{'type': 'missing', 'loc': ('token',), 'msg': 'Field required', 'input': {'new_psw': '12121212'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}, {'type': 'missing', 'loc': ('new_password',), 'msg': 'Field required', 'input': {'new_psw': '12121212'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}]
+INFO - 2024-12-15 21:09:53,551  -users.py - start change password
+INFO - 2024-12-15 21:09:53,554  -users.py - get user
+INFO - 2024-12-15 21:09:53,594  -users.py - validate password
+ERROR - 2024-12-15 21:09:53,594  -conection_postgres.py - Session rollback, exception: 400: [{'type': 'missing', 'loc': ('token',), 'msg': 'Field required', 'input': {'new_password': '12121212'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}]
+INFO - 2024-12-15 21:10:18,089  -users.py - start change password
+INFO - 2024-12-15 21:10:18,090  -users.py - get user
+INFO - 2024-12-15 21:10:18,095  -users.py - validate password
+ERROR - 2024-12-15 21:10:18,096  -conection_postgres.py - Session rollback, exception: 400: [{'type': 'missing', 'loc': ('token',), 'msg': 'Field required', 'input': {'new_password': '123123123'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}]
+INFO - 2024-12-15 21:13:08,469  -users.py - start change password
+INFO - 2024-12-15 21:13:08,470  -users.py - get user
+INFO - 2024-12-15 21:13:08,474  -users.py - validate password
+ERROR - 2024-12-15 21:13:08,474  -conection_postgres.py - Session rollback, exception: 400: [{'type': 'missing', 'loc': ('token',), 'msg': 'Field required', 'input': {'new_password': '123123123'}, 'url': 'https://errors.pydantic.dev/2.10/v/missing'}]
+INFO - 2024-12-15 21:16:10,105  -users.py - start change password
+INFO - 2024-12-15 21:16:10,107  -users.py - get user
+INFO - 2024-12-15 21:16:10,149  -users.py - old_password == ? new_password 
+INFO - 2024-12-15 21:16:10,210  -users.py - test reset password
+INFO - 2024-12-15 21:16:10,220  -users.py - test del reset_password_token

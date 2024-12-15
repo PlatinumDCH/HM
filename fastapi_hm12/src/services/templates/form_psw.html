@@ -66,13 +66,36 @@
 <body>
     <div class="reset-form">
         <h1>Reset Your Password</h1>
-        <form action="/api/users/reset_password" method="post" enctype="application/x-www-form-urlencoded">
-            <input type="hidden" name="token" value="{{ token }}">
+        <form id="resetPasswordForm">
+            <input type="hidden" id="token" value="{{ token }}">
             <label for="new_password">New Password:</label>
             <input type="password" id="new_password" name="new_password" required>
             <br>
             <button type="submit">Reset Password</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('resetPasswordForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const token = document.getElementById('token').value;
+            const newPassword = document.getElementById('new_password').value;
+
+            const response = await fetch('/api/users/reset_password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    token: token,
+                    new_password: newPassword
+                })
+            });
+
+            const data = await response.json();
+            console.log(data);
+        });
+    </script>
 </body>
 </html>
