@@ -52,3 +52,231 @@ ERROR - 2024-12-14 15:48:01,716  -conection_postgres.py - Session rollback, exce
 ERROR - 2024-12-14 15:49:20,420  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
 ERROR - 2024-12-14 15:54:06,979  -conection_postgres.py - Session rollback, exception: 409: Account already exists
 ERROR - 2024-12-14 15:54:40,935  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 16:34:53,831  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 16:51:10,016  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+ERROR - 2024-12-14 16:51:18,148  -conection_postgres.py - Session rollback, exception: 'str' object has no attribute 'base_url'
+ERROR - 2024-12-14 16:54:07,999  -conection_postgres.py - Session rollback, exception: 'str' object has no attribute 'base_url'
+ERROR - 2024-12-14 16:54:47,445  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-14 16:54:55,296  -email_service.py - Sending email task to RabbitMQ: {'email': 'dark010@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEwQG1ldGEudWEiLCJleHAiOjE3MzQyMzEyOTUsImlhdCI6MTczNDE4ODA5NSwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.tDQQlZITItycU_tGzV692x4fm-gYYzIp8zKL9Yjn9S0', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'} 
+INFO - 2024-12-14 16:54:55,304  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 16:54:55,312  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dark010@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEwQG1ldGEudWEiLCJleHAiOjE3MzQyMzEyOTUsImlhdCI6MTczNDE4ODA5NSwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.tDQQlZITItycU_tGzV692x4fm-gYYzIp8zKL9Yjn9S0', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+ERROR - 2024-12-14 16:54:55,314  -conection_postgres.py - Session rollback, exception: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x110baa850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'username'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x110baa850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'email'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x110baa850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+ERROR - 2024-12-14 16:54:56,099  -worker.py - Failed to process message: Server not connected
+INFO - 2024-12-14 16:57:24,018  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 16:57:24,025  -worker.py - Worker is consuming messages...
+INFO - 2024-12-14 16:57:36,536  -email_service.py - Sending email task to RabbitMQ: {'email': 'dark011@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDExQG1ldGEudWEiLCJleHAiOjE3MzQyMzE0NTYsImlhdCI6MTczNDE4ODI1Niwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.jUmb_BkUQxAfKdB6q4AEmjfR8TLOJcs4SIN90g8o9GY', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'} 
+INFO - 2024-12-14 16:57:36,541  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 16:57:36,545  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dark011@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDExQG1ldGEudWEiLCJleHAiOjE3MzQyMzE0NTYsImlhdCI6MTczNDE4ODI1Niwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.jUmb_BkUQxAfKdB6q4AEmjfR8TLOJcs4SIN90g8o9GY', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+ERROR - 2024-12-14 16:57:36,547  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 16:57:37,286  -worker.py - Failed to process message: Server not connected
+INFO - 2024-12-14 17:00:07,403  -email_service.py - Sending email task to RabbitMQ: {'email': 'dark012@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEyQG1ldGEudWEiLCJleHAiOjE3MzQyMzE2MDcsImlhdCI6MTczNDE4ODQwNywic2NvcGUiOiJlbWFpbF90b2tlbiJ9.reuQC63QDUGOYC8UKsF7bHBNLyFrWbof6DBUyqubyHU', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'} 
+INFO - 2024-12-14 17:00:07,409  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 17:00:07,416  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dark012@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEyQG1ldGEudWEiLCJleHAiOjE3MzQyMzE2MDcsImlhdCI6MTczNDE4ODQwNywic2NvcGUiOiJlbWFpbF90b2tlbiJ9.reuQC63QDUGOYC8UKsF7bHBNLyFrWbof6DBUyqubyHU', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+ERROR - 2024-12-14 17:00:07,418  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 17:00:08,038  -worker.py - Failed to process message: Server not connected
+INFO - 2024-12-14 17:16:44,211  -autirisation.py - starting signup funtion
+INFO - 2024-12-14 17:16:44,315  -autirisation.py - User created successfully
+INFO - 2024-12-14 17:16:44,320  -autirisation.py - Email token created
+INFO - 2024-12-14 17:16:44,321  -users.py - Updating token for user 12
+INFO - 2024-12-14 17:16:44,326  -users.py - Query executed for user 12
+INFO - 2024-12-14 17:16:44,327  -users.py - New token created for user 12
+INFO - 2024-12-14 17:16:44,330  -autirisation.py - token updated in db
+INFO - 2024-12-14 17:16:44,330  -email_service.py - Sending email task to RabbitMQ: {'email': 'dark013@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEzQG1ldGEudWEiLCJleHAiOjE3MzQyMzI2MDQsImlhdCI6MTczNDE4OTQwNCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ROOIXjTBU0JIpVipyH4ZP5f1ABca5L4IT6RqRZppJJY', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'} 
+INFO - 2024-12-14 17:16:44,330  -produser.py - Preparing to send message to RabbitMQ: {'email': 'dark013@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEzQG1ldGEudWEiLCJleHAiOjE3MzQyMzI2MDQsImlhdCI6MTczNDE4OTQwNCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ROOIXjTBU0JIpVipyH4ZP5f1ABca5L4IT6RqRZppJJY', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+INFO - 2024-12-14 17:16:44,336  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 17:16:44,341  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dark013@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEzQG1ldGEudWEiLCJleHAiOjE3MzQyMzI2MDQsImlhdCI6MTczNDE4OTQwNCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ROOIXjTBU0JIpVipyH4ZP5f1ABca5L4IT6RqRZppJJY', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+INFO - 2024-12-14 17:16:44,342  -autirisation.py - Email sent
+ERROR - 2024-12-14 17:16:44,343  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-14 17:35:32,404  -worker.py - Starting worker...
+INFO - 2024-12-14 17:35:32,419  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 17:35:32,425  -worker.py - Worker is consuming messages...
+INFO - 2024-12-14 17:35:32,425  -worker.py - Processing message: b'{"email": "dark013@meta.ua", "username": "Dima", "host": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEzQG1ldGEudWEiLCJleHAiOjE3MzQyMzI2MDQsImlhdCI6MTczNDE4OTQwNCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ROOIXjTBU0JIpVipyH4ZP5f1ABca5L4IT6RqRZppJJY", "queue_name": "confirm_email", "token": "http://127.0.0.1:8000/"}'
+INFO - 2024-12-14 17:35:32,425  -worker.py - Message data parsed: {'email': 'dark013@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDEzQG1ldGEudWEiLCJleHAiOjE3MzQyMzI2MDQsImlhdCI6MTczNDE4OTQwNCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ROOIXjTBU0JIpVipyH4ZP5f1ABca5L4IT6RqRZppJJY', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+INFO - 2024-12-14 17:35:32,425  -worker.py - Processing confirm email message
+ERROR - 2024-12-14 17:35:33,063  -worker.py - Failed to process message: Server not connected
+INFO - 2024-12-14 17:36:35,975  -worker.py - Starting worker...
+INFO - 2024-12-14 17:36:35,987  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 17:36:35,992  -worker.py - Worker is consuming messages...
+INFO - 2024-12-14 17:37:40,081  -autirisation.py - starting signup funtion
+INFO - 2024-12-14 17:37:40,183  -autirisation.py - User created successfully
+INFO - 2024-12-14 17:37:40,197  -autirisation.py - Email token created
+INFO - 2024-12-14 17:37:40,197  -users.py - Updating token for user 13
+INFO - 2024-12-14 17:37:40,199  -users.py - Query executed for user 13
+INFO - 2024-12-14 17:37:40,199  -users.py - New token created for user 13
+INFO - 2024-12-14 17:37:40,203  -autirisation.py - token updated in db
+INFO - 2024-12-14 17:37:40,203  -email_service.py - Sending email task to RabbitMQ: {'email': 'dark014@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDE0QG1ldGEudWEiLCJleHAiOjE3MzQyMzM4NjAsImlhdCI6MTczNDE5MDY2MCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ALulKQ7G5ZT_qNc2zriH62lIRyGk88doeKQ5ofcv5tA', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'} 
+INFO - 2024-12-14 17:37:40,203  -produser.py - Preparing to send message to RabbitMQ: {'email': 'dark014@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDE0QG1ldGEudWEiLCJleHAiOjE3MzQyMzM4NjAsImlhdCI6MTczNDE5MDY2MCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ALulKQ7G5ZT_qNc2zriH62lIRyGk88doeKQ5ofcv5tA', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+INFO - 2024-12-14 17:37:40,208  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-14 17:37:40,213  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dark014@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDE0QG1ldGEudWEiLCJleHAiOjE3MzQyMzM4NjAsImlhdCI6MTczNDE5MDY2MCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ALulKQ7G5ZT_qNc2zriH62lIRyGk88doeKQ5ofcv5tA', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+INFO - 2024-12-14 17:37:40,213  -worker.py - Processing message: b'{"email": "dark014@meta.ua", "username": "Dima", "host": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDE0QG1ldGEudWEiLCJleHAiOjE3MzQyMzM4NjAsImlhdCI6MTczNDE5MDY2MCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ALulKQ7G5ZT_qNc2zriH62lIRyGk88doeKQ5ofcv5tA", "queue_name": "confirm_email", "token": "http://127.0.0.1:8000/"}'
+INFO - 2024-12-14 17:37:40,213  -worker.py - Message data parsed: {'email': 'dark014@meta.ua', 'username': 'Dima', 'host': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrMDE0QG1ldGEudWEiLCJleHAiOjE3MzQyMzM4NjAsImlhdCI6MTczNDE5MDY2MCwic2NvcGUiOiJlbWFpbF90b2tlbiJ9.ALulKQ7G5ZT_qNc2zriH62lIRyGk88doeKQ5ofcv5tA', 'queue_name': 'confirm_email', 'token': 'http://127.0.0.1:8000/'}
+INFO - 2024-12-14 17:37:40,213  -worker.py - Processing confirm email message
+INFO - 2024-12-14 17:37:40,214  -autirisation.py - Email sent
+ERROR - 2024-12-14 17:37:40,214  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 17:37:40,829  -worker.py - Failed to process message: Server not connected
+INFO - 2024-12-14 17:39:44,006  -autirisation.py - Email token created
+INFO - 2024-12-14 17:40:49,849  -autirisation.py - Email token created
+INFO - 2024-12-14 17:43:33,651  -users.py - Updating token for user 16
+INFO - 2024-12-14 17:43:33,654  -users.py - Query executed for user 16
+INFO - 2024-12-14 17:43:33,654  -users.py - New token created for user 16
+ERROR - 2024-12-14 17:43:33,658  -conection_postgres.py - Session rollback, exception: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x107c41fd0>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'username'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x107c41fd0>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'email'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x107c41fd0>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+ERROR - 2024-12-14 17:51:08,430  -conection_postgres.py - Session rollback, exception: Can't find strategy (('lazy', 'joinedload'),) for ContactsTable.user
+ERROR - 2024-12-14 17:54:33,052  -conection_postgres.py - Session rollback, exception: module 'src.repository.users' has no attribute 'updat_token'
+WARNING - 2024-12-14 17:54:54,982  -autirisation.py - user already exists
+ERROR - 2024-12-14 17:54:54,983  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-14 17:55:00,887  -users.py - Updating token for user 18
+INFO - 2024-12-14 17:55:00,893  -users.py - Query executed for user 18
+INFO - 2024-12-14 17:55:00,893  -users.py - New token created for user 18
+ERROR - 2024-12-14 17:55:00,898  -conection_postgres.py - Session rollback, exception: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x105f56850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'username'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x105f56850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'email'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x105f56850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+INFO - 2024-12-14 18:02:41,644  -users.py - Updating token for user 19
+INFO - 2024-12-14 18:02:41,651  -users.py - Query executed for user 19
+INFO - 2024-12-14 18:02:41,652  -users.py - New token created for user 19
+ERROR - 2024-12-14 18:02:41,656  -conection_postgres.py - Session rollback, exception: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x118299fd0>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'username'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x118299fd0>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'email'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x118299fd0>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+ERROR - 2024-12-14 18:03:22,581  -conection_postgres.py - Session rollback, exception: 'UserSchema' object has no attribute 'id'
+ERROR - 2024-12-14 18:05:14,426  -conection_postgres.py - Session rollback, exception: cannot access local variable 'new_user' where it is not associated with a value
+ERROR - 2024-12-14 18:12:34,618  -conection_postgres.py - Session rollback, exception: cannot access local variable 'new_user' where it is not associated with a value
+ERROR - 2024-12-14 18:13:15,374  -conection_postgres.py - Session rollback, exception: cannot access local variable 'new_user' where it is not associated with a value
+ERROR - 2024-12-14 18:15:43,647  -conection_postgres.py - Session rollback, exception: 'UserSchema' object has no attribute 'id'
+WARNING - 2024-12-14 18:16:01,160  -autirisation.py - user already exists
+ERROR - 2024-12-14 18:16:01,160  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-14 18:16:07,902  -users.py - Updating token for user 23
+INFO - 2024-12-14 18:16:07,907  -users.py - Query executed for user 23
+INFO - 2024-12-14 18:16:07,907  -users.py - New token created for user 23
+ERROR - 2024-12-14 18:16:07,911  -conection_postgres.py - Session rollback, exception: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x11a1ae850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'username'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x11a1ae850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'email'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x11a1ae850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+INFO - 2024-12-14 20:58:35,027  -users.py - Updating token for user 24
+INFO - 2024-12-14 20:58:35,032  -users.py - Query executed for user 24
+INFO - 2024-12-14 20:58:35,032  -users.py - New token created for user 24
+ERROR - 2024-12-14 20:58:35,035  -users.py - Failed to update user's token: Class 'sqlalchemy.orm.decl_api.DeclarativeAttributeIntercept' is not mapped; was a class (src.entity.models.UserTokensTable) supplied where an instance was required?/email_token
+ERROR - 2024-12-14 20:58:35,035  -conection_postgres.py - Session rollback, exception: Class 'sqlalchemy.orm.decl_api.DeclarativeAttributeIntercept' is not mapped; was a class (src.entity.models.UserTokensTable) supplied where an instance was required?
+WARNING - 2024-12-14 20:59:31,455  -autirisation.py - user already exists
+ERROR - 2024-12-14 20:59:31,456  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-14 20:59:39,089  -users.py - Updating token for user 25
+INFO - 2024-12-14 20:59:39,094  -users.py - Query executed for user 25
+INFO - 2024-12-14 20:59:39,095  -users.py - New token created for user 25
+ERROR - 2024-12-14 20:59:39,099  -conection_postgres.py - Session rollback, exception: 1 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x106016850>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+INFO - 2024-12-14 21:08:15,899  -users.py - Updating token for user 26
+INFO - 2024-12-14 21:08:15,904  -users.py - Query executed for user 26
+INFO - 2024-12-14 21:08:15,904  -users.py - New token created for user 26
+ERROR - 2024-12-14 21:08:15,909  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-14 21:10:32,894  -conection_postgres.py - Session rollback, exception: name 'reqw' is not defined
+WARNING - 2024-12-14 21:11:02,403  -autirisation.py - user already exists
+ERROR - 2024-12-14 21:11:02,403  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-15 01:04:29,670  -users.py - Updating token for user 30
+INFO - 2024-12-15 01:04:29,676  -users.py - Query executed for user 30
+INFO - 2024-12-15 01:04:29,676  -users.py - New token created for user 30
+ERROR - 2024-12-15 01:04:29,681  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+WARNING - 2024-12-15 01:08:58,673  -autirisation.py - user already exists
+ERROR - 2024-12-15 01:08:58,674  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-15 01:09:05,395  -users.py - Updating token for user 31
+INFO - 2024-12-15 01:09:05,401  -users.py - Query executed for user 31
+INFO - 2024-12-15 01:09:05,401  -users.py - New token created for user 31
+ERROR - 2024-12-15 01:09:05,405  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-15 01:14:02,495  -users.py - Updating token for user 32
+INFO - 2024-12-15 01:14:02,504  -users.py - Query executed for user 32
+ERROR - 2024-12-15 01:14:02,505  -users.py - Failed to update user's token: object NoneType can't be used in 'await' expression/email_token
+ERROR - 2024-12-15 01:14:02,505  -conection_postgres.py - Session rollback, exception: object NoneType can't be used in 'await' expression
+INFO - 2024-12-15 01:17:02,220  -users.py - Updating token for user 33
+INFO - 2024-12-15 01:17:02,224  -users.py - Query executed for user 33
+INFO - 2024-12-15 01:17:02,226  -users.py - New token created for user 33
+ERROR - 2024-12-15 01:17:02,227  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 01:18:18,603  -conection_postgres.py - Session rollback, exception: 'function' object has no attribute 'info'
+INFO - 2024-12-15 01:18:56,472  -autirisation.py - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYXJrNkBtZXRhLnVhIiwiZXhwIjoxNzM0MjYxNTM2LCJpYXQiOjE3MzQyMTgzMzYsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ._5t0btgrXS4hBwuYKTUZRU1CI40c72qI4xB4BOqQrak
+INFO - 2024-12-15 01:22:10,464  -users.py - New token created for user 36
+ERROR - 2024-12-15 01:22:10,466  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 01:22:40,147  -conection_postgres.py - Session rollback, exception: 401: Account not confirmed, check email
+INFO - 2024-12-15 01:23:22,307  -users.py - Token updated for user 6
+INFO - 2024-12-15 01:23:35,101  -users.py - Token updated for user 6
+ERROR - 2024-12-15 01:32:46,685  -conection_postgres.py - Session rollback, exception: 'Depends' object has no attribute 'execute'
+INFO - 2024-12-15 01:33:28,698  -users.py - New token created for user 38
+ERROR - 2024-12-15 01:33:28,703  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-15 01:34:45,003  -users.py - New token created for user 39
+ERROR - 2024-12-15 01:34:45,008  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-15 01:38:51,994  -autirisation.py - <src.entity.models.UsersTable object at 0x104d39fd0>
+INFO - 2024-12-15 01:39:55,031  -autirisation.py - dark98@meta.ua
+ERROR - 2024-12-15 01:41:34,945  -conection_postgres.py - Session rollback, exception: Instance '<UsersTable at 0x10a39dfd0>' is not persistent within this Session
+INFO - 2024-12-15 01:42:21,636  -autirisation.py - dark97@meta.ua
+INFO - 2024-12-15 01:42:21,644  -users.py - New token created for user 42
+ERROR - 2024-12-15 01:42:21,651  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-15 01:44:25,847  -autirisation.py - dark1@meta.ua
+INFO - 2024-12-15 01:44:25,852  -users.py - New token created for user 43
+ERROR - 2024-12-15 01:44:25,856  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-15 01:45:07,245  -autirisation.py - dark2@meta.ua
+INFO - 2024-12-15 01:45:07,252  -users.py - New token created for user 44
+ERROR - 2024-12-15 01:45:07,256  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 01:50:34,121  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 02:03:15,858  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+WARNING - 2024-12-15 02:03:34,312  -autirisation.py - user already exists
+ERROR - 2024-12-15 02:03:34,312  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+ERROR - 2024-12-15 02:03:38,809  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 02:05:14,141  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 02:21:21,850  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 02:21:57,146  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 02:22:38,152  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+ERROR - 2024-12-15 02:23:21,157  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+WARNING - 2024-12-15 02:24:22,306  -autirisation.py - user already exists
+ERROR - 2024-12-15 02:24:22,307  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+ERROR - 2024-12-15 02:24:28,110  -conection_postgres.py - Session rollback, exception: AsyncSession.refresh() missing 1 required positional argument: 'instance'
+ERROR - 2024-12-15 02:25:06,097  -conection_postgres.py - Session rollback, exception: Instance '<UsersTable at 0x106b9a120>' is not persistent within this Session
+ERROR - 2024-12-15 02:26:19,599  -conection_postgres.py - Session rollback, exception: Instance '<UsersTable at 0x10887a120>' is not persistent within this Session
+ERROR - 2024-12-15 02:26:43,541  -conection_postgres.py - Session rollback, exception: Instance '<UsersTable at 0x108872120>' is not persistent within this Session
+INFO - 2024-12-15 02:29:04,919  -autirisation.py - dark15@meta.ua
+INFO - 2024-12-15 02:29:23,635  -autirisation.py - dark16@meta.ua
+ERROR - 2024-12-15 02:29:23,644  -conection_postgres.py - Session rollback, exception: 3 validation errors:
+  {'type': 'get_attribute_error', 'loc': ('response', 'id'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x10672e120>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'username'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x10672e120>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+  {'type': 'get_attribute_error', 'loc': ('response', 'email'), 'msg': "Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)", 'input': <src.entity.models.UsersTable object at 0x10672e120>, 'ctx': {'error': "MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)"}}
+
+INFO - 2024-12-15 02:36:50,761  -autirisation.py - dark17@meta.ua
+ERROR - 2024-12-15 02:36:50,775  -conection_postgres.py - Session rollback, exception: You must set the config attribute `from_attributes=True` to use from_orm
+INFO - 2024-12-15 02:39:33,852  -autirisation.py - dark18@meta.ua
+ERROR - 2024-12-15 02:39:33,860  -conection_postgres.py - Session rollback, exception: You must set the config attribute `from_attributes=True` to use from_orm
+WARNING - 2024-12-15 02:40:00,294  -autirisation.py - user already exists
+ERROR - 2024-12-15 02:40:00,294  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-15 02:40:05,114  -autirisation.py - dark19@meta.ua
+ERROR - 2024-12-15 02:40:05,123  -conection_postgres.py - Session rollback, exception: 3 validation errors for UserResponse
+id
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<src.entity.models.UsersT...e object at 0x105fbe350>, input_type=UsersTable]
+    For further information visit https://errors.pydantic.dev/2.10/v/get_attribute_error
+username
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<src.entity.models.UsersT...e object at 0x105fbe350>, input_type=UsersTable]
+    For further information visit https://errors.pydantic.dev/2.10/v/get_attribute_error
+email
+  Error extracting attribute: MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) [type=get_attribute_error, input_value=<src.entity.models.UsersT...e object at 0x105fbe350>, input_type=UsersTable]
+    For further information visit https://errors.pydantic.dev/2.10/v/get_attribute_error
+INFO - 2024-12-15 02:42:20,144  -autirisation.py - dark20@meta.ua
+ERROR - 2024-12-15 02:42:20,150  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+INFO - 2024-12-15 02:42:47,476  -autirisation.py - dark21@meta.ua
+INFO - 2024-12-15 02:44:02,662  -autirisation.py - dark21@meta.ua
+INFO - 2024-12-15 02:45:22,037  -autirisation.py - dark22@meta.ua
+ERROR - 2024-12-15 02:45:22,040  -users.py - Failed to update user token: 'UsersTable' object is not subscriptable/email_token
+INFO - 2024-12-15 02:47:24,712  -autirisation.py - dark23@meta.ua
+ERROR - 2024-12-15 02:47:24,717  -users.py - Failed to update user's token: 'UsersTable' object is not subscriptable/email_token
+ERROR - 2024-12-15 02:47:24,717  -conection_postgres.py - Session rollback, exception: 'UsersTable' object is not subscriptable
+INFO - 2024-12-15 02:47:45,357  -autirisation.py - dark24@meta.ua
+ERROR - 2024-12-15 02:47:45,369  -conection_postgres.py - Session rollback, exception: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+WARNING - 2024-12-15 02:48:27,501  -autirisation.py - user already exists
+ERROR - 2024-12-15 02:48:27,501  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-15 02:48:31,915  -autirisation.py - dark25@meta.ua
+INFO - 2024-12-15 02:49:00,360  -autirisation.py - dark26@meta.ua
