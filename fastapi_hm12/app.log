@@ -351,3 +351,214 @@ INFO - 2024-12-15 13:35:31,246  -worker.py - Processing message: b'{"email": "di
 INFO - 2024-12-15 13:35:31,246  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMwNTczMSwiaWF0IjoxNzM0MjYyNTMxLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.VGcn59AamWQxV3_2JQfeWWlvJvQhcmZ6f10JA6KRSpk'}
 INFO - 2024-12-15 13:35:31,246  -worker.py - Processing confirm email message
 INFO - 2024-12-15 13:35:32,402  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: confirm_email
+INFO - 2024-12-15 14:16:40,226  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMwODIwMCwiaWF0IjoxNzM0MjY1MDAwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.GR9a9ZQtd54Jo0mbPZe40YvHCRO7zP5We27kb-bZXbA'} 
+INFO - 2024-12-15 14:16:40,227  -produser.py - Preparing to send message to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMwODIwMCwiaWF0IjoxNzM0MjY1MDAwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.GR9a9ZQtd54Jo0mbPZe40YvHCRO7zP5We27kb-bZXbA'}
+INFO - 2024-12-15 14:16:40,236  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 14:16:40,242  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMwODIwMCwiaWF0IjoxNzM0MjY1MDAwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.GR9a9ZQtd54Jo0mbPZe40YvHCRO7zP5We27kb-bZXbA'}
+INFO - 2024-12-15 14:16:40,244  -worker.py - Processing message: b'{"email": "dimacheban23@meta.ua", "username": "test", "host": "http://127.0.0.1:8000/", "queue_name": "confirm_email", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMwODIwMCwiaWF0IjoxNzM0MjY1MDAwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.GR9a9ZQtd54Jo0mbPZe40YvHCRO7zP5We27kb-bZXbA"}'
+INFO - 2024-12-15 14:16:40,245  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMwODIwMCwiaWF0IjoxNzM0MjY1MDAwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.GR9a9ZQtd54Jo0mbPZe40YvHCRO7zP5We27kb-bZXbA'}
+INFO - 2024-12-15 14:16:40,245  -worker.py - Processing confirm email message
+INFO - 2024-12-15 14:16:41,987  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: confirm_email
+INFO - 2024-12-15 15:12:24,163  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMTU0NCwiaWF0IjoxNzM0MjY4MzQ0LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.ykznb6_7cZpRLbkHZWM2lJAvL5C2jC_Oa_Db3I5sPtA'} 
+INFO - 2024-12-15 15:12:24,164  -produser.py - Preparing to send message to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMTU0NCwiaWF0IjoxNzM0MjY4MzQ0LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.ykznb6_7cZpRLbkHZWM2lJAvL5C2jC_Oa_Db3I5sPtA'}
+INFO - 2024-12-15 15:12:24,171  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 15:12:24,178  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMTU0NCwiaWF0IjoxNzM0MjY4MzQ0LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.ykznb6_7cZpRLbkHZWM2lJAvL5C2jC_Oa_Db3I5sPtA'}
+INFO - 2024-12-15 15:12:24,179  -worker.py - Processing message: b'{"email": "dimacheban23@meta.ua", "username": "test", "host": "http://127.0.0.1:8000/", "queue_name": "confirm_email", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMTU0NCwiaWF0IjoxNzM0MjY4MzQ0LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.ykznb6_7cZpRLbkHZWM2lJAvL5C2jC_Oa_Db3I5sPtA"}'
+INFO - 2024-12-15 15:12:24,180  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMTU0NCwiaWF0IjoxNzM0MjY4MzQ0LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.ykznb6_7cZpRLbkHZWM2lJAvL5C2jC_Oa_Db3I5sPtA'}
+INFO - 2024-12-15 15:12:24,180  -worker.py - Processing confirm email message
+INFO - 2024-12-15 15:12:25,680  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: confirm_email
+INFO - 2024-12-15 15:24:19,870  -users.py - user_name open verifivation email
+INFO - 2024-12-15 15:25:09,586  -users.py - dima open verifivation email
+INFO - 2024-12-15 15:26:50,945  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMjQxMCwiaWF0IjoxNzM0MjY5MjEwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.MiD-6iBsXxWyLb6faHAWBjEDiyTzUgb_N1NvPk4FChU'} 
+INFO - 2024-12-15 15:26:50,946  -produser.py - Preparing to send message to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMjQxMCwiaWF0IjoxNzM0MjY5MjEwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.MiD-6iBsXxWyLb6faHAWBjEDiyTzUgb_N1NvPk4FChU'}
+INFO - 2024-12-15 15:26:50,956  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 15:26:50,967  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email': {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMjQxMCwiaWF0IjoxNzM0MjY5MjEwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.MiD-6iBsXxWyLb6faHAWBjEDiyTzUgb_N1NvPk4FChU'}
+INFO - 2024-12-15 15:26:50,968  -worker.py - Processing message: b'{"email": "dimacheban23@meta.ua", "username": "test", "host": "http://127.0.0.1:8000/", "queue_name": "confirm_email", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMjQxMCwiaWF0IjoxNzM0MjY5MjEwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.MiD-6iBsXxWyLb6faHAWBjEDiyTzUgb_N1NvPk4FChU"}'
+INFO - 2024-12-15 15:26:50,969  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxMjQxMCwiaWF0IjoxNzM0MjY5MjEwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.MiD-6iBsXxWyLb6faHAWBjEDiyTzUgb_N1NvPk4FChU'}
+INFO - 2024-12-15 15:26:50,969  -worker.py - Processing confirm email message
+INFO - 2024-12-15 15:26:52,477  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: confirm_email
+INFO - 2024-12-15 15:29:46,262  -users.py - test open verifivation email
+INFO - 2024-12-15 16:14:22,427  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTI2MiwiaWF0IjoxNzM0MjcyMDYyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.iBTh_f0Y3fRsSAv7pKgK4B1U3r0ZLTscp_z6JbLRmI4'} 
+INFO - 2024-12-15 16:14:22,427  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:14:22,433  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:14:22,438  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:14:22,439  -worker.py - Processing message: b'{"email": "dimacheban23@meta.ua", "username": "test", "host": "http://127.0.0.1:8000/", "queue_name": "reset_password", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTI2MiwiaWF0IjoxNzM0MjcyMDYyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.iBTh_f0Y3fRsSAv7pKgK4B1U3r0ZLTscp_z6JbLRmI4"}'
+INFO - 2024-12-15 16:14:22,439  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTI2MiwiaWF0IjoxNzM0MjcyMDYyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.iBTh_f0Y3fRsSAv7pKgK4B1U3r0ZLTscp_z6JbLRmI4'}
+INFO - 2024-12-15 16:14:22,439  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:14:22,441  -worker.py - Failed to process message: reset_password_email.html
+INFO - 2024-12-15 16:16:51,155  -worker.py - Starting worker...
+INFO - 2024-12-15 16:16:51,166  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:16:51,172  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 16:16:56,479  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTQxNiwiaWF0IjoxNzM0MjcyMjE2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.SqCRrx57HNTMQgzCe_68h9Ftlu4VaUzaxzQycNIxyRc'} 
+INFO - 2024-12-15 16:16:56,479  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:16:56,486  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:16:56,491  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:16:56,491  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTQxNiwiaWF0IjoxNzM0MjcyMjE2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.SqCRrx57HNTMQgzCe_68h9Ftlu4VaUzaxzQycNIxyRc'}
+INFO - 2024-12-15 16:16:56,491  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:16:57,644  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 16:21:11,844  -worker.py - Starting worker...
+INFO - 2024-12-15 16:21:11,854  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:21:11,859  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 16:21:42,933  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTcwMiwiaWF0IjoxNzM0MjcyNTAyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.K0v1S0qzLKyFEpQhwycLe_zBooF32oYVuY1icrWzPZg'} 
+INFO - 2024-12-15 16:21:42,933  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:21:42,941  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:21:42,949  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:21:42,949  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNTcwMiwiaWF0IjoxNzM0MjcyNTAyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.K0v1S0qzLKyFEpQhwycLe_zBooF32oYVuY1icrWzPZg'}
+INFO - 2024-12-15 16:21:42,949  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:21:44,632  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 16:22:01,336  -users.py - test open verifivation email
+INFO - 2024-12-15 16:26:58,973  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjAxOCwiaWF0IjoxNzM0MjcyODE4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.46NrYYN5YhfVTI_Q589BmN6AiXyo1r6HP5yLJsHltUY'} 
+INFO - 2024-12-15 16:26:58,973  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:26:58,978  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:26:58,982  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:26:58,982  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjAxOCwiaWF0IjoxNzM0MjcyODE4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.46NrYYN5YhfVTI_Q589BmN6AiXyo1r6HP5yLJsHltUY'}
+INFO - 2024-12-15 16:26:58,982  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:27:00,140  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 16:27:16,326  -worker.py - Starting worker...
+INFO - 2024-12-15 16:27:16,337  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:27:16,343  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 16:27:20,200  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjA0MCwiaWF0IjoxNzM0MjcyODQwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.KdD_DxR6CfvxUOViAm2w7IaqKJJDfVp7mv3JOgYYGnY'} 
+INFO - 2024-12-15 16:27:20,200  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:27:20,207  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:27:20,214  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:27:20,214  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjA0MCwiaWF0IjoxNzM0MjcyODQwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.KdD_DxR6CfvxUOViAm2w7IaqKJJDfVp7mv3JOgYYGnY'}
+INFO - 2024-12-15 16:27:20,215  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:27:21,339  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 16:39:09,797  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjc0OSwiaWF0IjoxNzM0MjczNTQ5LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.3LPsRHTLRI4ViaZcRRhgm-VcB942IsdLdshyGTWDbsM'} 
+INFO - 2024-12-15 16:39:09,797  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:39:09,804  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:39:09,809  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:39:09,810  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjc0OSwiaWF0IjoxNzM0MjczNTQ5LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.3LPsRHTLRI4ViaZcRRhgm-VcB942IsdLdshyGTWDbsM'}
+INFO - 2024-12-15 16:39:09,810  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:39:11,090  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 16:39:18,855  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjc1OCwiaWF0IjoxNzM0MjczNTU4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.vDvdDx3GPjB7lUNQra8OvY6cD-yRo3sbZtSjO9kB-Cc'} 
+INFO - 2024-12-15 16:39:18,855  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:39:18,862  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:39:18,867  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 16:39:24,300  -worker.py - Starting worker...
+INFO - 2024-12-15 16:39:24,313  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:39:24,318  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 16:39:24,318  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjc1OCwiaWF0IjoxNzM0MjczNTU4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.vDvdDx3GPjB7lUNQra8OvY6cD-yRo3sbZtSjO9kB-Cc'}
+INFO - 2024-12-15 16:39:24,318  -worker.py - Processing reset password message
+ERROR - 2024-12-15 16:39:25,408  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+ERROR - 2024-12-15 16:45:04,970  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+INFO - 2024-12-15 16:48:03,744  -users.py - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNjc1OCwiaWF0IjoxNzM0MjczNTU4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.vDvdDx3GPjB7lUNQra8OvY6cD-yRo3sbZtSjO9kB-Cc open verifivation email
+ERROR - 2024-12-15 16:48:58,728  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+ERROR - 2024-12-15 16:49:59,794  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+INFO - 2024-12-15 16:54:18,450  -email_service.py - token type email_token
+INFO - 2024-12-15 16:54:18,460  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNzY1OCwiaWF0IjoxNzM0Mjc0NDU4LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.1F42be_zMtIUSCuIGFZ9MOgDG05nKWYiXDAbXjjsQRY'} 
+INFO - 2024-12-15 16:54:18,460  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 16:54:18,467  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 16:54:18,472  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-15 16:54:18,473  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxNzY1OCwiaWF0IjoxNzM0Mjc0NDU4LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.1F42be_zMtIUSCuIGFZ9MOgDG05nKWYiXDAbXjjsQRY'}
+INFO - 2024-12-15 16:54:18,473  -worker.py - Processing confirm email message
+INFO - 2024-12-15 16:54:19,600  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: confirm_email
+INFO - 2024-12-15 17:02:12,720  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 17:02:12,723  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 17:02:12,724  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxODEzMiwiaWF0IjoxNzM0Mjc0OTMyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.a1CLAcKQA2gdWPY1xYy6bW3zotpNfoh5b1pYxEFWA9U
+INFO - 2024-12-15 17:02:57,455  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 17:02:57,457  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 17:02:57,457  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMxODE3NywiaWF0IjoxNzM0Mjc0OTc3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.fwYz9gcfFMX8mwgL7p5QbcDlgY2JsbDwpADm3SYqSvs
+ERROR - 2024-12-15 17:03:49,389  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+ERROR - 2024-12-15 17:05:16,826  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+INFO - 2024-12-15 17:06:22,911  -users.py - start ger email
+ERROR - 2024-12-15 17:06:22,917  -conection_postgres.py - Session rollback, exception: 401: Invalid scope for token
+INFO - 2024-12-15 17:07:21,691  -users.py - get email from token dimacheban23@meta.ua
+INFO - 2024-12-15 17:07:21,741  -users.py - test reset password del token reser password
+INFO - 2024-12-15 17:29:01,196  -users.py - True Verify password
+INFO - 2024-12-15 17:37:48,438  -users.py - test reset password
+INFO - 2024-12-15 17:37:48,450  -users.py - test del reset_password_token
+INFO - 2024-12-15 17:38:34,939  -users.py - test reset password
+INFO - 2024-12-15 17:38:34,950  -users.py - test del reset_password_token
+INFO - 2024-12-15 19:01:13,166  -worker.py - Starting worker...
+INFO - 2024-12-15 19:01:13,181  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:01:13,186  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 19:01:44,520  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:01:44,524  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:01:44,524  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNTMwNCwiaWF0IjoxNzM0MjgyMTA0LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.eTsIKkkjYsg6rsn6OA3XU1FIYwYEHmJwMok_kgfGAD4
+INFO - 2024-12-15 19:02:01,668  -users.py - test open verifivation email
+INFO - 2024-12-15 19:12:51,416  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:12:51,421  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:12:51,421  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNTk3MSwiaWF0IjoxNzM0MjgyNzcxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.mnh26N1qsn4lQQ25Bnh8JqcLknGNMJ0gTNEAkBoblk4
+INFO - 2024-12-15 19:12:51,434  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNTk3MSwiaWF0IjoxNzM0MjgyNzcxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.mnh26N1qsn4lQQ25Bnh8JqcLknGNMJ0gTNEAkBoblk4'} 
+INFO - 2024-12-15 19:12:51,434  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:12:51,442  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:12:51,448  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 19:12:51,451  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNTk3MSwiaWF0IjoxNzM0MjgyNzcxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.mnh26N1qsn4lQQ25Bnh8JqcLknGNMJ0gTNEAkBoblk4'}
+INFO - 2024-12-15 19:12:51,452  -worker.py - Processing reset password message
+ERROR - 2024-12-15 19:12:51,463  -worker.py - Failed to process message: Exception raised The start_tls and use_tls options are not compatible., check your credentials or email service configuration
+INFO - 2024-12-15 19:14:30,242  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:14:30,242  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:14:30,242  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjA3MCwiaWF0IjoxNzM0MjgyODcwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.wnYOrgjUC3uMMXzJky4qDzpQT-JZcEUyn1xdHQTzfPQ
+INFO - 2024-12-15 19:14:30,252  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjA3MCwiaWF0IjoxNzM0MjgyODcwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.wnYOrgjUC3uMMXzJky4qDzpQT-JZcEUyn1xdHQTzfPQ'} 
+INFO - 2024-12-15 19:14:30,253  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:14:30,261  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:14:30,268  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 19:14:39,450  -worker.py - Starting worker...
+INFO - 2024-12-15 19:14:39,461  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:14:39,468  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 19:14:39,468  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjA3MCwiaWF0IjoxNzM0MjgyODcwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.wnYOrgjUC3uMMXzJky4qDzpQT-JZcEUyn1xdHQTzfPQ'}
+INFO - 2024-12-15 19:14:39,468  -worker.py - Processing reset password message
+ERROR - 2024-12-15 19:14:39,473  -worker.py - Failed to process message: Exception raised The start_tls and use_tls options are not compatible., check your credentials or email service configuration
+INFO - 2024-12-15 19:14:41,962  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:14:41,962  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:14:41,962  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjA4MSwiaWF0IjoxNzM0MjgyODgxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.6eKQ_YrsYGFempL1JYV3o8wmaqRMt6C-yXdDgljBXTw
+INFO - 2024-12-15 19:14:41,970  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjA4MSwiaWF0IjoxNzM0MjgyODgxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.6eKQ_YrsYGFempL1JYV3o8wmaqRMt6C-yXdDgljBXTw'} 
+INFO - 2024-12-15 19:14:41,970  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:14:41,978  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:14:41,986  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 19:14:41,986  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjA4MSwiaWF0IjoxNzM0MjgyODgxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.6eKQ_YrsYGFempL1JYV3o8wmaqRMt6C-yXdDgljBXTw'}
+INFO - 2024-12-15 19:14:41,987  -worker.py - Processing reset password message
+ERROR - 2024-12-15 19:14:41,992  -worker.py - Failed to process message: Exception raised The start_tls and use_tls options are not compatible., check your credentials or email service configuration
+INFO - 2024-12-15 19:15:47,387  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:15:47,390  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:15:47,390  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjE0NywiaWF0IjoxNzM0MjgyOTQ3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.UQ8TRL1SuIpmbX9L2DC56Ccfvp8DONz8Dh3dSV8P9Zo
+INFO - 2024-12-15 19:15:47,400  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjE0NywiaWF0IjoxNzM0MjgyOTQ3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.UQ8TRL1SuIpmbX9L2DC56Ccfvp8DONz8Dh3dSV8P9Zo'} 
+INFO - 2024-12-15 19:15:47,400  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:15:47,404  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:15:47,408  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjE0NywiaWF0IjoxNzM0MjgyOTQ3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.UQ8TRL1SuIpmbX9L2DC56Ccfvp8DONz8Dh3dSV8P9Zo'}
+INFO - 2024-12-15 19:15:47,409  -worker.py - Processing reset password message
+INFO - 2024-12-15 19:15:47,409  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+ERROR - 2024-12-15 19:15:47,414  -worker.py - Failed to process message: Exception raised The start_tls and use_tls options are not compatible., check your credentials or email service configuration
+INFO - 2024-12-15 19:15:55,304  -worker.py - Starting worker...
+INFO - 2024-12-15 19:15:55,315  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:15:55,321  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 19:15:57,379  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:15:57,379  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:15:57,379  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjE1NywiaWF0IjoxNzM0MjgyOTU3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.WjGXIgzFw2_dOYAVv9XW2GduFLMO0PB7tjkNsMvKRyU
+INFO - 2024-12-15 19:15:57,384  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjE1NywiaWF0IjoxNzM0MjgyOTU3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.WjGXIgzFw2_dOYAVv9XW2GduFLMO0PB7tjkNsMvKRyU'} 
+INFO - 2024-12-15 19:15:57,384  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:15:57,390  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:15:57,395  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-15 19:15:57,395  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDMyNjE1NywiaWF0IjoxNzM0MjgyOTU3LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.WjGXIgzFw2_dOYAVv9XW2GduFLMO0PB7tjkNsMvKRyU'}
+INFO - 2024-12-15 19:15:57,395  -worker.py - Processing reset password message
+ERROR - 2024-12-15 19:15:58,604  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-15 19:20:29,577  -email_service.py - token type email_token
+INFO - 2024-12-15 19:20:29,590  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@gmail.com', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NDI5LCJpYXQiOjE3MzQyODMyMjksInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.Dg5CoNbTFv2NLRxYOg-equ430dK7cSW_u3BIQLS4ge8'} 
+INFO - 2024-12-15 19:20:29,590  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:20:29,599  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:20:29,605  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-15 19:20:29,606  -worker.py - Message data parsed: {'email': 'dimacheban23@gmail.com', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NDI5LCJpYXQiOjE3MzQyODMyMjksInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.Dg5CoNbTFv2NLRxYOg-equ430dK7cSW_u3BIQLS4ge8'}
+INFO - 2024-12-15 19:20:29,607  -worker.py - Processing confirm email message
+INFO - 2024-12-15 19:20:30,475  -worker.py - Message precessed successfully : dimacheban23@gmail.com. Type: confirm_email
+INFO - 2024-12-15 19:20:54,782  -worker.py - Starting worker...
+INFO - 2024-12-15 19:20:54,795  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:20:54,802  -worker.py - Worker is consuming messages...
+INFO - 2024-12-15 19:21:22,554  -email_service.py - token type email_token
+INFO - 2024-12-15 19:21:22,558  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@gmail.com', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NDgyLCJpYXQiOjE3MzQyODMyODIsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.JZKT_TG0W9l0IDVF59Uv-Xn6IUATO2LxvU60UYSM21Y'} 
+INFO - 2024-12-15 19:21:22,558  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:21:22,566  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:21:22,573  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-15 19:21:22,574  -worker.py - Message data parsed: {'email': 'dimacheban23@gmail.com', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NDgyLCJpYXQiOjE3MzQyODMyODIsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.JZKT_TG0W9l0IDVF59Uv-Xn6IUATO2LxvU60UYSM21Y'}
+INFO - 2024-12-15 19:21:22,574  -worker.py - Processing confirm email message
+INFO - 2024-12-15 19:21:23,499  -worker.py - Message precessed successfully : dimacheban23@gmail.com. Type: confirm_email
+INFO - 2024-12-15 19:21:57,273  -users.py - Get curent user finifsh test
+INFO - 2024-12-15 19:21:57,278  -email_service.py - token type reset_password_token
+INFO - 2024-12-15 19:21:57,278  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NTE3LCJpYXQiOjE3MzQyODMzMTcsInNjb3BlIjoicmVzZXRfcGFzc3dvcmRfdG9rZW4ifQ.-EYJ2n25ENV7msHKLUfgjX2bbxIr0geUA-vxh3qYh8o
+INFO - 2024-12-15 19:21:57,288  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@gmail.com', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NTE3LCJpYXQiOjE3MzQyODMzMTcsInNjb3BlIjoicmVzZXRfcGFzc3dvcmRfdG9rZW4ifQ.-EYJ2n25ENV7msHKLUfgjX2bbxIr0geUA-vxh3qYh8o'} 
+INFO - 2024-12-15 19:21:57,288  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-15 19:21:57,301  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-15 19:21:57,307  -worker.py - Message data parsed: {'email': 'dimacheban23@gmail.com', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0MzI2NTE3LCJpYXQiOjE3MzQyODMzMTcsInNjb3BlIjoicmVzZXRfcGFzc3dvcmRfdG9rZW4ifQ.-EYJ2n25ENV7msHKLUfgjX2bbxIr0geUA-vxh3qYh8o'}
+INFO - 2024-12-15 19:21:57,307  -worker.py - Processing reset password message
+INFO - 2024-12-15 19:21:57,307  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+ERROR - 2024-12-15 19:21:58,155  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
