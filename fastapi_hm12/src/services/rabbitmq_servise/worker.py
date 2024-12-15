@@ -49,7 +49,7 @@ async def process_message(message:IncomingMessage):
             if message_type == 'reset_password':
                 logger.info("Processing reset password message")
                 message_schema = MessageSchema(
-                    subject="Reset Your Password",
+                    subject="Changer server-pas",
                     recipients=[email],
                     template_body={"host": host, "username": username,"token": token},    
                     subtype=MessageType.html,
@@ -59,7 +59,7 @@ async def process_message(message:IncomingMessage):
             elif message_type == 'confirm_email':
                 logger.info("Processing confirm email message")
                 message_schema = MessageSchema(
-                    subject='Confirm your email',
+                    subject='Changer server-email',
                     recipients=[email],
                     template_body={'host':host, 'username':username,'token':token},
                     subtype=MessageType.html,

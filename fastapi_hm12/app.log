@@ -589,3 +589,117 @@ INFO - 2024-12-15 21:16:10,107  -users.py - get user
 INFO - 2024-12-15 21:16:10,149  -users.py - old_password == ? new_password 
 INFO - 2024-12-15 21:16:10,210  -users.py - test reset password
 INFO - 2024-12-15 21:16:10,220  -users.py - test del reset_password_token
+INFO - 2024-12-16 01:11:28,827  -worker.py - Starting worker...
+INFO - 2024-12-16 01:11:28,841  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:11:28,846  -worker.py - Worker is consuming messages...
+INFO - 2024-12-16 01:11:59,165  -email_service.py - token type email_token
+INFO - 2024-12-16 01:11:59,175  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0NzUxOSwiaWF0IjoxNzM0MzA0MzE5LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.F6pbTkypuZBmz4tmypNtVq7LtDXY5kUYnPOFHRvPWWM'} 
+INFO - 2024-12-16 01:11:59,175  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:11:59,183  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:11:59,187  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-16 01:11:59,187  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0NzUxOSwiaWF0IjoxNzM0MzA0MzE5LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.F6pbTkypuZBmz4tmypNtVq7LtDXY5kUYnPOFHRvPWWM'}
+INFO - 2024-12-16 01:11:59,187  -worker.py - Processing confirm email message
+INFO - 2024-12-16 01:12:00,407  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: confirm_email
+INFO - 2024-12-16 01:12:11,956  -users.py - test open verifivation email
+INFO - 2024-12-16 01:13:39,595  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:13:39,596  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:13:39,596  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0NzYxOSwiaWF0IjoxNzM0MzA0NDE5LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.x3_L7ZZ7FUnA1soD5b0B7nyoibXIdUZm-EG1WTje3Cw
+INFO - 2024-12-16 01:13:39,603  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0NzYxOSwiaWF0IjoxNzM0MzA0NDE5LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.x3_L7ZZ7FUnA1soD5b0B7nyoibXIdUZm-EG1WTje3Cw'} 
+INFO - 2024-12-16 01:13:39,603  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:13:39,617  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:13:39,624  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:13:39,625  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0NzYxOSwiaWF0IjoxNzM0MzA0NDE5LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.x3_L7ZZ7FUnA1soD5b0B7nyoibXIdUZm-EG1WTje3Cw'}
+INFO - 2024-12-16 01:13:39,626  -worker.py - Processing reset password message
+ERROR - 2024-12-16 01:13:40,737  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-16 01:20:38,999  -worker.py - Starting worker...
+INFO - 2024-12-16 01:20:39,012  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:20:39,017  -worker.py - Worker is consuming messages...
+INFO - 2024-12-16 01:20:51,639  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:20:51,641  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:20:51,641  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODA1MSwiaWF0IjoxNzM0MzA0ODUxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.0XHJQDHQ16zpWBKKOsntFy4prYmkgfzBhjTEpWJF4RM
+INFO - 2024-12-16 01:20:51,648  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODA1MSwiaWF0IjoxNzM0MzA0ODUxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.0XHJQDHQ16zpWBKKOsntFy4prYmkgfzBhjTEpWJF4RM'} 
+INFO - 2024-12-16 01:20:51,649  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:20:51,656  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:20:51,661  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:20:51,661  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODA1MSwiaWF0IjoxNzM0MzA0ODUxLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.0XHJQDHQ16zpWBKKOsntFy4prYmkgfzBhjTEpWJF4RM'}
+INFO - 2024-12-16 01:20:51,661  -worker.py - Processing reset password message
+ERROR - 2024-12-16 01:20:52,911  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-16 01:23:58,869  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:23:58,870  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:23:58,870  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODIzOCwiaWF0IjoxNzM0MzA1MDM4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.HryNPyWWtgCsZ5tNmqPnnGl8ZLSEDeMP8Lz77p0_T4I
+INFO - 2024-12-16 01:23:58,877  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODIzOCwiaWF0IjoxNzM0MzA1MDM4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.HryNPyWWtgCsZ5tNmqPnnGl8ZLSEDeMP8Lz77p0_T4I'} 
+INFO - 2024-12-16 01:23:58,877  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:23:58,887  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:23:58,894  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:23:58,895  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODIzOCwiaWF0IjoxNzM0MzA1MDM4LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.HryNPyWWtgCsZ5tNmqPnnGl8ZLSEDeMP8Lz77p0_T4I'}
+INFO - 2024-12-16 01:23:58,896  -worker.py - Processing reset password message
+ERROR - 2024-12-16 01:24:00,114  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-16 01:24:05,653  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:24:05,654  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:24:05,654  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODI0NSwiaWF0IjoxNzM0MzA1MDQ1LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.WWDQn4cuRO6OTbGlUSp50Vu4Y4J0eoZ-eB6LKIlULDE
+INFO - 2024-12-16 01:24:05,662  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODI0NSwiaWF0IjoxNzM0MzA1MDQ1LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.WWDQn4cuRO6OTbGlUSp50Vu4Y4J0eoZ-eB6LKIlULDE'} 
+INFO - 2024-12-16 01:24:05,662  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:24:05,670  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:24:05,676  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:24:34,623  -worker.py - Starting worker...
+INFO - 2024-12-16 01:24:34,636  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:24:34,643  -worker.py - Worker is consuming messages...
+INFO - 2024-12-16 01:24:34,643  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODI0NSwiaWF0IjoxNzM0MzA1MDQ1LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.WWDQn4cuRO6OTbGlUSp50Vu4Y4J0eoZ-eB6LKIlULDE'}
+INFO - 2024-12-16 01:24:34,643  -worker.py - Processing reset password message
+ERROR - 2024-12-16 01:24:35,761  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-16 01:24:59,401  -worker.py - Starting worker...
+INFO - 2024-12-16 01:24:59,411  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:24:59,417  -worker.py - Worker is consuming messages...
+INFO - 2024-12-16 01:25:02,601  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:25:02,602  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:25:02,602  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODMwMiwiaWF0IjoxNzM0MzA1MTAyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.4NGERWby7ywySW08QvEALh80bk98avjoFPtjm4bit8g
+INFO - 2024-12-16 01:25:02,608  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODMwMiwiaWF0IjoxNzM0MzA1MTAyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.4NGERWby7ywySW08QvEALh80bk98avjoFPtjm4bit8g'} 
+INFO - 2024-12-16 01:25:02,608  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:25:02,615  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:25:02,622  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:25:02,622  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODMwMiwiaWF0IjoxNzM0MzA1MTAyLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.4NGERWby7ywySW08QvEALh80bk98avjoFPtjm4bit8g'}
+INFO - 2024-12-16 01:25:02,622  -worker.py - Processing reset password message
+ERROR - 2024-12-16 01:25:03,717  -worker.py - Failed to process message: (550, 'Message subject: SPAM FOUND')
+INFO - 2024-12-16 01:27:20,105  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:27:20,109  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:27:20,109  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODQ0MCwiaWF0IjoxNzM0MzA1MjQwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.CWMB-bjeCv5BAbO9sEAj60NyHDE7KwLvnpm1HwRKuAc
+INFO - 2024-12-16 01:27:20,121  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODQ0MCwiaWF0IjoxNzM0MzA1MjQwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.CWMB-bjeCv5BAbO9sEAj60NyHDE7KwLvnpm1HwRKuAc'} 
+INFO - 2024-12-16 01:27:20,122  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:27:20,129  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:27:20,135  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:27:24,368  -worker.py - Starting worker...
+INFO - 2024-12-16 01:27:24,378  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:27:24,384  -worker.py - Worker is consuming messages...
+INFO - 2024-12-16 01:27:24,384  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODQ0MCwiaWF0IjoxNzM0MzA1MjQwLCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.CWMB-bjeCv5BAbO9sEAj60NyHDE7KwLvnpm1HwRKuAc'}
+INFO - 2024-12-16 01:27:24,384  -worker.py - Processing reset password message
+INFO - 2024-12-16 01:27:25,643  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: reset_password
+INFO - 2024-12-16 01:27:26,494  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:27:26,494  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:27:26,494  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODQ0NiwiaWF0IjoxNzM0MzA1MjQ2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.l9A47wMPrDGKP1xIv2n3pGjqxFJmIYQQGc310O7upkU
+INFO - 2024-12-16 01:27:26,499  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODQ0NiwiaWF0IjoxNzM0MzA1MjQ2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.l9A47wMPrDGKP1xIv2n3pGjqxFJmIYQQGc310O7upkU'} 
+INFO - 2024-12-16 01:27:26,499  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:27:26,504  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:27:26,509  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODQ0NiwiaWF0IjoxNzM0MzA1MjQ2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.l9A47wMPrDGKP1xIv2n3pGjqxFJmIYQQGc310O7upkU'}
+INFO - 2024-12-16 01:27:26,509  -worker.py - Processing reset password message
+INFO - 2024-12-16 01:27:26,509  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:27:27,717  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: reset_password
+INFO - 2024-12-16 01:30:06,140  -users.py - Get curent user finifsh test
+INFO - 2024-12-16 01:30:06,141  -email_service.py - token type reset_password_token
+INFO - 2024-12-16 01:30:06,141  -users.py - toke = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODYwNiwiaWF0IjoxNzM0MzA1NDA2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.fy9yIIPkPoNAeuKGtYhvSWoRuX0U0XeXfyeXjo40BVA
+INFO - 2024-12-16 01:30:06,147  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODYwNiwiaWF0IjoxNzM0MzA1NDA2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.fy9yIIPkPoNAeuKGtYhvSWoRuX0U0XeXfyeXjo40BVA'} 
+INFO - 2024-12-16 01:30:06,147  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-16 01:30:06,159  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-16 01:30:06,167  -produser.py - Message published to RabbitMQ with routing_key 'reset_password
+INFO - 2024-12-16 01:30:06,168  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'test', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'reset_password', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDM0ODYwNiwiaWF0IjoxNzM0MzA1NDA2LCJzY29wZSI6InJlc2V0X3Bhc3N3b3JkX3Rva2VuIn0.fy9yIIPkPoNAeuKGtYhvSWoRuX0U0XeXfyeXjo40BVA'}
+INFO - 2024-12-16 01:30:06,168  -worker.py - Processing reset password message
+INFO - 2024-12-16 01:30:07,366  -worker.py - Message precessed successfully : dimacheban23@meta.ua. Type: reset_password
+INFO - 2024-12-16 01:30:39,444  -users.py - start change password
+INFO - 2024-12-16 01:30:39,446  -users.py - get user
+INFO - 2024-12-16 01:30:39,449  -users.py - old_password == ? new_password 
+INFO - 2024-12-16 01:30:39,523  -users.py - test reset password
+INFO - 2024-12-16 01:30:39,527  -users.py - test del reset_password_token
+INFO - 2024-12-16 01:30:52,191  -users.py - start change password
+INFO - 2024-12-16 01:30:52,191  -users.py - get user
+INFO - 2024-12-16 01:30:52,196  -users.py - old_password == ? new_password 
+WARNING - 2024-12-16 01:30:52,204  -users.py - new password == old password, test, 123123
+ERROR - 2024-12-16 01:30:52,205  -conection_postgres.py - Session rollback, exception: 400: New password is the same as old password
