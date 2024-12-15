@@ -2,7 +2,7 @@ from fastapi import Depends
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 from libgravatar import Gravatar
-
+from sqlalchemy.orm import joinedload
 from src.database import get_connection_db
 from src.entity import UsersTable, UserTokensTable
 from src.schemas import UserSchema
@@ -25,24 +25,12 @@ async def create_user(body:UserSchema, db:AsyncSession=Depends(get_connection_db
     new_user = UsersTable(**body.model_dump(), avatar=avatar)
     db.add(new_user)
     await db.commit()
+    # await db.refresh(new_user)
     await db.refresh(new_user)
     return new_user
 
-async def update_token(user:UsersTable, token:str|None,
+async def update_token(user, token:str,
                        token_type:str, db:AsyncSession):
-    """_Обновляет токен пользователя в БД_
-
-    Args:
-        user (UsersTable): пользователь для которого обновляется токен
-        token (str | None): новый токен или None, если токен нужно удалить
-        db (AsyncSession): ассинхронная сессия с БД
-        token_type: тип токена
-
-    Returns: None
-
-    Raises:
-        err: _description_
-    """
     try:
         # проверка, существует ли токен для данного пользователя
         user_query = select(UserTokensTable).filter_by(user_id = user.id)
@@ -62,6 +50,7 @@ async def update_token(user:UsersTable, token:str|None,
             db.add(new_token)
 
         await db.commit()
+        await db.refresh(new_token)
     except Exception as err:
         await db.rollback()
         logger.error(f"Failed to update user's token: {err}/{token_type}")

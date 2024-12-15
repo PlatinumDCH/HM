@@ -11,4 +11,4 @@ class UserResponse(BaseModel):
     email:EmailStr
 
     class Config:
-        form_attributes: True
+        from_attributes=True

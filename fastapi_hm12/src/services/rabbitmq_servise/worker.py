@@ -31,6 +31,7 @@ conf = ConnectionConfig(
 
 async def process_message(message:IncomingMessage):
     """Обработка входящего сообщения из очереди"""
+    logger.info(f"Processing message: {message.body}")
     try:
         async with message.process():
             try:
@@ -40,11 +41,13 @@ async def process_message(message:IncomingMessage):
                 host = task_data['host']
                 message_type = task_data['queue_name']
                 token = task_data['token']
+                logger.info(f"Message data parsed: {task_data}")
             except KeyError as err:
                 logger.error(f'Missing required field in message: {err}')
                 return
 
             if message_type == 'reset_password':
+                logger.info("Processing reset password message")
                 message_schema = MessageSchema(
                     subject="Reset Your Password",
                     recipients=[email],
@@ -54,6 +57,7 @@ async def process_message(message:IncomingMessage):
                 template_name = 'reset_password_email.html'
 
             elif message_type == 'confirm_email':
+                logger.info("Processing confirm email message")
                 message_schema = MessageSchema(
                     subject='Confirm your email',
                     recipients=[email],
@@ -72,6 +76,7 @@ async def process_message(message:IncomingMessage):
         raise
 
 async def main():
+    logger.info("Starting worker...")
     """Основной воркер для обработки сообщений из RabbitMQ"""
     max_retires = 5 # максимальное количество повторных попыток
     retry_count = 0 # Счетчик попыток
@@ -92,7 +97,7 @@ async def main():
                 queue = await channel.declare_queue('email_queue', durable=True)
                 await queue.bind(exchange, routing_key="reset_password")
                 await queue.bind(exchange, routing_key="confirm_email")
-                
+
                 # Запускаем обработку сообщений
                 await queue.consume(process_message)
                 logger.info("Worker is consuming messages...")
@@ -108,8 +113,7 @@ async def main():
                 await asyncio.sleep(5)
             else:
                 logger.critical('Max retry attempts reached.Exiting')
+    logger.info("Worker finished.")
                 
 if __name__ == '__main__':
-    print('Starting worker...')
     asyncio.run(main())
-    print('Finisged worker.')

@@ -11,6 +11,7 @@ async def send_to_rabbit(message: dict):
     :parm message: Словарь с данными для публикации в RabbitMQ
     :parm message_type: Тип сообщения (password_reset, email_verification)
     '''
+    logger.info(f"Preparing to send message to RabbitMQ: {message}")
     connection = await get_rabbit_connection()
     async with connection:
         channel = await connection.channel()
@@ -30,4 +31,5 @@ async def send_to_rabbit(message: dict):
             ),
             routing_key=message['queue_name']
         )
+    
         logger.info(f"Message published to RabbitMQ with routing_key '{message['queue_name']}': {message}")

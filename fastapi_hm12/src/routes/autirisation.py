@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, Security
 from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials
-from fastapi import status, HTTPException, Request
+from fastapi import status, HTTPException, Request, BackgroundTasks
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.security import HTTPAuthorizationCredentials
 from fastapi.security import HTTPBearer
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.database import get_connection_db
@@ -13,6 +14,8 @@ from src.schemas import UserSchema, TokenSchema
 from src.services import basic_service
 from src.config import settings
 from src.config import logger
+from src.entity import UsersTable
+from sqlalchemy.orm import selectinload
 
 router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()
@@ -21,23 +24,45 @@ get_refresh_token = HTTPBearer()
 async def signup(
     body: UserSchema, 
     request:Request,
+    bt:BackgroundTasks,
     db:AsyncSession=Depends(get_connection_db)
     ):
     """body: форма заполнения
        db: сессия базы данных """
     exists_user = await repository_users.get_user_by_email(body.email, db)
     if exists_user:
+        logger.warning('user already exists')
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail='Account already exists'
             )
+    
     body.password = basic_service.password_service.get_password_hash(body.password)
+
     new_user = await repository_users.create_user(body, db)
-    await db.refresh(new_user)
-    email_token = await basic_service.email_service.creare_email_token({'sub':new_user.email})
-    await repository_users.update_token(new_user, email_token, settings.email_token, db)
-    await basic_service.email_service.send_email(new_user, email_token, request)
-    return new_user
+  
+    logger.info(f'{new_user.email}')
+    email_token = await basic_service.email_service.create_email_token({'sub':new_user.email})
+
+    email_task = {
+                'email': new_user.email,
+                'username': new_user.username,
+                'host': str(request.base_url),
+                'queue_name':'confirm_email',
+                'token':email_token
+                }
+    await repository_users.update_token(
+        new_user, 
+        email_token,
+        settings.email_token, 
+        db
+        )
+    # await basic_service.email_service.send_email(email_task, email_token)
+    return {
+        "id": new_user.id,
+        "username": new_user.username,
+        "email": new_user.email
+    }
     
 @router.post('/login')
 async def login(body: OAuth2PasswordRequestForm=Depends(), 
