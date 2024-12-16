@@ -1,4 +1,4 @@
-from connect import connect_pymongo
+from crv.utils.connect import connect_pymongo
 
 
 

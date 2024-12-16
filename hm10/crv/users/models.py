@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from quotes.models import Quotes
+from crv.quotes.models import Quotes
 
 
 class Profile(models.Model):
