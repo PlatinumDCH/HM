@@ -1,29 +1,27 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
 from src.database import get_connection_db
-from src.config import logger
+from src.config import logger, configure_cors
 from src.routes import contacts, autorisation, users
 from pathlib import Path
 from fastapi.middleware.cors import CORSMiddleware
-
-
-
-
-BASE_DIR = Path('.')
+from src.middleware import user_agent_ban_middleware
+from src.middleware import banned_ips_middleware
+from typing import Callable
 
 app = FastAPI()
 
-#без єтой штуку брузер не сможет виполнять запроси
-allow_origins=['*']
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_credentials=['*'],
-    allow_methods=['*'],
-    allow_headers=['*']
-)
+configure_cors(app)
+@app.middleware('http')
+async def add_user_agent_ban_middleware(request:Request, call_next: Callable):
+    return await user_agent_ban_middleware(request, call_next)
+
+@app.middleware('http')
+async def add_banned_ip_middleware(request:Request, call_next: Callable):
+    return await banned_ips_middleware(request, call_next)
+
 
 app.mount('/static', StaticFiles(directory='src/static'), name='static')
 
