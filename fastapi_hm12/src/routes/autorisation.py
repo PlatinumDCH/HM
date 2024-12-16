@@ -1,22 +1,18 @@
-from fastapi import APIRouter, Depends, Security
 from fastapi.security import OAuth2PasswordRequestForm, HTTPAuthorizationCredentials
-from fastapi import status, HTTPException, Request, BackgroundTasks
+from fastapi import status, HTTPException, Request
+from fastapi import APIRouter, Depends, Security
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.security import HTTPAuthorizationCredentials
 from fastapi.security import HTTPBearer
-from fastapi.responses import FileResponse
-from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.database import get_connection_db
 from src.repository import users as repository_users
-from src.schemas import UserSchema,UserResponse
-from src.schemas import UserSchema, TokenSchema
+from src.schemas import UserSchema, TokenSchema, UserResponse
 from src.services import basic_service
 from src.config import settings
 from src.config import logger
-from src.entity import UsersTable
-from sqlalchemy.orm import selectinload
+
 
 router = APIRouter(prefix='/auth', tags=['auth'])
 get_refresh_token = HTTPBearer()

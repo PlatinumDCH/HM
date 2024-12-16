@@ -1,9 +1,10 @@
-from typing import Callable
-from fastapi import Request,status
 from fastapi.responses import JSONResponse
-from src.config import CorsIpBanned
-import re
+from fastapi import Request,status
 from ipaddress import ip_address
+from typing import Callable
+import re
+
+from src.config import CorsIpBanned
 
 async def user_agent_ban_middleware(request: Request, call_next:Callable):
     user_agent = request.headers.get('user-agent')

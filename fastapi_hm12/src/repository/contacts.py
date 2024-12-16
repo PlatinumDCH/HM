@@ -1,10 +1,11 @@
+from datetime import datetime, timedelta, date
+from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import and_, select, or_
+from typing import Sequence
+
 from src.entity.models import ContactsTable, UsersTable
 from src.schemas import ContactCreateSchema
-from typing import Sequence
-from fastapi import HTTPException, status
-from datetime import datetime, timedelta, date
 
 async def get_contacts(
         limit: int, #количествл контактов за один раз 

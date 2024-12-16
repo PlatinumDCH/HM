@@ -1,19 +1,67 @@
-from fastapi import APIRouter, HTTPException,Request, Response, Depends,status
-from fastapi import Body
-from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi import APIRouter, HTTPException,Request, Body
+from fastapi import Response, Depends,status,UploadFile,File
 from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
+from fastapi_limiter.depends import RateLimiter
+from sqlalchemy.ext.asyncio import AsyncSession
+import cloudinary.uploader
+import cloudinary
+import pickle
 
+from src.schemas import ConfirmPassword, UserResponse
+from src.repository import users as repository_users
 from src.schemas import RequestEmail, ResetPassword
 from src.database import get_connection_db
-from src.repository import users as repository_users
-from src.schemas import ConfirmPassword
-from src.services import basic_service
 from src.config import settings, logger
+from src.services import basic_service
+from src.entity import UsersTable 
+
 
 router = APIRouter(prefix='/users', tags=['users'])
 templates = Jinja2Templates(directory='src/services/templates')
 
+
+@router.get('/me',response_model=UserResponse, 
+        dependencies=[Depends(RateLimiter(times=1, seconds=20 ))])
+async def get_current_user(user:UsersTable=Depends(
+    basic_service.auth_service.get_current_user)):
+    try:
+        logger.info('Reauest me andpoint')
+        return user
+    except Exception as err:
+        logger.error(f'Error while getting current user: {err}')
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail='Too many reauests'
+        )
+
+@router.patch('/avatar', response_model=UserResponse,
+        dependencies=[Depends(RateLimiter(times=1, seconds=20))])
+async def get_current_user(
+    file:UploadFile = File(),
+    user:UsersTable = Depends(basic_service.auth_service.get_current_user),
+    db:AsyncSession = Depends(get_connection_db)):
+    public_id = f'uid43/{user.email}'
+    resurs = cloudinary.uploader.upload(
+        file.file,
+        public_id=public_id,
+        owerride=True
+    )
+    resurl_url = cloudinary.CloudinaryImage(public_id).build_url(
+        width=250,
+        height=250,
+        crop='fill',
+        version=resurs.get('version')
+    )
+    user = await repository_users.update_avatar_url(
+        user.email,
+        resurl_url,
+        db
+    )
+    basic_service.auth_service.cashe.set(user.email, pickle.dumps(user))
+    basic_service.auth_service.cashe.expire(user.email, 500)
+    return user
+    
 @router.post('/request_email')
 async def request_email(body: RequestEmail, request:Request,
                         db:AsyncSession = Depends(get_connection_db)):
@@ -74,8 +122,6 @@ async def confirmed_email(
 async def request_email(username: str, response: Response, db: AsyncSession = Depends(get_connection_db)):
     logger.info(f'{username} open verifivation email')
     return FileResponse("src/static/open_check.png", media_type="image/png", content_disposition_type="inline")
-
-
 
 @router.post('/reset_password_request')
 async def forgot_password(
@@ -167,8 +213,6 @@ async def change_password(
         )
     logger.info(f'{user.username} del reset_password_token')
     return {'message': 'password successfully updated' }
-
-
 
 @router.get('/reset_password_form/{token}')
 async def reset_password_form(request: Request, token:str ):

@@ -1,11 +1,10 @@
-import enum
-from datetime import date
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import mapped_column, relationship
-from sqlalchemy import Boolean, Enum, String, Date, DateTime, Integer, func, ForeignKey
+from sqlalchemy import Boolean, Enum, String, Date
+from sqlalchemy import DateTime, Integer, func, ForeignKey
+from sqlalchemy.orm import mapped_column, relationship, Mapped
 
 from src.entity.base_model import BaseModel
-
+from datetime import date
+import enum
 
 class ContactsTable(BaseModel):
     __tablename__ = "contact"

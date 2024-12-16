@@ -1,9 +1,10 @@
-from datetime import datetime, timedelta
-from typing import Optional
-from jose import JWTError, jwt
 from fastapi import HTTPException, status
-from src.config import settings
+from datetime import datetime, timedelta
+from jose import JWTError, jwt
+from typing import Optional
 import pytz
+
+from src.config import settings
 
 class JWTService:
     SECRET_KEY = settings.SECRET_KEY_JWT

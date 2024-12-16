@@ -1,7 +1,8 @@
 from pydantic import BaseModel, EmailStr, Field, field_validator
-from datetime import date
 from pydantic_extra_types.phone_numbers import PhoneNumber
 from typing import Optional
+from datetime import date
+
 from src.config import logger
 
 PhoneNumber.phone_format = 'E164' #alternativ: 'INTERNATIONAL', 'NATIONAL'

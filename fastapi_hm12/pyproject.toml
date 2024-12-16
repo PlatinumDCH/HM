@@ -28,6 +28,8 @@ libgravatar = "^1.0.4"
 python-jose = "^3.3.0"
 aio-pika = "^9.5.3"
 fastapi-mail = "^1.4.2"
+fastapi-limiter = "^0.1.6"
+cloudinary = "^1.41.0"
 
 
 [tool.poetry.group.dev.dependencies]

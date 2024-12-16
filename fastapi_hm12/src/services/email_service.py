@@ -1,13 +1,10 @@
-from typing import Optional
 from datetime import datetime, timedelta
+from typing import Optional
+from jose import jwt
 import pytz
-from jose import JWTError, jwt
-from src.config import settings, logger
-from src.schemas import UserSchema
-from fastapi import Request
+
 from src.services.rabbitmq_servise.produser import send_to_rabbit 
-from src.database import get_connection_db
-from src.repository import users as repository_users
+from src.config import settings, logger
 
 class EmailService:
     SECRET_KEY = settings.SECRET_KEY_JWT

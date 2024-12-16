@@ -2,9 +2,9 @@ from fastapi import Depends
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 from libgravatar import Gravatar
-from sqlalchemy.orm import joinedload
-from src.database import get_connection_db
+
 from src.entity import UsersTable, UserTokensTable
+from src.database import get_connection_db
 from src.schemas import UserSchema
 from src.config  import logger
 
@@ -94,3 +94,10 @@ async def update_user_password(user:UsersTable, password:str, db:AsyncSession):
     user.password = password
     await db.commit()
     await db.refresh(user)
+
+async def update_avatar_url(email:str, url:str|None, db:AsyncSession):
+    user = await get_user_by_email(email, db)
+    user.avatar = url
+    await db.commit()
+    await db.refresh(user)
+    return user

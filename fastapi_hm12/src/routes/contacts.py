@@ -1,14 +1,16 @@
 from fastapi import APIRouter, HTTPException, Depends, status, Path, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from src.database import get_connection_db
+
 from src.repository import contacts as repositories_contacts
 from src.schemas import ContactResponse, ContactCreateSchema
-from src.entity import ContactsTable, UsersTable
+from src.entity import ContactsTable, UsersTable, Role
+from src.services import basic_service, RoleAccess
+from src.database import get_connection_db
 from src.config import logger
-from src.services import basic_service
+
 
 router = APIRouter(prefix="/contacts", tags=["contacts"])
-
+access_to_rolle_all = RoleAccess([Role.ADMIN, Role.MODERATOR])
 
 @router.get("/", response_model=list[ContactResponse])
 async def get_contacts(
@@ -23,6 +25,16 @@ async def get_contacts(
     """
     contacts = await repositories_contacts.get_contacts(limit, offset, db, user)
     return contacts
+
+@router.get("/all", response_model=list[ContactResponse], dependencies=[Depends(access_to_rolle_all)])
+async def get_all_contacts(
+    limit: int = Query(10, ge=10, le=500), 
+    offset: int = Query(0, ge=0),
+    db: AsyncSession = Depends(get_connection_db), 
+    user: UsersTable = Depends(basic_service.auth_service.get_current_user)):
+    """ Возвращает всех пользователей только если запрос был от admin, moderator """
+    todos = await repositories_contacts.get_all_todos(limit, offset, db)
+    return todos
 
 @router.post("/", response_model=ContactResponse, status_code=status.HTTP_201_CREATED)
 async def create_contact(
