@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field, field_validator
+from pydantic import BaseModel, EmailStr, Field, field_validator, ConfigDict
 from pydantic_extra_types.phone_numbers import PhoneNumber
 from typing import Optional
 from datetime import date
@@ -35,7 +35,5 @@ class ContactCreateSchema(BaseModel):
 
 class ContactResponse(ContactCreateSchema):
     id:int
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
         

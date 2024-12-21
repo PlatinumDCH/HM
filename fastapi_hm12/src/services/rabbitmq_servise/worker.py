@@ -6,10 +6,10 @@ from pathlib import Path
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '...')))
+sys.path.append(os.path.abspath('.')) 
 
-from src.config import settings, logger
-from src.database import get_rabbit_connection
+from src import settings, logger
+from src import get_rabbit_connection
 
 
 
@@ -25,7 +25,7 @@ conf = ConnectionConfig(
     MAIL_STARTTLS=False,
     MAIL_SSL_TLS=True,
     USE_CREDENTIALS=True,
-    VALIDATE_CERTS=False,
+    VALIDATE_CERTS=True,
     TEMPLATE_FOLDER= BASE_DIR / 'templates'
 )
 
@@ -82,29 +82,29 @@ async def main():
     retry_count = 0 # Счетчик попыток
     while retry_count < max_retires:
         try:
-            connection = await get_rabbit_connection()
+            async for connection in get_rabbit_connection():
 
-            # Объявление обменника
-            async with connection:
-                channel = await connection.channel()
-                exchange = await channel.declare_exchange(
-                        name="sending_mail",
-                        type=ExchangeType.DIRECT,
-                        durable=True
-                    )
+                # Объявление обменника
+                async with connection:
+                    channel = await connection.channel()
+                    exchange = await channel.declare_exchange(
+                            name="sending_mail",
+                            type=ExchangeType.DIRECT,
+                            durable=True
+                        )
 
-                # Объявляем очередь и связываем с routing_key
-                queue = await channel.declare_queue('email_queue', durable=True)
-                await queue.bind(exchange, routing_key="reset_password")
-                await queue.bind(exchange, routing_key="confirm_email")
+                    # Объявляем очередь и связываем с routing_key
+                    queue = await channel.declare_queue('email_queue', durable=True)
+                    await queue.bind(exchange, routing_key="reset_password")
+                    await queue.bind(exchange, routing_key="confirm_email")
 
-                # Запускаем обработку сообщений
-                await queue.consume(process_message)
-                logger.info("Worker is consuming messages...")
+                    # Запускаем обработку сообщений
+                    await queue.consume(process_message)
+                    logger.info("Worker is consuming messages...")
 
-                # Ожидание новых сообщений
-                while True:
-                    await asyncio.sleep(1)
+                    # Ожидание новых сообщений
+                    while True:
+                        await asyncio.sleep(1)
 
         except Exception as err:
             retry_count += 1
@@ -118,3 +118,4 @@ async def main():
                 
 if __name__ == '__main__':
     asyncio.run(main())
+  

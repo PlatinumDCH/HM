@@ -703,3 +703,236 @@ INFO - 2024-12-16 01:30:52,191  -users.py - get user
 INFO - 2024-12-16 01:30:52,196  -users.py - old_password == ? new_password 
 WARNING - 2024-12-16 01:30:52,204  -users.py - new password == old password, test, 123123
 ERROR - 2024-12-16 01:30:52,205  -conection_postgres.py - Session rollback, exception: 400: New password is the same as old password
+ERROR - 2024-12-18 03:19:08,241  -conection_postgres.py - Session rollback, exception: Test exception
+ERROR - 2024-12-18 03:20:30,982  -conection_postgres.py - Session rollback, exception: Test exception
+ERROR - 2024-12-18 03:21:07,625  -conection_postgres.py - Session rollback, exception: Test exception
+INFO - 2024-12-18 03:29:52,533  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:29:52,544  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:29:52,553  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:29:52,562  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:31:52,384  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:31:52,395  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:31:52,407  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:31:52,417  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:33:52,705  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:33:52,716  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:33:52,725  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:33:52,734  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:38:15,807  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:38:15,831  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:38:15,842  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:38:15,851  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:41:27,107  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:41:27,118  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:41:27,128  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:41:27,137  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:42:37,145  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:42:37,156  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:42:37,166  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 03:42:37,175  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:22,240  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:22,252  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:22,262  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:22,274  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:31,247  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:31,258  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:31,267  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:43,833  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:43,844  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:42:54,155  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:44:02,174  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:44:02,184  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:44:02,193  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:44:02,203  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 12:47:18,551  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 13:16:33,277  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 13:21:30,640  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 13:21:30,651  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 13:21:30,662  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 13:21:30,671  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 14:56:07,518  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 14:56:07,528  -connection_rabbit.py - rabbitmq conn TRUE
+ERROR - 2024-12-18 14:56:07,533  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 
+ERROR - 2024-12-18 14:56:07,533  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 
+ERROR - 2024-12-18 14:56:07,533  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 
+ERROR - 2024-12-18 14:56:07,534  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 
+ERROR - 2024-12-18 14:56:07,534  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 
+INFO - 2024-12-18 14:56:07,534  -connection_rabbit.py - rabbitmq conn TRUE
+ERROR - 2024-12-18 15:04:18,674  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 
+ERROR - 2024-12-18 15:04:18,674  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 
+ERROR - 2024-12-18 15:04:18,674  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 
+ERROR - 2024-12-18 15:04:18,676  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 
+ERROR - 2024-12-18 15:04:18,676  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 
+INFO - 2024-12-18 15:04:18,676  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:29:36,117  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:29:36,117  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 15:29:36,121  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 15:29:36,129  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:29:36,129  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 15:36:44,850  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,850  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 15:36:44,853  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 15:36:44,860  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,860  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 15:36:44,870  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,873  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 15:36:44,882  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,893  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,907  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,917  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:36:44,920  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 15:42:21,758  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:42:21,758  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 15:42:21,762  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 15:42:21,770  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 15:42:21,770  -connection_rabbit.py - Using RabbitMQ connection
+ERROR - 2024-12-18 15:42:21,781  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:22,795  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:23,811  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:23,830  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:24,844  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:25,859  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:25,875  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:26,889  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:27,904  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:27,924  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:28,940  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:29,957  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:29,975  -connection_rabbit.py - rabbitmq conn FALSE, 1/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:30,990  -connection_rabbit.py - rabbitmq conn FALSE, 2/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+ERROR - 2024-12-18 15:42:32,010  -connection_rabbit.py - rabbitmq conn FALSE, 3/3 ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+INFO - 2024-12-18 18:13:00,594  -worker.py - Starting worker...
+ERROR - 2024-12-18 18:13:00,594  -worker.py - An error occurred in the main loop: object async_generator can't be used in 'await' expression
+INFO - 2024-12-18 18:13:00,594  -worker.py - Retrying in 5 seconds... Attempt 1/5
+ERROR - 2024-12-18 18:13:05,595  -worker.py - An error occurred in the main loop: object async_generator can't be used in 'await' expression
+INFO - 2024-12-18 18:13:05,596  -worker.py - Retrying in 5 seconds... Attempt 2/5
+ERROR - 2024-12-18 18:13:10,597  -worker.py - An error occurred in the main loop: object async_generator can't be used in 'await' expression
+INFO - 2024-12-18 18:13:10,597  -worker.py - Retrying in 5 seconds... Attempt 3/5
+ERROR - 2024-12-18 18:13:15,598  -worker.py - An error occurred in the main loop: object async_generator can't be used in 'await' expression
+INFO - 2024-12-18 18:13:15,599  -worker.py - Retrying in 5 seconds... Attempt 4/5
+ERROR - 2024-12-18 18:13:20,600  -worker.py - An error occurred in the main loop: object async_generator can't be used in 'await' expression
+CRITICAL - 2024-12-18 18:13:20,600  -worker.py - Max retry attempts reached.Exiting
+INFO - 2024-12-18 18:13:20,600  -worker.py - Worker finished.
+INFO - 2024-12-18 18:13:41,063  -email_service.py - token type email_token
+INFO - 2024-12-18 18:13:41,077  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MTYyMSwiaWF0IjoxNzM0NTM4NDIxLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.VL0jg4e02LgIXz7QOw_k41q-9Vp3GQBWHAkHscAMhnQ'} 
+INFO - 2024-12-18 18:13:41,077  -produser.py - Preparing to send message to RabbitMQ
+ERROR - 2024-12-18 18:13:41,077  -email_service.py - Failed to send email task to RabbitMQ: object async_generator can't be used in 'await' expression
+ERROR - 2024-12-18 18:13:41,077  -conection_postgres.py - Session rollback, exception: object async_generator can't be used in 'await' expression
+WARNING - 2024-12-18 18:27:36,002  -autorisation.py - user already exists
+ERROR - 2024-12-18 18:27:36,003  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-18 18:28:07,386  -email_service.py - token type email_token
+INFO - 2024-12-18 18:28:07,400  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MjQ4NywiaWF0IjoxNzM0NTM5Mjg3LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.UGNt46DjxREwaeTSaNWzZG23OV7xzdrlIoVyzDS4wtg'} 
+INFO - 2024-12-18 18:28:07,400  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:28:07,410  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:28:07,410  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:28:07,415  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:28:07,416  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:30:51,053  -email_service.py - token type email_token
+INFO - 2024-12-18 18:30:51,058  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MjY1MSwiaWF0IjoxNzM0NTM5NDUxLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.fmHLvJ8ba9Cvb15R7FXaLTMwS1jhU2-AudaovczdS7M'} 
+INFO - 2024-12-18 18:30:51,058  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:30:51,066  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:30:51,066  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:30:51,072  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:30:51,074  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:32:29,212  -worker.py - Starting worker...
+INFO - 2024-12-18 18:32:29,224  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:32:29,224  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:32:29,230  -worker.py - Worker is consuming messages...
+INFO - 2024-12-18 18:32:29,230  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MjQ4NywiaWF0IjoxNzM0NTM5Mjg3LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.UGNt46DjxREwaeTSaNWzZG23OV7xzdrlIoVyzDS4wtg'}
+INFO - 2024-12-18 18:32:29,230  -worker.py - Processing confirm email message
+INFO - 2024-12-18 18:32:29,421  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MjY1MSwiaWF0IjoxNzM0NTM5NDUxLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.fmHLvJ8ba9Cvb15R7FXaLTMwS1jhU2-AudaovczdS7M'}
+INFO - 2024-12-18 18:32:29,422  -worker.py - Processing confirm email message
+ERROR - 2024-12-18 18:32:29,573  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+ERROR - 2024-12-18 18:32:29,587  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+INFO - 2024-12-18 18:33:10,435  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:33:42,839  -worker.py - Starting worker...
+INFO - 2024-12-18 18:33:42,848  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:33:42,848  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:33:42,855  -worker.py - Worker is consuming messages...
+INFO - 2024-12-18 18:34:20,463  -email_service.py - token type email_token
+INFO - 2024-12-18 18:34:20,468  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4Mjg2MCwiaWF0IjoxNzM0NTM5NjYwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.Ye9MfGuLTSj5XqcwpTohZnRZe_QQv2L_Zl1R-xgKHNM'} 
+INFO - 2024-12-18 18:34:20,468  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:34:20,476  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:34:20,476  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:34:20,482  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:34:20,482  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4Mjg2MCwiaWF0IjoxNzM0NTM5NjYwLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.Ye9MfGuLTSj5XqcwpTohZnRZe_QQv2L_Zl1R-xgKHNM'}
+INFO - 2024-12-18 18:34:20,483  -worker.py - Processing confirm email message
+INFO - 2024-12-18 18:34:20,484  -connection_rabbit.py - rabbotmq connection closed
+ERROR - 2024-12-18 18:34:20,637  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+INFO - 2024-12-18 18:35:50,836  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:35:53,312  -worker.py - Starting worker...
+INFO - 2024-12-18 18:35:53,321  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:35:53,321  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:35:53,326  -worker.py - Worker is consuming messages...
+INFO - 2024-12-18 18:37:28,885  -email_service.py - token type email_token
+INFO - 2024-12-18 18:37:28,890  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MzA0OCwiaWF0IjoxNzM0NTM5ODQ4LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.Ej0goH-5775IsYXC2RjDwgq136BDvBtt9Y8XpGK_2Es'} 
+INFO - 2024-12-18 18:37:28,890  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:37:28,897  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:37:28,898  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:37:28,903  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:37:28,904  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MzA0OCwiaWF0IjoxNzM0NTM5ODQ4LCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.Ej0goH-5775IsYXC2RjDwgq136BDvBtt9Y8XpGK_2Es'}
+INFO - 2024-12-18 18:37:28,904  -worker.py - Processing confirm email message
+INFO - 2024-12-18 18:37:28,904  -connection_rabbit.py - rabbotmq connection closed
+ERROR - 2024-12-18 18:37:29,012  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+INFO - 2024-12-18 18:39:24,473  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:39:28,944  -worker.py - Starting worker...
+INFO - 2024-12-18 18:39:28,954  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:39:28,954  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:39:28,959  -worker.py - Worker is consuming messages...
+INFO - 2024-12-18 18:40:22,204  -email_service.py - token type email_token
+INFO - 2024-12-18 18:40:22,210  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MzIyMiwiaWF0IjoxNzM0NTQwMDIyLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.je3t2eOhXCHAspXbbglKnxoItF_r4MvsqthEHPP40AM'} 
+INFO - 2024-12-18 18:40:22,210  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:40:22,220  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:40:22,220  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:40:22,227  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:40:22,228  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:40:22,228  -worker.py - Message data parsed: {'email': 'dimacheban23@meta.ua', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAbWV0YS51YSIsImV4cCI6MTczNDU4MzIyMiwiaWF0IjoxNzM0NTQwMDIyLCJzY29wZSI6ImVtYWlsX3Rva2VuIn0.je3t2eOhXCHAspXbbglKnxoItF_r4MvsqthEHPP40AM'}
+INFO - 2024-12-18 18:40:22,229  -worker.py - Processing confirm email message
+ERROR - 2024-12-18 18:40:22,344  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+INFO - 2024-12-18 18:45:19,469  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:45:45,522  -email_service.py - token type email_token
+INFO - 2024-12-18 18:45:45,533  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@gmail.com', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0NTgzNTQ1LCJpYXQiOjE3MzQ1NDAzNDUsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.tgQHc3tF6QrNomeC3syaVnO5ASdWdUiLuavt_gklARU'} 
+INFO - 2024-12-18 18:45:45,533  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:45:45,544  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:45:45,544  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:45:45,550  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:45:45,551  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:45:54,665  -worker.py - Starting worker...
+INFO - 2024-12-18 18:45:54,674  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:45:54,674  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:45:54,680  -worker.py - Worker is consuming messages...
+INFO - 2024-12-18 18:45:54,680  -worker.py - Message data parsed: {'email': 'dimacheban23@gmail.com', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0NTgzNTQ1LCJpYXQiOjE3MzQ1NDAzNDUsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.tgQHc3tF6QrNomeC3syaVnO5ASdWdUiLuavt_gklARU'}
+INFO - 2024-12-18 18:45:54,680  -worker.py - Processing confirm email message
+ERROR - 2024-12-18 18:45:54,810  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+INFO - 2024-12-18 18:46:04,841  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:46:06,645  -worker.py - Starting worker...
+INFO - 2024-12-18 18:46:06,654  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:46:06,654  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:46:06,659  -worker.py - Worker is consuming messages...
+WARNING - 2024-12-18 18:46:10,932  -autorisation.py - user already exists
+ERROR - 2024-12-18 18:46:10,932  -conection_postgres.py - Session rollback, exception: 409: Account already exists
+INFO - 2024-12-18 18:46:34,397  -email_service.py - token type email_token
+INFO - 2024-12-18 18:46:34,401  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@gmail.com', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0NTgzNTk0LCJpYXQiOjE3MzQ1NDAzOTQsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.d51Xp6wTw-bicmYVmv6sH1C59h7v5pTIy2MW1hlzwT0'} 
+INFO - 2024-12-18 18:46:34,402  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:46:34,408  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:46:34,408  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:46:34,419  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:46:34,420  -worker.py - Message data parsed: {'email': 'dimacheban23@gmail.com', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0NTgzNTk0LCJpYXQiOjE3MzQ1NDAzOTQsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.d51Xp6wTw-bicmYVmv6sH1C59h7v5pTIy2MW1hlzwT0'}
+INFO - 2024-12-18 18:46:34,420  -worker.py - Processing confirm email message
+INFO - 2024-12-18 18:46:34,421  -connection_rabbit.py - rabbotmq connection closed
+ERROR - 2024-12-18 18:46:34,560  -worker.py - Failed to process message: Exception raised Error connecting to smtp.gmail.com on port 587: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1020), check your credentials or email service configuration
+INFO - 2024-12-18 18:48:08,225  -worker.py - Starting worker...
+INFO - 2024-12-18 18:48:08,235  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:48:08,235  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:48:08,241  -worker.py - Worker is consuming messages...
+INFO - 2024-12-18 18:48:55,534  -email_service.py - token type email_token
+INFO - 2024-12-18 18:48:55,544  -email_service.py - Sending email task to RabbitMQ: {'email': 'dimacheban23@gmail.com', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0NTgzNzM1LCJpYXQiOjE3MzQ1NDA1MzUsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.lHbsrGzW_HxTdyfAQ7CpYXS0zSm1YBLeCsJ9krGdQVI'} 
+INFO - 2024-12-18 18:48:55,544  -produser.py - Preparing to send message to RabbitMQ
+INFO - 2024-12-18 18:48:55,549  -connection_rabbit.py - rabbitmq conn TRUE
+INFO - 2024-12-18 18:48:55,549  -connection_rabbit.py - Using RabbitMQ connection
+INFO - 2024-12-18 18:48:55,554  -produser.py - Message published to RabbitMQ with routing_key 'confirm_email
+INFO - 2024-12-18 18:48:55,554  -worker.py - Message data parsed: {'email': 'dimacheban23@gmail.com', 'username': 'string', 'host': 'http://127.0.0.1:8000/', 'queue_name': 'confirm_email', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaW1hY2hlYmFuMjNAZ21haWwuY29tIiwiZXhwIjoxNzM0NTgzNzM1LCJpYXQiOjE3MzQ1NDA1MzUsInNjb3BlIjoiZW1haWxfdG9rZW4ifQ.lHbsrGzW_HxTdyfAQ7CpYXS0zSm1YBLeCsJ9krGdQVI'}
+INFO - 2024-12-18 18:48:55,554  -worker.py - Processing confirm email message
+INFO - 2024-12-18 18:48:55,555  -connection_rabbit.py - rabbotmq connection closed
+INFO - 2024-12-18 18:48:56,528  -worker.py - Message precessed successfully : dimacheban23@gmail.com. Type: confirm_email
+ERROR - 2024-12-18 20:20:17,575  -conection_postgres.py - Session rollback, exception: Test exception

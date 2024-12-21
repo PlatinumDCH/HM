@@ -29,7 +29,7 @@ async def banned_ips_middleware(request: Request, call_next: Callable):
         return JSONResponse(
             status_code=status.HTTP_403_FORBIDDEN,
             content={
-                'detail':'Invalid IP address'
+                'detail':'Invalid IP address XXX'
             }
         )
     if ip in CorsIpBanned.IPS.value:

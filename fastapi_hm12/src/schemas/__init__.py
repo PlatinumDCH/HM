@@ -6,3 +6,5 @@ from src.schemas.validate_password import ConfirmPassword
 from src.schemas.validate_token import TokenSchema
 from src.schemas.validate_user import UserResponse
 from src.schemas.validate_user import UserSchema
+from src.schemas.validate_user import NewUserSchema
+from src.schemas.validate_token import TokenUpdateRequest
